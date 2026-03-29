@@ -1,5 +1,5 @@
 from pathlib import Path
 
-print("Starter placeholder build script.")
-print("Add your static generation logic here when you're ready.")
-print("Project root:", Path(__file__).resolve().parent.parent)\n
+print("Static deployment pack detected.")
+print("No build step is required before deploying the current checkpoint files.")
+print("Project root:", Path(__file__).resolve().parent.parent)

@@ -3,7 +3,7 @@
   "pages": {
     "tools/redundancy-pay-calculator": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "tools/notice-period-calculator": {
       "reviewed_date": "2026-03-29",
@@ -11,7 +11,7 @@
     },
     "tools/holiday-entitlement-calculator": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "guides/statutory-redundancy-pay-guide": {
       "reviewed_date": "2026-03-28",
@@ -27,15 +27,15 @@
     },
     "help/final-pay-and-leaving-a-job": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "sources/index": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-68"
     },
     "tools/settlement-agreement-tax-checker": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "contact/index": {
       "reviewed_date": "2026-03-28",
@@ -43,7 +43,7 @@
     },
     "compare/redundancy-vs-settlement-vs-final-pay": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "tools/statutory-paternity-pay-calculator": {
       "reviewed_date": "2026-03-29",
@@ -63,7 +63,7 @@
     },
     "about/how-workrightsuk-builds-pages": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-68"
     },
     "tools/statutory-maternity-pay-calculator": {
       "reviewed_date": "2026-03-29",
@@ -87,28 +87,44 @@
     },
     "index": {
       "reviewed_date": "2026-03-29",
-      "review_status": "trust-cues-batch-53"
+      "review_status": "verification-pass-batch-78"
     },
     "tools/index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-68"
     },
     "guides/index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-68"
     },
     "help/index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-68"
     },
     "compare/index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-68"
+    },
+    "tools/unfair-dismissal-compensation-estimator": {
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-78"
+    },
+    "about": {
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-78"
+    },
+    "sources": {
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-78"
+    },
+    "tools": {
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-78"
+    },
+    "compare": {
+      "reviewed_date": "2026-03-29",
+      "review_status": "verification-pass-batch-78"
     }
   },
-  "deployment_checkpoint": {
-    "batch": 20,
-    "status": "deployment-ready-reference-build",
-    "reviewed_date": "2026-03-28"
-  }
+  "deployment_checkpoint": "batch-68-working-build"
 }
