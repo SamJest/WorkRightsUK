@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">BuildCostLab favicon</title>
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f8fff"/>
+      <stop offset="100%" stop-color="#78c0ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#102033"/>
+  <path d="M34 92V40H46V80H88V92Z" fill="#f5f9ff"/>
+  <path d="M40 77L56 61L68 70L88 47" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <circle cx="88" cy="47" r="6" fill="#78c0ff"/>
+</svg>

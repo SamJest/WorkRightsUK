@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 160" role="img" aria-labelledby="title desc">
+  <title id="title">BuildCostLab</title>
+  <desc id="desc">BuildCostLab logo with a geometric planning mark and blue-accent wordmark.</desc>
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f8fff"/>
+      <stop offset="100%" stop-color="#78c0ff"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 8)">
+    <rect x="0" y="0" width="112" height="112" rx="28" fill="#102033"/>
+    <path d="M29 84V35H41V72H82V84Z" fill="#f5f9ff"/>
+    <path d="M34 70L51 54L63 63L84 39" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+    <circle cx="84" cy="39" r="6" fill="#78c0ff"/>
+  </g>
+  <text x="146" y="77" fill="#102033" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1.6">BuildCost</text>
+  <text x="468" y="77" fill="#4f8fff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1.6">Lab</text>
+  <text x="148" y="114" fill="#5f728f" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing=".2">Material calculators and cost guides</text>
+</svg>
