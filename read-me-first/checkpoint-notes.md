@@ -13,3 +13,9 @@ Use this as:
 - the main backup
 - the main restore point
 - the main reference build before any future changes
+
+
+## Batch 22 checkpoint
+- GA4 added sitewide with measurement ID G-YBL4G4K19Y.
+- Homepage HTML rebuilt to correct malformed output from the previous reference build.
+- Key user-facing pages were rewritten to remove internal project language and improve trust presentation.

@@ -110,10 +110,5 @@
     "batch": 20,
     "status": "deployment-ready-reference-build",
     "reviewed_date": "2026-03-28"
-  },
-  "live_fix_batch": {
-    "batch": 21,
-    "issue": "nested page asset/nav paths",
-    "reviewed_date": "2026-03-29"
   }
 }

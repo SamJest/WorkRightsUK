@@ -644,3 +644,202 @@ input, select, textarea {
   border: 1px solid rgba(248, 113, 113, .18);
   background: rgba(248, 113, 113, .07);
 }
+
+
+.quick-actions {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(2, 6, 23, .42);
+  border: 1px solid var(--line);
+}
+.quick-actions strong { display:block; margin-bottom: 10px; }
+.action-checklist li + li { margin-top: 8px; }
+.compact-checklist { margin-bottom: 0; }
+.result-lead {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+.result-stack {
+  display: grid;
+  gap: 16px;
+}
+.result-card-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.result-card {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, .42);
+  border: 1px solid var(--line);
+}
+.result-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.result-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.result-card p { margin: 0; }
+.inline-note {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+@media (max-width: 920px) {
+  .result-card-grid { grid-template-columns: 1fr; }
+}
+
+
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 200;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #e0f2fe;
+  color: #08111f;
+  font-weight: 700;
+}
+.skip-link:focus {
+  top: 12px;
+}
+.site-header {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+}
+.brand-wrap {
+  min-width: 0;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-wrap:hover { text-decoration: none; }
+.brand-wrap img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.brand-text {
+  display: block;
+  min-width: 0;
+  line-height: 1.15;
+  font-size: 1.05rem;
+}
+.brand-text small {
+  margin-top: 4px;
+  max-width: 22rem;
+}
+.nav {
+  align-items: center;
+}
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: #dbeafe;
+}
+.nav a:hover {
+  text-decoration: none;
+  background: rgba(56, 189, 248, .08);
+  border-color: rgba(56, 189, 248, .16);
+}
+.hero-box > * + *, .panel > * + * { margin-top: 14px; }
+.hero-box .button-row, .panel .button-row, .tool-box .button-row { margin-top: 18px; }
+.curated-card h2, .panel h2 { margin-bottom: 10px; }
+.curated-card p, .panel p, .coverage-item p, .trust-pill div { margin: 0; }
+.site-disclaimer {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(2, 6, 23, .34);
+  border: 1px solid var(--line);
+}
+@media (max-width: 920px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+  .header-inner {
+    min-height: 0;
+    padding: 10px 0 12px;
+    gap: 10px;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+  .brand-wrap {
+    width: 100%;
+    gap: 10px;
+  }
+  .brand-wrap img {
+    width: 44px;
+    height: 44px;
+  }
+  .brand-text {
+    font-size: 1rem;
+  }
+  .brand-text small {
+    display: none;
+  }
+  .nav {
+    width: 100%;
+    order: 3;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a {
+    white-space: nowrap;
+    padding: 9px 12px;
+    font-size: .95rem;
+    border-color: rgba(148,163,184,.14);
+    background: rgba(2, 6, 23, .44);
+  }
+  .container {
+    width: min(var(--max), calc(100% - 20px));
+  }
+  .hero {
+    padding: 26px 0 18px;
+  }
+  .hero-box, .panel, .tool-box, .callout {
+    padding: 22px;
+  }
+  .card, .curated-card, .coverage-item, .trust-pill, .contact-card, .source-row, .page-meta, .result-card {
+    padding: 16px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.7rem);
+  }
+  .button, button {
+    width: 100%;
+    text-align: center;
+  }
+  .button.secondary {
+    width: 100%;
+  }
+  .button-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .breadcrumbs {
+    font-size: .9rem;
+    overflow-wrap: anywhere;
+  }
+  .trust-strip, .coverage-box, .curated-grid, .meta-grid, .example-grid, .family-trust-grid, .result-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

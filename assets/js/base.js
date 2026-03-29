@@ -43,8 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (serviceYears < 2) {
         result.innerHTML =
-          '<strong>Likely not eligible for statutory redundancy pay yet.</strong>' +
-          '<div class="notice-summary">The GOV.UK rule is that you normally need at least 2 years with your employer to qualify for statutory redundancy pay.</div>';
+          '<div class="result-stack">' +
+          '<p class="result-lead"><strong>Likely not eligible for statutory redundancy pay yet.</strong></p>' +
+          '<div class="result-card-grid">' +
+          '<div class="result-card"><h3>What this means</h3><p class="muted">GOV.UK says you normally need at least 2 years with your employer to qualify for statutory redundancy pay.</p></div>' +
+          '<div class="result-card"><h3>What to check next</h3><ul><li>Check notice rights and any pay in lieu.</li><li>Check holiday owed, wages, bonus or commission due on leaving.</li><li>Check whether a contract or policy offers something separate from statutory redundancy pay.</li></ul></div>' +
+          '</div>' +
+          '<div class="site-note">This does not rule out other rights or money due when employment ends.</div>' +
+          '</div>';
         result.hidden = false;
         return;
       }
@@ -60,19 +66,23 @@ document.addEventListener('DOMContentLoaded', function () {
       else ageBandLabel = '1.5 weeks per full year aged 41+';
 
       let deadlineHtml = '';
+      let deadlineCardHtml = '<p class="muted">Enter a job end date to show a simple 6-month claim-deadline guide date.</p>';
       if (jobEndDate) {
         const endDate = new Date(jobEndDate);
         const deadline = new Date(endDate);
         deadline.setMonth(deadline.getMonth() + 6);
-        deadlineHtml = '<li>6-month claim deadline guide date: ' + deadline.toLocaleDateString('en-GB') + '</li>';
+        const deadlineLabel = deadline.toLocaleDateString('en-GB');
+        deadlineHtml = '<li>6-month claim deadline guide date: ' + deadlineLabel + '</li>';
+        deadlineCardHtml = '<p class="muted">Guide date shown from the job end date entered: <strong>' + deadlineLabel + '</strong>.</p>';
       }
 
-      let meaning = 'This looks like the statutory baseline only. The next practical check is whether your contract or staff handbook promises enhanced redundancy terms.';
-      let planningNote = estimate > 0
-        ? 'Use this as the minimum statutory anchor, not the final package total.'
-        : 'Use this as an eligibility screen before spending time on the wider package.';
+      const usedCapText = cappedWeeklyPay < weeklyPay
+        ? 'The statutory weekly pay cap reduced the pay figure used in this estimate.'
+        : 'Your entered weekly pay sits within the statutory weekly cap for the chosen dismissal date.';
+
       result.innerHTML =
-        '<strong>Estimated statutory redundancy pay:</strong> ' + formatMoney(estimate) +
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Estimated statutory redundancy pay:</strong> ' + formatMoney(estimate) + '</p>' +
         '<ul class="result-breakdown">' +
         '<li>Dismissal date band used: ' + (useNewRate ? 'from 6 April 2026' : 'before 6 April 2026') + '</li>' +
         '<li>Service used: ' + cappedYears + ' full year(s) (capped at 20)</li>' +
@@ -82,8 +92,17 @@ document.addEventListener('DOMContentLoaded', function () {
         '<li>Maximum statutory total used for this date band: ' + formatMoney(maxTotal) + '</li>' +
         deadlineHtml +
         '</ul>' +
-        '<div class="result-meaning"><strong>What this likely means:</strong><p class="muted">' + meaning + '</p><p class="muted">Best next checks: notice position, final pay, and any enhanced contractual redundancy promise.</p><p class="muted">Planning note: ' + planningNote + '</p><p class="muted">Contract check: if your contract or staff handbook says more than the statutory minimum, that higher figure can matter more than this estimate.</p></div>' +
-        '<div class="site-note">This tool is a guide only. Contractual enhancements, special cases, and exact dates can change the result.</div>';
+        '<div class="inline-note">' + usedCapText + '</div>' +
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>What this includes</h3><ul><li>Statutory redundancy pay only.</li><li>The age band, service cap and statutory weekly pay cap for the date entered.</li><li>A simple guide date for the 6-month claim window if you entered a job end date.</li></ul></div>' +
+        '<div class="result-card"><h3>What this does not include</h3><ul><li>Notice pay or pay in lieu of notice.</li><li>Holiday owed, unpaid wages, bonus or commission.</li><li>Enhanced contractual redundancy terms or a settlement agreement package.</li></ul></div>' +
+        '<div class="result-card"><h3>Why your real figure may differ</h3><ul><li>Your contract or handbook may promise more than the statutory minimum.</li><li>Your employer may be quoting a mixed leaving package rather than redundancy pay on its own.</li><li>Dates, service history, exclusions or capped weekly pay can change the total.</li></ul></div>' +
+        '<div class="result-card"><h3>What to do next</h3><ul><li>Ask HR or payroll for a written breakdown of each payment type.</li><li>Check notice separately using the notice calculator.</li><li>Check final pay and holiday owed before accepting the total at face value.</li></ul></div>' +
+        '<div class="result-card"><h3>Planning note</h3><p class="muted">Use this figure as the statutory floor. It is most useful when you need to test whether an employer offer appears below the legal minimum.</p></div>' +
+        '<div class="result-card"><h3>Deadline reminder</h3>' + deadlineCardHtml + '</div>' +
+        '</div>' +
+        '<div class="site-note">This tool is a guide only. Contractual enhancements, special cases, exact dates, and disputed facts can change the result.</div>' +
+        '</div>';
       result.hidden = false;
     });
   }
@@ -127,16 +146,32 @@ document.addEventListener('DOMContentLoaded', function () {
       let noticeMeaning = contractWeeks > statutoryWeeks
         ? 'Your contract appears to give more notice than the statutory minimum, so the contractual figure is likely the more useful working number.'
         : 'The statutory minimum appears to be the main benchmark based on the details entered.';
+      let endDateCard = '<p class="muted">Add a notice start date if you want a simple guide to the likely end date.</p>';
+      if (startDate && finalWeeks > 0) {
+        const start = new Date(startDate);
+        const lastDay = new Date(start);
+        lastDay.setDate(lastDay.getDate() + (finalWeeks * 7) - 1);
+        endDateCard = '<p class="muted">Based on the date entered, the notice period would end on <strong>' + lastDay.toLocaleDateString('en-GB') + '</strong>.</p><p class="muted">That is a guide only. Contract wording, working patterns and how notice is given can affect the exact end date.</p>';
+      }
       result.innerHTML =
-        '<strong>Minimum notice to compare:</strong> ' + finalWeeks + ' week(s)' +
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Minimum notice to compare:</strong> ' + finalWeeks + ' week(s)</p>' +
         '<ul class="result-breakdown">' +
         '<li>Statutory minimum based on service entered: ' + statutoryWeeks + ' week(s)</li>' +
         '<li>Contractual notice entered: ' + contractWeeks + ' week(s)</li>' +
         endDateHtml +
         '<li>Whichever is longer usually applies if your contract gives more than the statutory minimum.</li>' +
         '</ul>' +
-        '<div class="result-meaning"><strong>What this likely means:</strong><p class="muted">' + noticeMeaning + '</p><p class="muted">Best next checks: final pay, holiday owed during notice, and whether the employer is paying notice normally or by PILON.</p></div>' +
-        '<div class="site-note">This page is aimed at notice you are entitled to receive. Complex dismissal, misconduct, garden leave, or PILON terms can change what happens in practice.</div>';
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>What this means</h3><p class="muted">' + noticeMeaning + '</p></div>' +
+        '<div class="result-card"><h3>What this includes</h3><ul><li>A simple statutory minimum notice check.</li><li>A comparison with any longer contract notice you entered.</li><li>A guide end date if you added a start date.</li></ul></div>' +
+        '<div class="result-card"><h3>What this does not include</h3><ul><li>Whether notice will be worked normally or paid in lieu.</li><li>Holiday owed during notice.</li><li>Every dismissal, misconduct, garden-leave or contract dispute issue.</li></ul></div>' +
+        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask whether notice will be worked, paid in lieu, or affected by garden leave.</li><li>Check the final payslip for holiday owed, wages and any deductions.</li><li>Check the contract wording if the employer is using a longer notice period.</li></ul></div>' +
+        '<div class="result-card"><h3>Leaving-work reminder</h3><p class="muted">Notice is often only one part of the package. Final pay, holiday owed and any redundancy or settlement terms may still need checking separately.</p></div>' +
+        '<div class="result-card"><h3>Likely end date</h3>' + endDateCard + '</div>' +
+        '</div>' +
+        '<div class="site-note">This page is aimed at notice you are entitled to receive. Complex dismissal, misconduct, garden leave, or PILON terms can change what happens in practice.</div>' +
+        '</div>';
       result.hidden = false;
     });
   }
@@ -162,40 +197,41 @@ document.addEventListener('DOMContentLoaded', function () {
       if (daysPerWeek <= 0) {
         result.innerHTML =
           '<strong>Enter the average number of days worked each week.</strong>' +
-          '<div class="site-note">For example, someone working 5 days a week has 28 days of statutory paid holiday in a full leave year (5 × 5.6).</div>';
+          '<div class="site-note">For example, someone working 5 days a week normally has 28 days of statutory paid holiday in a full leave year.</div>';
         result.hidden = false;
         return;
       }
 
-      let extraLine = '';
-      let meaning = 'This is a simple entitlement estimate for a regular working pattern.';
+      let explanation = 'This is a simple statutory holiday estimate for a regular working pattern.';
+      let actionText = 'Check whether bank holidays are included in the annual total your employer uses and whether any carry-over rules apply.';
+      let extraRows = '';
       let adjustedForCarryOver = Math.round((proRataDays + carryOverDays) * 100) / 100;
-      let scenarioLabel = 'regular annual leave check';
+
       if (mode === 'starter') {
-        scenarioLabel = 'starter-style pro rata check';
-        meaning = 'This is a simple starter-style pro-rata estimate based on how much of the leave year the job covers.';
+        explanation = 'This is a simple starter estimate based on how much of the leave year the job covers.';
+        actionText = 'Check the leave year dates used by the employer and whether the contract gives more than the statutory minimum.';
       } else if (mode === 'leaver') {
-        scenarioLabel = 'leaver-style balance check';
         const remaining = Math.round((adjustedForCarryOver - takenDays) * 100) / 100;
-        extraLine = '<li>Holiday already taken entered: ' + takenDays + ' day(s)</li><li>Simple remaining / overused balance: ' + remaining + ' day(s)</li>';
-        meaning = remaining >= 0
-          ? 'This suggests there may still be accrued statutory holiday left to account for.'
-          : 'This suggests the worker may already have taken more holiday than this simple pro-rata estimate plus carry-over covers.';
+        extraRows += '<li>Holiday already taken entered: ' + takenDays + ' day(s)</li>';
+        extraRows += '<li>Simple remaining balance: ' + remaining + ' day(s)</li>';
+        explanation = remaining >= 0
+          ? 'This suggests there may still be accrued statutory holiday left to account for in final pay.'
+          : 'This suggests more holiday may have been taken than this simple estimate covers, so the final-pay position needs checking carefully.';
+        actionText = 'Check the leaving date, holiday already taken, and whether the final payslip includes any untaken statutory holiday that still had to be paid.';
       }
-      extraLine += '<li>Carry-over days added: ' + carryOverDays + ' day(s)</li><li>Bank holidays ' + (bankHolidaysIncluded ? 'appear to be included in the allowance you are checking.' : 'may need checking separately against the allowance you are using.') + '</li>';
+
+      extraRows += '<li>Full-year statutory entitlement on the days entered: ' + roundedFullYearDays + ' day(s)</li>';
+      extraRows += '<li>Months of the leave year used: ' + monthsCovered + ' of 12</li>';
+      extraRows += '<li>Carry-over days added: ' + carryOverDays + ' day(s)</li>';
+      extraRows += '<li>' + (bankHolidaysIncluded ? 'Bank holidays appear to be included in the allowance being checked.' : 'Bank holidays may need checking separately against the allowance being used.') + '</li>';
 
       result.innerHTML =
         '<strong>Estimated statutory holiday entitlement:</strong> ' + adjustedForCarryOver + ' day(s)' +
-        '<ul class="result-breakdown">' +
-        '<li>Scenario label: ' + scenarioLabel + '</li>' +
-        '<li>Mode used: ' + mode + '</li>' +
-        '<li>Full-year statutory entitlement based on days entered: ' + roundedFullYearDays + ' day(s)</li>' +
-        '<li>Months of leave year used: ' + monthsCovered + ' of 12</li>' +
-        extraLine +
-        '<li>This tool is strongest for regular working patterns and simple starter/leaver checks.</li>' +
-        '</ul>' +
-        '<div class="result-meaning"><strong>What this likely means:</strong><p class="muted">' + meaning + '</p><p class="muted">Best next checks: holiday pay on leaving, final pay, whether bank holidays are included in the annual total, and whether your employer allows carry-over beyond the simple amount entered here.</p></div>' +
-        '<div class="site-note">For irregular-hours or part-year workers, use the official GOV.UK calculator path. Holiday pay itself is a separate question from holiday entitlement.</div>';
+        '<ul class="result-breakdown">' + extraRows + '</ul>' +
+        '<div class="result-meaning"><strong>What this likely means:</strong><p class="muted">' + explanation + '</p></div>' +
+        '<div class="result-meaning"><strong>What this does not confirm:</strong><p class="muted">It does not settle the whole final-pay calculation, every carry-over rule, or holiday pay rate disputes.</p></div>' +
+        '<div class="result-meaning"><strong>What to check next:</strong><p class="muted">' + actionText + ' Use the final-pay page if you need the wider leaving-work picture, including notice pay and other items.</p></div>' +
+        '<div class="site-note">For irregular-hours or part-year workers, use the official GOV.UK calculator route rather than relying on this simpler tool.</div>';
       result.hidden = false;
     });
   }
