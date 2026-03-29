@@ -1,17 +1,17 @@
 {
-  "site_reviewed_date": "2026-03-28",
+  "site_reviewed_date": "2026-03-29",
   "pages": {
     "tools/redundancy-pay-calculator": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "gap-close-batch-19"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/notice-period-calculator": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/holiday-entitlement-calculator": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "gap-close-batch-19"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "guides/statutory-redundancy-pay-guide": {
       "reviewed_date": "2026-03-28",
@@ -26,28 +26,28 @@
       "review_status": "polished-batch-10"
     },
     "help/final-pay-and-leaving-a-job": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "new-batch-4"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "sources/index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "gap-close-batch-19"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/settlement-agreement-tax-checker": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "gap-close-batch-19"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "contact/index": {
       "reviewed_date": "2026-03-28",
       "review_status": "new-batch-5"
     },
     "compare/redundancy-vs-settlement-vs-final-pay": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "improved-batch-8"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/statutory-paternity-pay-calculator": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "guides/paternity-pay-and-leave-guide": {
       "reviewed_date": "2026-03-28",
@@ -62,12 +62,12 @@
       "review_status": "new-batch-10"
     },
     "about/how-workrightsuk-builds-pages": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "trust-polish-batch-17"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/statutory-maternity-pay-calculator": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "guides/maternity-pay-and-leave-guide": {
       "reviewed_date": "2026-03-28",
@@ -86,8 +86,8 @@
       "review_status": "gap-close-batch-19"
     },
     "index": {
-      "reviewed_date": "2026-03-28",
-      "review_status": "seo-polish-batch-18"
+      "reviewed_date": "2026-03-29",
+      "review_status": "trust-cues-batch-53"
     },
     "tools/index": {
       "reviewed_date": "2026-03-28",

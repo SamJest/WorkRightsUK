@@ -594,6 +594,30 @@ input, select, textarea {
   display: block;
   margin-bottom: 4px;
 }
+
+.review-cue-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+}
+.review-cue {
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(2, 6, 23, .34);
+}
+.review-cue strong {
+  display: block;
+  margin-bottom: 4px;
+}
+.review-cue p {
+  margin: 0;
+}
+@media (max-width: 920px) {
+  .review-cue-grid { grid-template-columns: 1fr; }
+}
+
 .method-link-box {
   margin-top: 12px;
   padding: 14px 16px;
@@ -853,3 +877,230 @@ input, select, textarea {
 .route-grid { align-items:stretch; }
 .route-card h3 { margin-top:0; margin-bottom:.55rem; }
 @media (max-width: 720px) { .quick-links { gap:.5rem; } .quick-links a { width:100%; justify-content:center; } }
+
+
+.compact-paths{margin-top:1rem}.compact-paths .decision-path{padding:1rem}.action-checklist li{margin-bottom:.55rem}
+
+
+/* Batch 54 mobile-first micro-polish */
+main, section, .panel, .tool-box, .result-box, .faq-item, .review-banner, .quick-actions, .policy-box, .check-next-box, .fast-route-box, .method-link-box {
+  scroll-margin-top: 108px;
+}
+
+button, .button, .nav a, .inline-links a, .quick-links a {
+  min-height: 44px;
+}
+
+input, select, textarea, button {
+  font: inherit;
+}
+
+input, select, textarea {
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+.nav a:focus-visible,
+.inline-links a:focus-visible,
+.quick-links a:focus-visible,
+.skip-link:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, .5);
+  outline-offset: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(56, 189, 248, .42);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, .12);
+}
+
+.tool-form > * + * {
+  margin-top: 2px;
+}
+
+.tool-form > div:last-child {
+  margin-top: 6px;
+}
+
+.input-hint {
+  line-height: 1.45;
+}
+
+.result-box {
+  scroll-margin-top: 118px;
+}
+
+.result-box[hidden] {
+  display: none !important;
+}
+
+.result-box:not([hidden]) {
+  animation: resultReveal .22s ease-out;
+}
+
+.result-box:focus {
+  outline: 3px solid rgba(56, 189, 248, .32);
+  outline-offset: 3px;
+}
+
+.result-breakdown li + li,
+.list-clean li + li,
+.action-checklist li + li,
+.inline-checklist li + li,
+.warning-list li + li {
+  margin-top: 8px;
+}
+
+.result-card,
+.checklist-card,
+.route-card,
+.next-step-card,
+.family-card,
+.method-card,
+.link-card,
+.coverage-item,
+.curated-card,
+.page-meta,
+.source-item,
+.source-row,
+.review-cue,
+.compare-row,
+.contact-card,
+.policy-box,
+.quick-actions,
+.review-banner,
+.check-next-box,
+.fast-route-box,
+.method-link-box,
+.intro-clarity,
+.site-disclaimer,
+.faq-simple details,
+.result-box {
+  overflow-wrap: anywhere;
+}
+
+@keyframes resultReveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    line-height: 1.55;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    min-height: 48px;
+    padding: 13px 14px;
+  }
+
+  button,
+  .button,
+  .nav a,
+  .inline-links a,
+  .quick-links a,
+  .cta-row a {
+    min-height: 46px;
+  }
+
+  .section {
+    padding: 18px 0 34px;
+  }
+
+  .tool-box,
+  .hero-box,
+  .panel,
+  .callout {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .result-box,
+  .quick-actions,
+  .policy-box,
+  .review-banner,
+  .fast-route-box,
+  .check-next-box,
+  .method-link-box,
+  .intro-clarity,
+  .site-disclaimer,
+  .faq-simple details {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .page-top-note,
+  .site-note,
+  .meta-note,
+  .inline-note,
+  .anchor-note,
+  .snippet-note,
+  .micro-note,
+  .input-hint {
+    font-size: .94rem;
+  }
+
+  .result-lead {
+    font-size: 1.02rem;
+    margin-bottom: 12px;
+  }
+
+  .result-card-grid,
+  .review-cue-grid,
+  .breakdown-grid,
+  .next-step-grid,
+  .checklist-grid,
+  .coverage-box,
+  .curated-grid,
+  .method-grid,
+  .route-grid,
+  .planning-grid,
+  .family-grid,
+  .family-trust-grid,
+  .meta-grid,
+  .example-grid,
+  .grid-2,
+  .grid-3,
+  .hero-grid,
+  .link-grid,
+  .trust-strip {
+    gap: 12px;
+  }
+
+  .compare-row {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .compare-row > * + * {
+    border-top: 1px solid rgba(148, 163, 184, .12);
+    padding-top: 10px;
+  }
+
+  .breadcrumbs {
+    line-height: 1.4;
+  }
+
+  .footer {
+    padding: 22px 0 34px;
+  }
+}

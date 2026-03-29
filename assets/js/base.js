@@ -1,3 +1,25 @@
+function revealResult(result) {
+  if (!result) return;
+  revealResult(result);
+  result.setAttribute('tabindex', '-1');
+  result.setAttribute('aria-live', 'polite');
+
+  const scrollToResult = function () {
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (typeof result.focus === 'function') {
+      try {
+        result.focus({ preventScroll: true });
+      } catch (error) {
+        result.focus();
+      }
+    }
+  };
+
+  if (typeof window !== 'undefined' && window.matchMedia('(max-width: 920px)').matches) {
+    window.requestAnimationFrame(scrollToResult);
+  }
+}
+
 
 function formatMoney(value) {
   return new Intl.NumberFormat('en-GB', {
@@ -51,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '</div>' +
           '<div class="site-note">This does not rule out other rights or money due when employment ends.</div>' +
           '</div>';
-        result.hidden = false;
+        revealResult(result);
         return;
       }
 
@@ -80,6 +102,14 @@ document.addEventListener('DOMContentLoaded', function () {
         ? 'The statutory weekly pay cap reduced the pay figure used in this estimate.'
         : 'Your entered weekly pay sits within the statutory weekly cap for the chosen dismissal date.';
 
+      const nextStepGuide =
+        '<ol class="list-clean action-checklist">' +
+        '<li>Get a written breakdown that separates redundancy pay, notice, holiday, wages and any other sums.</li>' +
+        '<li>Check your contract, handbook or redundancy policy for any enhanced terms above the statutory minimum.</li>' +
+        '<li>Use the notice and final-pay routes if the employer has quoted one combined leaving-work figure.</li>' +
+        '<li>Do not sit on an unpaid statutory shortfall if the dates suggest the minimum may have been missed.</li>' +
+        '</ol>';
+
       result.innerHTML =
         '<div class="result-stack">' +
         '<p class="result-lead"><strong>Estimated statutory redundancy pay:</strong> ' + formatMoney(estimate) + '</p>' +
@@ -96,14 +126,15 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this includes</h3><ul><li>Statutory redundancy pay only.</li><li>The age band, service cap and statutory weekly pay cap for the date entered.</li><li>A simple guide date for the 6-month claim window if you entered a job end date.</li></ul></div>' +
         '<div class="result-card"><h3>What this does not include</h3><ul><li>Notice pay or pay in lieu of notice.</li><li>Holiday owed, unpaid wages, bonus or commission.</li><li>Enhanced contractual redundancy terms or a settlement agreement package.</li></ul></div>' +
+        '<div class="result-card"><h3>Enhanced vs statutory</h3><p class="muted">This figure is the legal floor for statutory redundancy pay. Your real package can be higher if your contract, staff handbook, union agreement or employer policy promises more.</p></div>' +
         '<div class="result-card"><h3>Why your real figure may differ</h3><ul><li>Your contract or handbook may promise more than the statutory minimum.</li><li>Your employer may be quoting a mixed leaving package rather than redundancy pay on its own.</li><li>Dates, service history, exclusions or capped weekly pay can change the total.</li></ul></div>' +
-        '<div class="result-card"><h3>What to do next</h3><ul><li>Ask HR or payroll for a written breakdown of each payment type.</li><li>Check notice separately using the notice calculator.</li><li>Check final pay and holiday owed before accepting the total at face value.</li></ul></div>' +
-        '<div class="result-card"><h3>How to use this figure</h3><p class="muted">Use this as a check on the statutory minimum. It is most useful when you want to see whether an employer offer appears to be below the legal floor.</p></div>' +
+        '<div class="result-card"><h3>What to do next, in order</h3>' + nextStepGuide + '</div>' +
+        '<div class="result-card"><h3>How to use this figure</h3><p class="muted">Use this as a check on the statutory minimum. It is most useful when you want to see whether an employer offer appears to be below the legal floor before looking at the rest of the package.</p></div>' +
         '<div class="result-card"><h3>Deadline reminder</h3>' + deadlineCardHtml + '</div>' +
         '</div>' +
         '<div class="site-note">This tool is a guide only. Contractual enhancements, special cases, exact dates, and disputed facts can change the result.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 
@@ -167,12 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="result-card"><h3>What this includes</h3><ul><li>A simple statutory minimum notice check.</li><li>A comparison with any longer contract notice you entered.</li><li>A guide end date if you added a start date.</li></ul></div>' +
         '<div class="result-card"><h3>What this does not include</h3><ul><li>Whether notice will be worked normally or paid in lieu.</li><li>Holiday owed during notice.</li><li>Every dismissal, misconduct, garden-leave or contract dispute issue.</li></ul></div>' +
         '<div class="result-card"><h3>What to check next</h3><ul><li>Ask whether notice will be worked, paid in lieu, or affected by garden leave.</li><li>Check the final payslip for holiday owed, wages and any deductions.</li><li>Check the contract wording if the employer is using a longer notice period.</li></ul></div>' +
-        '<div class="result-card"><h3>Leaving-work reminder</h3><p class="muted">Notice is often only one part of the package. Final pay, holiday owed and any redundancy or settlement terms may still need checking separately.</p></div>' +
+        '<div class="result-card"><h3>Leaving-work reminder</h3><p class="muted">Notice is often only one part of the package. Final pay, holiday owed and any redundancy or settlement terms may still need checking separately.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p></div>' +
         '<div class="result-card"><h3>Likely end date</h3>' + endDateCard + '</div>' +
         '</div>' +
         '<div class="site-note">This page is aimed at notice you are entitled to receive. Complex dismissal, misconduct, garden leave, or PILON terms can change what happens in practice.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 
@@ -182,64 +213,98 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
 
       const daysPerWeek = Number(document.getElementById('daysPerWeek').value || 0);
-      const monthsCovered = Number(document.getElementById('monthsCovered').value || 12);
+      const monthsCoveredInput = Number(document.getElementById('monthsCovered').value || 12);
+      const monthsCovered = Math.max(1, Math.min(12, monthsCoveredInput));
       const mode = document.getElementById('holidayMode').value || 'standard';
       const takenDays = Number(document.getElementById('takenDays').value || 0);
       const carryOverDays = Number(document.getElementById('carryOverDays').value || 0);
       const bankHolidaysIncluded = document.getElementById('bankHolidaysIncluded').checked;
       const result = document.getElementById('holidayResult');
 
-      const fullYearDays = daysPerWeek * 5.6;
-      const roundedFullYearDays = Math.round(fullYearDays * 100) / 100;
-      const fraction = addMonthsFraction(monthsCovered);
-      const proRataDays = Math.round((roundedFullYearDays * fraction) * 100) / 100;
-
-      if (daysPerWeek <= 0) {
+      if (daysPerWeek <= 0 || daysPerWeek > 7) {
         result.innerHTML =
-          '<strong>Enter the average number of days worked each week.</strong>' +
-          '<div class="site-note">For example, someone working 5 days a week normally has 28 days of statutory paid holiday in a full leave year.</div>';
-        result.hidden = false;
+          '<div class="result-stack">' +
+          '<p class="result-lead"><strong>Enter the average number of days worked each week.</strong></p>' +
+          '<div class="result-card-grid">' +
+          '<div class="result-card"><h3>What to enter</h3><p class="muted">Use the average number of days worked in a normal week on a regular pattern. Someone working 5 days a week usually has 28 days of statutory paid holiday in a full leave year.</p></div>' +
+          '<div class="result-card"><h3>Use GOV.UK instead when</h3><p class="muted">The hours or working year are irregular, the worker is part-year, or the holiday pattern changes too much for a simple weekly-days estimate.</p></div>' +
+          '</div>' +
+          '</div>';
+        revealResult(result);
         return;
       }
 
+      const fullYearDays = Math.round((daysPerWeek * 5.6) * 100) / 100;
+      const fraction = addMonthsFraction(monthsCovered);
+      const proRataDays = Math.round((fullYearDays * fraction) * 100) / 100;
+      const adjustedForCarryOver = Math.round((proRataDays + carryOverDays) * 100) / 100;
+
+      let leadLabel = 'Estimated statutory holiday entitlement:';
       let explanation = 'This is a simple statutory holiday estimate for a regular working pattern.';
-      let actionText = 'Check whether bank holidays are included in the annual total your employer uses and whether any carry-over rules apply.';
+      let actionIntro = 'Check whether bank holidays are included in the annual total your employer uses and whether any carry-over rules apply.';
+      let nextSteps = [
+        'Check the employer’s holiday year dates and whether bank holidays sit inside the allowance.',
+        'Use the final-pay page if the real issue is the whole leaving-work package rather than holiday on its own.',
+        'Switch to the official GOV.UK route if the pattern is irregular or part-year.'
+      ];
       let extraRows = '';
-      let adjustedForCarryOver = Math.round((proRataDays + carryOverDays) * 100) / 100;
+      let statusCard = '<p class="muted">This estimate is best used as a first check before you rely on payroll figures or contract wording.</p>';
 
       if (mode === 'starter') {
-        explanation = 'This is a simple pro-rata estimate based on how much of the leave year the job covers.';
-        actionText = 'Check the leave year dates used by the employer and whether the contract gives more than the statutory minimum.';
+        leadLabel = 'Estimated holiday built up so far:';
+        explanation = 'This is a simple starter estimate based on how much of the leave year the job covers so far.';
+        actionIntro = 'Check the leave year dates used by the employer and whether the contract gives more than the statutory minimum.';
+        nextSteps = [
+          'Check the exact leave-year start date used by the employer, not just the calendar year.',
+          'Check whether any holiday was already approved or carried over into the current leave year.',
+          'If the pattern is irregular, stop here and use the official GOV.UK calculator instead.'
+        ];
+        statusCard = '<p class="muted">Starter checks are often most useful when HR or payroll has quoted a small accrued balance and you want to sense-check it against a regular weekly pattern.</p>';
       } else if (mode === 'leaver') {
         const remaining = Math.round((adjustedForCarryOver - takenDays) * 100) / 100;
+        leadLabel = remaining >= 0 ? 'Estimated holiday still to account for:' : 'Estimated holiday potentially taken ahead:';
         extraRows += '<li>Holiday already taken entered: ' + takenDays + ' day(s)</li>';
-        extraRows += '<li>Simple remaining balance: ' + remaining + ' day(s)</li>';
+        extraRows += '<li>Simple balance after time taken: ' + remaining + ' day(s)</li>';
         explanation = remaining >= 0
           ? 'This suggests there may still be accrued statutory holiday left to account for in final pay.'
           : 'This suggests more holiday may have been taken than this simple estimate covers, so the final-pay position needs checking carefully.';
-        actionText = 'Check the leaving date, holiday already taken, and whether the final payslip includes any untaken statutory holiday that still had to be paid.';
+        actionIntro = 'Check the leaving date, holiday already taken, and whether the final payslip includes any untaken statutory holiday that still had to be paid.';
+        nextSteps = [
+          'Check the final payslip for separate lines covering holiday, notice, wages and any deductions.',
+          'Check whether the employer uses a different leave year, carry-over rule or bank-holiday treatment.',
+          'Use the final-pay page next if holiday, notice and other leaving-work items are mixed together.'
+        ];
+        statusCard = remaining >= 0
+          ? '<p class="muted">A positive balance suggests holiday may still be owed, but the money due can still change once notice, payroll timing and employer policy are checked.</p>'
+          : '<p class="muted">A negative balance does not prove a lawful deduction. The contract, leave year and payroll records still need checking carefully.</p>';
       }
 
-      extraRows += '<li>Full-year statutory entitlement on the days entered: ' + roundedFullYearDays + ' day(s)</li>';
-      extraRows += '<li>Months of the leave year used: ' + monthsCovered + ' of 12</li>';
+      extraRows += '<li>Full-year statutory entitlement on the days entered: ' + fullYearDays + ' day(s)</li>';
+      extraRows += '<li>Months of the leave year used: ' + monthsCovered + ' of 12' + (monthsCovered !== monthsCoveredInput ? ' (entry trimmed to fit a 12-month leave year)' : '') + '</li>';
       extraRows += '<li>Carry-over days added: ' + carryOverDays + ' day(s)</li>';
       extraRows += '<li>' + (bankHolidaysIncluded ? 'Bank holidays appear to be included in the allowance being checked.' : 'Bank holidays may need checking separately against the allowance being used.') + '</li>';
 
+      const nextStepHtml = '<ol class="list-clean action-checklist"><li>' + nextSteps.join('</li><li>') + '</li></ol>';
+
       result.innerHTML =
         '<div class="result-stack">' +
-        '<p class="result-lead"><strong>Estimated statutory holiday entitlement:</strong> ' + adjustedForCarryOver + ' day(s)</p>' +
+        '<p class="result-lead"><strong>' + leadLabel + '</strong> ' + adjustedForCarryOver + ' day(s)</p>' +
         '<ul class="result-breakdown">' + extraRows + '</ul>' +
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this means</h3><p class="muted">' + explanation + '</p></div>' +
         '<div class="result-card"><h3>What is included</h3><ul><li>A simple statutory holiday estimate for a regular working pattern.</li><li>Pro-rata timing based on the months entered.</li><li>Carry-over days if you added them.</li></ul></div>' +
         '<div class="result-card"><h3>What is not included</h3><ul><li>Irregular-hours or part-year worker calculations.</li><li>Every holiday pay rate dispute.</li><li>The whole final-pay calculation on its own.</li></ul></div>' +
-        '<div class="result-card"><h3>What to check next</h3><p class="muted">' + actionText + ' Use the final-pay page if you need the wider leaving-work picture, including notice pay and other items.</p></div>' +
+        '<div class="result-card"><h3>What to check next</h3><p class="muted">' + actionIntro + '</p>' + nextStepHtml + '</div>' +
+        '<div class="result-card"><h3>When to switch route</h3><ul><li>Use the final-pay page when holiday is only one part of the leaving package.</li><li>Use the notice page when the real issue is PILON, notice length or the end date.</li><li>Use GOV.UK instead for irregular-hours and part-year accrual.</li></ul><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p></div>' +
+        '<div class="result-card"><h3>Why the money due may differ</h3><ul><li>Holiday already taken can change the final balance.</li><li>Carry-over rules and bank-holiday treatment can alter the figure used by payroll.</li><li>The contract may give more than the statutory minimum.</li></ul></div>' +
+        '<div class="result-card"><h3>How to use this result</h3>' + statusCard + '</div>' +
         '</div>' +
         '<div class="site-note">For irregular-hours or part-year workers, use the official GOV.UK calculator route rather than relying on this simpler tool.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
+
 
 
   const maternityForm = document.querySelector('[data-tool="maternity-pay"]');
@@ -258,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<p class="result-lead"><strong>Enter average weekly earnings to build the estimate.</strong></p>' +
           '<div class="site-note">Use gross average weekly earnings rather than net or monthly pay.</div>' +
           '</div>';
-        result.hidden = false;
+        revealResult(result);
         return;
       }
 
@@ -302,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>' +
         '<div class="site-note">Use this figure as a first check before looking at leave dates, eligibility details and any employer enhancement.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 
@@ -322,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<p class="result-lead"><strong>Enter average weekly earnings to build the estimate.</strong></p>' +
           '<div class="site-note">Use gross average weekly earnings rather than net pay.</div>' +
           '</div>';
-        result.hidden = false;
+        revealResult(result);
         return;
       }
 
@@ -355,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>' +
         '<div class="site-note">Use this figure as a quick check before reviewing notice, eligibility and any enhanced family-pay policy.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 
@@ -380,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<p class="result-lead"><strong>Enter weekly pay to build the estimate.</strong></p>' +
           '<div class="site-note">Use gross weekly pay at dismissal rather than a net or monthly figure.</div>' +
           '</div>';
-        result.hidden = false;
+        revealResult(result);
         return;
       }
 
@@ -445,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>' +
         '<div class="site-note">Use this figure to organise the conversation and documents, not as a promise of what a tribunal or settlement will award.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 
@@ -474,43 +539,57 @@ document.addEventListener('DOMContentLoaded', function () {
           '<p class="result-lead"><strong>Enter at least one payment amount to check the package shape.</strong></p>' +
           '<div class="site-note">Start with the written figures your employer has actually listed, even if some are only estimates.</div>' +
           '</div>';
-        result.hidden = false;
+        revealResult(result);
         return;
       }
 
       let packageMeaning = 'This package looks mixed. Check each label carefully before relying on the headline total.';
+      let routeTitle = 'Best next page';
+      let routeHtml = '<p class="muted">If the package still feels unclear after this split, use the comparison page to work out whether redundancy, settlement, final pay or dismissal-fairness is the main issue first.</p><p><a href="/compare/redundancy-vs-settlement-vs-final-pay/">Open comparison page</a></p>' ;
+
       if (earningsTotal === 0 && qualifyingTermination > 0) {
-        packageMeaning = 'This package looks mainly compensation-based, so the written wording, the package labels and the £30,000 threshold are likely to matter most.';
+        packageMeaning = 'This package looks mainly compensation-based, so the written wording, the package labels and the combined £30,000 threshold are likely to matter most.';
+        routeHtml = '<p class="muted">Use the redundancy calculator next if the package is mainly statutory redundancy or a redundancy offer. Stay on the settlement route if the agreement is really about an agreed exit package and claim waiver.</p><p><a href="/tools/redundancy-pay-calculator/">Open redundancy calculator</a></p>';
       } else if (earningsTotal > 0 && qualifyingTermination === 0) {
-        packageMeaning = 'This package looks mainly earnings-based, so it is closer to a final-pay check than to a simple 'tax-free settlement' question.';
+        packageMeaning = 'This package looks mainly earnings-based, so it is closer to a final-pay check than to a simple tax-free settlement question.';
+        routeHtml = '<p class="muted">Use the final-pay page next if the real issue is notice, PILON, holiday, wages or other payroll items rather than compensation.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
       } else if (earningsTotal >= qualifyingTermination) {
         packageMeaning = 'A large part of this package looks like normal taxable earnings, so the take-home figure may be much lower than the headline total shown in the offer.';
+        routeHtml = '<p class="muted">Use the final-pay page first, then come back to the settlement route once the payroll-style items have been separated from any compensation.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
       }
 
       const legalAdviceText = legalAdvicePaid
-        ? 'You indicated the employer is covering independent legal advice costs, which is normal on many settlement agreements.'
-        : 'If this is a settlement agreement, check whether the employer is also covering independent legal advice costs.';
+        ? 'You indicated the employer is covering independent legal advice costs, which is common on many settlement agreements.'
+        : 'If this is a settlement agreement, check whether the employer is also covering independent legal advice costs in writing.';
+
+      const thresholdText = qualifyingTermination > 0
+        ? 'The £30,000 figure is a combined threshold across qualifying termination-payment elements, not a separate allowance for each item.'
+        : 'No qualifying termination-payment amount was entered, so the £30,000 threshold is not doing any work in this version of the package.';
+
+      const writingChecksHtml = '<ol class="list-clean action-checklist"><li>Ask for a written breakdown that lists PILON, holiday pay, wages or bonus separately from compensation-style sums.</li><li>Check whether statutory redundancy pay and any extra severance are labelled clearly and not merged into one vague amount.</li><li>Check whether the draft agreement says who is paying for independent legal advice and whether the labels match payroll treatment.</li></ol>';
 
       result.innerHTML =
         '<div class="result-stack">' +
         '<p class="result-lead"><strong>Package total entered:</strong> ' + formatMoney(totalPackage) + '</p>' +
         '<ul class="result-breakdown">' +
-        '<li>Likely taxed as earnings: ' + formatMoney(earningsTotal) + ' (PILON, holiday pay, wages, bonus or similar)</li>' +
-        '<li>Potential qualifying termination-payment elements: ' + formatMoney(qualifyingTermination) + '</li>' +
-        '<li>Potentially within the first £30,000 threshold: ' + formatMoney(thresholdUsed) + '</li>' +
+        '<li>Payroll-style items usually taxed as earnings: ' + formatMoney(earningsTotal) + ' (PILON, holiday pay, wages, bonus or similar)</li>' +
+        '<li>Compensation-style items to check against termination-payment rules: ' + formatMoney(qualifyingTermination) + '</li>' +
+        '<li>Potentially within the combined £30,000 threshold: ' + formatMoney(thresholdUsed) + '</li>' +
         '<li>Potential qualifying amount above £30,000: ' + formatMoney(aboveThreshold) + '</li>' +
         '</ul>' +
+        '<div class="inline-note">' + thresholdText + '</div>' +
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this likely means</h3><p class="muted">' + packageMeaning + '</p></div>' +
-        '<div class="result-card"><h3>Usually taxed like earnings</h3><ul><li>PILON</li><li>Holiday pay</li><li>Unpaid wages</li><li>Bonus or commission already earned</li></ul></div>' +
-        '<div class="result-card"><h3>May fall within termination-payment rules</h3><ul><li>Statutory redundancy pay</li><li>Additional severance or compensation-style sums</li><li>The written wording and labels still matter</li></ul></div>' +
+        '<div class="result-card"><h3>Usually taxed through payroll</h3><ul><li>PILON</li><li>Holiday pay</li><li>Unpaid wages</li><li>Bonus or commission already earned</li></ul></div>' +
+        '<div class="result-card"><h3>May sit in the compensation bucket</h3><ul><li>Statutory redundancy pay</li><li>Additional severance or ex-gratia style sums</li><li>Amounts that are not really notice, wages or holiday</li></ul></div>' +
         '<div class="result-card"><h3>What this does not decide</h3><ul><li>Whether payroll has applied the tax correctly.</li><li>Whether the offer is fair overall.</li><li>Whether every clause in the agreement is acceptable.</li></ul></div>' +
-        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask for a written breakdown of every payment label.</li><li>Check whether notice, holiday and wages have been separated from compensation.</li><li>Check whether the agreement says who is paying for independent advice.</li><li>Check whether the package should really be reviewed as final pay, redundancy or both.</li></ul></div>' +
-        '<div class="result-card"><h3>Practical reminder</h3><p class="muted">' + legalAdviceText + '</p></div>' +
+        '<div class="result-card"><h3>What to verify in writing</h3>' + writingChecksHtml + '</div>' +
+        '<div class="result-card"><h3>Independent advice check</h3><p class="muted">' + legalAdviceText + '</p></div>' +
+        '<div class="result-card"><h3>' + routeTitle + '</h3>' + routeHtml + '</div>' +
         '</div>' +
         '<div class="site-note">This is a first-pass categorisation tool. Use the written agreement, official guidance and professional advice for the final tax position, especially if the package mixes payroll items with compensation.</div>' +
         '</div>';
-      result.hidden = false;
+      revealResult(result);
     });
   }
 

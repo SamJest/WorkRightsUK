@@ -12,9 +12,15 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/">
   <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta property="og:image:alt" content="WorkRightsUK logo">
+  <meta property="og:site_name" content="WorkRightsUK">
+  <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Holiday Entitlement Calculator UK | Check Holiday Owed, Starter, Leaver & Final Pay Questions | WorkRightsUK">
   <meta name="twitter:description" content="Check statutory holiday entitlement for regular working patterns, including starter, leaver, holiday owed and final-pay related checks.">
+  <meta name="twitter:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:image:alt" content="WorkRightsUK logo">
+  <meta name="theme-color" content="#0f172a">
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
@@ -29,6 +35,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Holiday Entitlement Calculator","applicationCategory":"BusinessApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/","description":"Check statutory holiday entitlement for regular working patterns, including starter, leaver, holiday owed and final-pay related checks."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workrightsuk.co.uk/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://workrightsuk.co.uk/tools/"},{"@type":"ListItem","position":3,"name":"Holiday Entitlement Calculator","item":"https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much statutory paid holiday do most workers get?", "acceptedAnswer": {"@type": "Answer", "text": "Acas says workers are entitled to 5.6 weeks' statutory paid holiday a year, and bank holidays may be included in that total."}}, {"@type": "Question", "name": "What happens to unused statutory holiday when someone leaves a job?", "acceptedAnswer": {"@type": "Answer", "text": "Acas says an employer must pay in lieu for any untaken statutory holiday entitlement the worker has accrued when they leave."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I use this holiday calculator for irregular-hours or part-year work?","acceptedAnswer":{"@type":"Answer","text":"No. This page is designed for regular working patterns. If hours or the working year are irregular, use the official GOV.UK holiday calculator route instead."}},{"@type":"Question","name":"Does the result show exactly what should be paid in final pay?","acceptedAnswer":{"@type":"Answer","text":"Not on its own. Final pay can still be affected by holiday already taken, carry-over rules, bank-holiday treatment, notice pay and the employer’s wider payroll breakdown."}}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -59,6 +66,21 @@
       <h1>Holiday Entitlement Calculator</h1>
       <div class="intro-clarity"><strong>What this tool helps you check</strong><p class="muted">Use it for regular working patterns to estimate statutory holiday entitlement, simple starter and leaver positions, and whether there may be holiday left to pay when someone leaves.</p></div>
       <p class="muted">This tool is best for straightforward weekly patterns. If the hours or working year are irregular, the official GOV.UK calculator route is safer than relying on a simplified estimate.</p>
+      <div class="decision-paths compact-paths">
+        <div class="decision-path">
+          <strong>Use standard mode</strong>
+          <p class="muted">Best when you want a full-year or simple pro-rata entitlement check for a regular weekly pattern.</p>
+        </div>
+        <div class="decision-path">
+          <strong>Use starter or leaver mode</strong>
+          <p class="muted">Best when someone joined or is leaving part way through the leave year and you need a straightforward accrued-holiday view.</p>
+        </div>
+        <div class="decision-path">
+          <strong>Use GOV.UK instead for irregular work</strong>
+          <p class="muted">Irregular-hours and part-year workers are better served by the official GOV.UK calculator route.</p>
+          <p><a href="https://www.gov.uk/calculate-your-holiday-entitlement">Open official holiday calculator</a></p>
+        </div>
+      </div>
 
       <form class="tool-form" data-tool="holiday-entitlement">
         <label>
@@ -77,7 +99,7 @@
         <label>
           Months of the leave year this should cover
           <input id="monthsCovered" type="number" min="1" max="12" step="1" value="12">
-          <span class="input-hint">Use 12 for a full leave year or a smaller number for a simple pro-rata estimate.</span>
+          <span class="input-hint">Use 12 for a full leave year or a smaller number for a simple pro-rata estimate. For a leaver check, use the months actually covered up to the leaving point.</span>
         </label>
         <label>
           Carry-over days from the previous leave year (optional)
@@ -95,10 +117,16 @@
 
       <div id="holidayResult" class="result-box" hidden></div>
       <div class="policy-box"><strong>Important:</strong><p class="muted">The entitlement figure is not always the same as the money owed in final pay. Carry-over rules, holiday already taken, whether bank holidays are included, and the employer’s holiday policy can all change the practical outcome.</p></div>
+      <div class="inline-note">This page is strongest when the pattern is regular and the question is simple. If the real issue is a mixed final package, move to the final-pay page after using the result here.</div>
       <div class="review-banner">
-        <strong>Reviewed against official guidance</strong>
+        <strong>Official sources checked</strong>
         <p class="muted">Last reviewed: 29 March 2026. Checked against GOV.UK and Acas guidance on statutory holiday entitlement and the official calculation routes.</p>
       </div>
+    <div class="review-cue-grid">
+      <div class="review-cue"><strong>Last reviewed</strong><p class="muted">29 March 2026</p></div>
+      <div class="review-cue"><strong>Official sources checked</strong><p class="muted">GOV.UK and Acas holiday guidance linked below</p></div>
+      <div class="review-cue"><strong>Recheck if</strong><p class="muted">Work pattern, leave year, starter or leaver dates, or irregular-hours rules change</p></div>
+    </div>
     </div>
   </div>
 </section>
@@ -114,6 +142,11 @@
         <strong>Use the final-pay page next if you are leaving a job</strong>
         <p class="muted">That is usually the better next step when you need to understand how unused holiday, notice pay and other items fit together in the last payment.</p>
         <p><a href="/help/final-pay-and-leaving-a-job/">Open final pay and leaving a job</a></p>
+      </div>
+      <div class="decision-path">
+        <strong>Use the notice page when holiday is not the only issue</strong>
+        <p class="muted">If the dispute is really about when employment ends, notice owed, or pay in lieu, check notice separately after using this page.</p>
+        <p><a href="/tools/notice-period-calculator/">Open notice calculator</a></p>
       </div>
       <div class="decision-path">
         <strong>Use the official GOV.UK route instead for irregular or part-year patterns</strong>
@@ -165,6 +198,11 @@
           <p class="muted">Use the notice calculator when the real question is how long notice should be or whether PILON may apply.</p>
           <p><a href="/tools/notice-period-calculator/">Open notice period calculator</a></p>
         </div>
+        <div class="link-card">
+          <strong>4. Switch to GOV.UK for irregular-hours accrual</strong>
+          <p class="muted">If the working pattern is irregular or part-year, stop here and use the official route instead of relying on this simpler estimate.</p>
+          <p><a href="https://www.gov.uk/calculate-your-holiday-entitlement">Open official holiday calculator</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -174,7 +212,7 @@
   <div class="container">
     <div class="panel source-block">
       <span class="kicker">Official sources used</span>
-      <h2>Official sources and review</h2>
+      <h2>Official sources checked for this page</h2>
       <div class="source-list">
         <div class="source-item">
           <strong>Acas: Checking holiday entitlement</strong>
