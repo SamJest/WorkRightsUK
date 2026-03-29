@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unfair Dismissal Compensation Estimator | WorkRightsTools</title>
-  <meta name="description" content="Get a rough estimate framework for basic and compensatory award scenarios.">
-  <link rel="canonical" href="https://example.com/tools/unfair-dismissal-compensation-estimator/">
+  <title>Unfair Dismissal Compensation Estimator UK (2026) | Basic Award, Loss Cap & Next Steps | WorkRightsUK</title>
+  <meta name="description" content="Estimate the shape of a UK unfair dismissal award using a basic-award check and a capped lost-earnings framework, then see what can change the result and what to do next.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Unfair Dismissal Compensation Estimator | WorkRightsTools">
-  <meta property="og:description" content="Get a rough estimate framework for basic and compensatory award scenarios.">
+  <meta property="og:title" content="Unfair Dismissal Compensation Estimator UK (2026) | Basic Award, Loss Cap & Next Steps | WorkRightsUK">
+  <meta property="og:description" content="Estimate the shape of a UK unfair dismissal award using a basic-award check and a capped lost-earnings framework, then see what can change the result and what to do next.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/tools/unfair-dismissal-compensation-estimator/">
-  <meta property="og:image" content="https://example.com/assets/images/og-default.png">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Unfair Dismissal Compensation Estimator | WorkRightsTools">
-  <meta name="twitter:description" content="Get a rough estimate framework for basic and compensatory award scenarios.">
-    <!-- Google tag (gtag.js) -->
+  <meta name="twitter:title" content="Unfair Dismissal Compensation Estimator UK (2026) | Basic Award, Loss Cap & Next Steps | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate the shape of a UK unfair dismissal award using a basic-award check and a capped lost-earnings framework, then see what can change the result and what to do next.">
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,50 +26,165 @@
     gtag('config', 'G-YBL4G4K19Y');
   </script>
   <link rel="stylesheet" href="/assets/css/base.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Unfair Dismissal Compensation Estimator","applicationCategory":"FinanceApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/","description":"Estimate the shape of a UK unfair dismissal award using a basic-award check and a capped lost-earnings framework."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workrightsuk.co.uk/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://workrightsuk.co.uk/tools/"},{"@type":"ListItem","position":3,"name":"Unfair Dismissal Compensation Estimator","item":"https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">WorkRightsTools</a>
+      <a class="brand-wrap" href="/" aria-label="WorkRightsUK home">
+        <img src="/assets/images/logo.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
       <nav class="nav">
         <a href="/">Home</a>
         <a href="/tools/">Tools</a>
         <a href="/guides/">Guides</a>
+        <a href="/help/">Help</a>
+        <a href="/compare/">Compare</a>
+        <a href="/sources/">Sources</a>
         <a href="/contact/">Contact</a>
         <a href="/about/">About</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="main-content">
+<section class="hero" id="main-content">
   <div class="container">
     <div class="tool-box">
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools/">Tools</a> / Unfair Dismissal Compensation Estimator</p>
-      <span class="kicker">Estimator</span>
+      <span class="kicker">Dismissal compensation tool</span>
       <h1>Unfair Dismissal Compensation Estimator</h1>
-      <p class="muted">Get a rough estimate framework for basic and compensatory award scenarios.</p>
-      <p class="site-note">Starter placeholder page. Add final logic, source-backed explanations, and reviewed dates before publishing fully.</p>
+      <div class="intro-clarity"><strong>What this tool does</strong><p class="muted">It gives a first-pass unfair-dismissal award framework by combining a basic-award check with a capped lost-earnings estimate. Use it to understand the rough shape of a claim, not to predict a tribunal result exactly.</p></div>
+      <p class="muted">The result is only a guide. Tribunals can reduce awards for mitigation, contributory conduct or the chance the dismissal would still have happened. They can also adjust some awards where the Acas Code was not followed.</p>
+
+      <form class="tool-form" data-tool="unfair-dismissal">
+        <label>
+          Dismissal date
+          <input id="unfairDismissalDate" type="date">
+          <span class="input-hint">Used for the current compensation cap and the qualifying-period guide.</span>
+        </label>
+        <label>
+          Age at dismissal
+          <input id="unfairAge" type="number" min="16" max="100" placeholder="Example: 41">
+        </label>
+        <label>
+          Full years of continuous service
+          <input id="unfairYears" type="number" min="0" max="40" placeholder="Example: 8">
+          <span class="input-hint">Used for the basic-award framework and qualification guidance.</span>
+        </label>
+        <label>
+          Gross weekly pay at dismissal (£)
+          <input id="unfairWeeklyPay" type="number" min="0" step="0.01" placeholder="Example: 780">
+        </label>
+        <label>
+          Estimated weeks of lost earnings
+          <input id="unfairWeeksLoss" type="number" min="0" max="260" step="1" placeholder="Example: 18">
+          <span class="input-hint">Use your current best estimate of how many weeks the dismissal has cost or may cost you.</span>
+        </label>
+        <label>
+          Current or replacement weekly pay (£, optional)
+          <input id="unfairNewWeeklyPay" type="number" min="0" step="0.01" placeholder="Leave blank if you have no replacement earnings yet">
+        </label>
+        <label>
+          Other direct loss (£, optional)
+          <input id="unfairOtherLosses" type="number" min="0" step="0.01" placeholder="Example: 1200">
+          <span class="input-hint">Use only direct financial loss you can explain, such as temporary benefit loss or job-search costs.</span>
+        </label>
+        <div><button type="submit">Estimate compensation shape</button></div>
+      </form>
+
+      <div id="unfairDismissalResult" class="result-box" hidden></div>
+      <div class="policy-box"><strong>Important:</strong><p class="muted">This page does not decide whether a dismissal was legally unfair. It helps you sense-check the likely size and structure of a compensation claim if unfair dismissal is already the right route.</p></div>
+      <div class="quick-actions">
+        <strong>Before relying on the estimate</strong>
+        <ul class="list-clean action-checklist compact-checklist">
+          <li>Check whether the issue is really unfair dismissal, automatic unfair dismissal, discrimination, whistleblowing, redundancy, settlement, or final pay.</li>
+          <li>Keep dismissal letters, payslips, grievance or appeal documents, and evidence of job-search efforts.</li>
+          <li>Do not miss the tribunal time limit while you are trying to perfect the figures.</li>
+          <li>Use Acas early conciliation quickly if you may need a claim.</li>
+        </ul>
+      </div>
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 29 March 2026. Built around Acas, GOV.UK, the Employment Rights Act framework, and the 2026 increase-of-limits order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>What this estimate assumes</h3>
+      <ul class="list-clean">
+        <li>The basic-award framework uses age bands, capped service and a capped week's pay.</li>
+        <li>The compensatory framework uses lost earnings and a cap based on the lower of the statutory limit and 52 weeks' gross pay.</li>
+        <li>It does not include reductions for mitigation, contributory fault or the chance the dismissal would still have happened.</li>
+        <li>It does not prove that an ordinary unfair-dismissal claim qualifies.</li>
+      </ul>
+    </div>
+    <div class="page-meta">
+      <h3>When to use a different page</h3>
+      <ul class="list-clean">
+        <li>Use <a href="/tools/redundancy-pay-calculator/">Redundancy Pay Calculator</a> if the key question is statutory redundancy pay.</li>
+        <li>Use <a href="/tools/settlement-agreement-tax-checker/">Settlement Agreement Tax Checker</a> if the package is an agreed exit offer and you need a tax split.</li>
+        <li>Use <a href="/help/final-pay-and-leaving-a-job/">Final Pay and Leaving a Job</a> if the question is really about wages, notice, holiday or deductions.</li>
+        <li>Use <a href="/compare/redundancy-vs-settlement-vs-final-pay/">the compare page</a> if you are not yet sure what type of route fits.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="grid grid-2">
+    <div class="grid grid-3">
       <div class="panel">
-        <h2>What this page should include</h2>
-        <ul class="list-clean">
-          <li>Final calculation or checker logic</li>
-          <li>Eligibility criteria and exclusions</li>
-          <li>Official source links</li>
-          <li>Worked examples</li>
-          <li>Related guides and FAQs</li>
-        </ul>
+        <span class="kicker">Basic award</span>
+        <h2>Think of this as the redundancy-style core amount</h2>
+        <p class="muted">The basic award uses an age-and-service formula with a capped week's pay. It is often familiar because it is built on the same broad structure as statutory redundancy calculations.</p>
       </div>
       <div class="panel">
-        <h2>Next step</h2>
-        <p class="muted">Replace this stub with your full static tool page and link it to one or more guides.</p>
+        <span class="kicker">Compensatory award</span>
+        <h2>This is usually where the bigger number sits</h2>
+        <p class="muted">The compensatory side is about financial loss caused by the dismissal, often centred on lost earnings. The cap matters, and actual loss still needs evidence.</p>
+      </div>
+      <div class="panel">
+        <span class="kicker">What changes outcomes</span>
+        <h2>The number can move sharply in either direction</h2>
+        <p class="muted">Awards can go down because someone found work quickly, failed to mitigate loss, or contributed to the dismissal. In some cases they can also be adjusted because of failures around the Acas Code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>Acas: Unfair dismissal</strong>
+          <p class="muted">Used for qualification guidance, automatic-unfair context and the standard tribunal time-limit warning.</p>
+          <p><a href="https://www.acas.org.uk/dismissals/unfair-dismissal">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Acas: Early conciliation and tribunal time limits</strong>
+          <p class="muted">Used for the "3 months minus 1 day" warning and early-conciliation route.</p>
+          <p><a href="https://www.acas.org.uk/early-conciliation/how-early-conciliation-works">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Legislation.gov.uk: Employment Rights Act 1996, section 124</strong>
+          <p class="muted">Used for the unfair-dismissal compensatory-award framework and cap structure.</p>
+          <p><a href="https://www.legislation.gov.uk/ukpga/1996/18/section/124">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Legislation.gov.uk: The Employment Rights (Increase of Limits) Order 2026</strong>
+          <p class="muted">Used for the updated unfair-dismissal compensation cap and capped week's pay from 6 April 2026.</p>
+          <p><a href="https://www.legislation.gov.uk/uksi/2026/310/made">Open official source</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -76,11 +192,15 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 WorkRightsTools</p>
-      <p class="site-note">Educational information only. Not legal, HR, payroll, or tax advice.</p>
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">General information only. It is not legal, tax, payroll or personalised HR advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a figure or explanation:</strong>
+        <span class="site-note"> check the official source links on the page and get specialist advice if the facts are disputed, the sums are significant, or a deadline could matter.</span>
+      </div>
     </div>
   </footer>
 
   <script src="/assets/js/base.js"></script>
 </body>
-</html>\n
+</html>
