@@ -1,0 +1,102 @@
+WorkRightsUK static verification
+================================
+Pages checked: 32
+Pages with issues: 0
+Missing from sitemap: 0
+
+[PASS] 404.html
+  title: Page not found | WorkRightsUK
+  description length: 116
+[PASS] about/how-workrightsuk-builds-pages/index.html
+  title: How WorkRightsUK checks pages | Checked dates, official sources and scope
+  description length: 157
+[PASS] about/index.html
+  title: About WorkRightsUK | What the site helps you check
+  description length: 142
+[PASS] compare/index.html
+  title: Employment Rights Comparison Pages UK | Fast route choosers for mixed problems | WorkRightsUK
+  description length: 159
+[PASS] compare/maternity-vs-paternity-vs-shared-parental/index.html
+  title: Maternity vs Paternity vs Shared Parental Leave UK | Which Family Rights Route Fits? | WorkRightsUK
+  description length: 138
+[PASS] compare/paternity-vs-maternity-vs-shared-parental/index.html
+  title: Paternity vs Maternity vs Shared Parental Leave UK | Which Family Rights Route Fits? | WorkRightsUK
+  description length: 138
+[PASS] compare/redundancy-vs-settlement-vs-final-pay/index.html
+  title: Redundancy, settlement, final pay or unfair dismissal? | Fast first route for mixed leaving-work issues | WorkRightsUK
+  description length: 230
+[PASS] contact/index.html
+  title: Contact WorkRightsUK | Feedback, corrections and page suggestions
+  description length: 123
+[PASS] guides/holiday-entitlement-rules-guide/index.html
+  title: Holiday Entitlement Rules Guide | WorkRightsUK
+  description length: 112
+[PASS] guides/index.html
+  title: Employment Rights Guides UK | Redundancy, Notice, Holiday, Maternity, Paternity & Settlement Help | WorkRightsUK
+  description length: 129
+[PASS] guides/maternity-pay-and-leave-guide/index.html
+  title: Maternity Pay and Leave Guide | WorkRightsUK
+  description length: 122
+[PASS] guides/maternity-rights-guide/index.html
+  title: Maternity Rights Guide UK (2026) | Leave, Pay, Notice and What to Check | WorkRightsUK
+  description length: 136
+[PASS] guides/notice-period-rules-guide/index.html
+  title: Notice Period Rules Guide | WorkRightsUK
+  description length: 108
+[PASS] guides/paternity-pay-and-leave-guide/index.html
+  title: Paternity Pay and Leave Guide | WorkRightsUK
+  description length: 99
+[PASS] guides/paternity-rights-guide/index.html
+  title: Paternity Rights Guide UK (2026) | Leave, Pay, Eligibility and What to Check | WorkRightsUK
+  description length: 140
+[PASS] guides/settlement-agreement-guide/index.html
+  title: Settlement Agreement Guide UK | What to Check Before You Sign | WorkRightsUK
+  description length: 141
+[PASS] guides/statutory-redundancy-pay-guide/index.html
+  title: Statutory Redundancy Pay Guide | WorkRightsUK
+  description length: 94
+[PASS] help/final-pay-and-leaving-a-job/index.html
+  title: Final Pay and Last Payslip Checks UK | What to check first in a mixed leaving package | WorkRightsUK
+  description length: 203
+[PASS] help/index.html
+  title: Employment Rights Help UK | Next Steps for Final Pay, Redundancy, Settlement and Family Rights | WorkRightsUK
+  description length: 123
+[PASS] help/what-to-check-before-relying-on-a-settlement-package-figure/index.html
+  title: What to Check Before Relying on a Settlement Package Figure | WorkRightsUK
+  description length: 104
+[PASS] help/what-to-do-next-after-a-redundancy-offer/index.html
+  title: What to do next after a redundancy offer | WorkRightsUK
+  description length: 149
+[PASS] help/what-to-do-next-if-you-may-not-qualify-for-smp-or-spp/index.html
+  title: What to do next if you may not qualify for SMP or SPP | WorkRightsUK
+  description length: 146
+[PASS] index.html
+  title: WorkRightsUK | Redundancy, final pay, notice, holiday and settlement checks
+  description length: 161
+[PASS] sources/index.html
+  title: Official employment-rights sources used by WorkRightsUK
+  description length: 87
+[PASS] tools/holiday-entitlement-calculator/index.html
+  title: Holiday Entitlement Calculator UK | Choose standard, starter or leaver route | WorkRightsUK
+  description length: 186
+[PASS] tools/index.html
+  title: Employment Rights Calculators UK | Choose the Right First Calculator | WorkRightsUK
+  description length: 149
+[PASS] tools/notice-period-calculator/index.html
+  title: Notice Period Calculator UK | Statutory notice, contract notice and end date | WorkRightsUK
+  description length: 146
+[PASS] tools/redundancy-pay-calculator/index.html
+  title: Redundancy Pay Calculator UK (2026) | Statutory minimum, enhanced-offer check and next steps | WorkRightsUK
+  description length: 214
+[PASS] tools/settlement-agreement-tax-checker/index.html
+  title: Settlement Agreement Tax Checker UK | Check headline total vs likely take-home | WorkRightsUK
+  description length: 165
+[PASS] tools/statutory-maternity-pay-calculator/index.html
+  title: Statutory Maternity Pay Calculator UK | 2026/27 SMP Estimate & Next Steps | WorkRightsUK
+  description length: 135
+[PASS] tools/statutory-paternity-pay-calculator/index.html
+  title: Statutory Paternity Pay Calculator UK | 2026/27 SPP Estimate & Next Steps | WorkRightsUK
+  description length: 128
+[PASS] tools/unfair-dismissal-compensation-estimator/index.html
+  title: Unfair Dismissal Compensation Estimator UK (2026) | Document-first guide, award check and time limit | WorkRightsUK
+  description length: 186

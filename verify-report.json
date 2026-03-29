@@ -1,0 +1,335 @@
+{
+  "summary": {
+    "pages_checked": 32,
+    "pages_with_issues": 0,
+    "missing_from_sitemap": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0
+  },
+  "results": [
+    {
+      "path": "404.html",
+      "title": "Page not found | WorkRightsUK",
+      "title_length": 29,
+      "description": "The page you were looking for could not be found. Use the main tools, guides and compare pages to get back on track.",
+      "description_length": 116,
+      "robots": "noindex,follow,max-image-preview:large",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/404.html"
+    },
+    {
+      "path": "about/how-workrightsuk-builds-pages/index.html",
+      "title": "How WorkRightsUK checks pages | Checked dates, official sources and scope",
+      "title_length": 73,
+      "description": "Understand what checked dates mean on WorkRightsUK, which official sources are linked on core pages, and when it makes sense to recheck GOV.UK, Acas or HMRC.",
+      "description_length": 157,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/about/how-workrightsuk-builds-pages/"
+    },
+    {
+      "path": "about/index.html",
+      "title": "About WorkRightsUK | What the site helps you check",
+      "title_length": 50,
+      "description": "Learn what WorkRightsUK covers, which pages help with common employment-rights questions, and where to open the official source behind a page.",
+      "description_length": 142,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/about/"
+    },
+    {
+      "path": "compare/index.html",
+      "title": "Employment Rights Comparison Pages UK | Fast route choosers for mixed problems | WorkRightsUK",
+      "title_length": 93,
+      "description": "Use WorkRightsUK comparison pages to choose the fastest first page when redundancy, final pay, settlement, unfair dismissal or family-rights questions overlap.",
+      "description_length": 159,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/compare/"
+    },
+    {
+      "path": "compare/maternity-vs-paternity-vs-shared-parental/index.html",
+      "title": "Maternity vs Paternity vs Shared Parental Leave UK | Which Family Rights Route Fits? | WorkRightsUK",
+      "title_length": 99,
+      "description": "Use this family-rights comparison page to work out whether maternity, paternity or shared parental leave is the best route to check first.",
+      "description_length": 138,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/compare/maternity-vs-paternity-vs-shared-parental/"
+    },
+    {
+      "path": "compare/paternity-vs-maternity-vs-shared-parental/index.html",
+      "title": "Paternity vs Maternity vs Shared Parental Leave UK | Which Family Rights Route Fits? | WorkRightsUK",
+      "title_length": 99,
+      "description": "Use this family-rights comparison page to work out whether paternity, maternity or shared parental leave is the best route to check first.",
+      "description_length": 138,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/compare/paternity-vs-maternity-vs-shared-parental/"
+    },
+    {
+      "path": "compare/redundancy-vs-settlement-vs-final-pay/index.html",
+      "title": "Redundancy, settlement, final pay or unfair dismissal? | Fast first route for mixed leaving-work issues | WorkRightsUK",
+      "title_length": 118,
+      "description": "Use this UK compare page to choose the fastest first route when redundancy, final pay, settlement, notice, holiday or unfair dismissal issues overlap, especially if one payslip, letter or total is mixing several problems together.",
+      "description_length": 230,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/compare/redundancy-vs-settlement-vs-final-pay/"
+    },
+    {
+      "path": "contact/index.html",
+      "title": "Contact WorkRightsUK | Feedback, corrections and page suggestions",
+      "title_length": 65,
+      "description": "Contact WorkRightsUK to flag a correction, suggest a clearer route, or send feedback on calculators, guides and help pages.",
+      "description_length": 123,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/contact/"
+    },
+    {
+      "path": "guides/holiday-entitlement-rules-guide/index.html",
+      "title": "Holiday Entitlement Rules Guide | WorkRightsUK",
+      "title_length": 46,
+      "description": "Short practical guide to statutory holiday entitlement, regular patterns, and unused holiday when leaving a job.",
+      "description_length": 112,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/holiday-entitlement-rules-guide/"
+    },
+    {
+      "path": "guides/index.html",
+      "title": "Employment Rights Guides UK | Redundancy, Notice, Holiday, Maternity, Paternity & Settlement Help | WorkRightsUK",
+      "title_length": 112,
+      "description": "Browse practical UK employment rights guides covering redundancy, notice, holiday, maternity, paternity and settlement questions.",
+      "description_length": 129,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/"
+    },
+    {
+      "path": "guides/maternity-pay-and-leave-guide/index.html",
+      "title": "Maternity Pay and Leave Guide | WorkRightsUK",
+      "title_length": 44,
+      "description": "Short practical guide to Statutory Maternity Pay, maternity leave, the qualifying week, and the Maternity Allowance route.",
+      "description_length": 122,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/maternity-pay-and-leave-guide/"
+    },
+    {
+      "path": "guides/maternity-rights-guide/index.html",
+      "title": "Maternity Rights Guide UK (2026) | Leave, Pay, Notice and What to Check | WorkRightsUK",
+      "title_length": 86,
+      "description": "Plain-English guide to maternity leave, Statutory Maternity Pay, notice, holiday accrual and the main checks to make with your employer.",
+      "description_length": 136,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/maternity-rights-guide/"
+    },
+    {
+      "path": "guides/notice-period-rules-guide/index.html",
+      "title": "Notice Period Rules Guide | WorkRightsUK",
+      "title_length": 40,
+      "description": "Short practical guide to statutory notice periods, contractual notice, and redundancy-related notice points.",
+      "description_length": 108,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/notice-period-rules-guide/"
+    },
+    {
+      "path": "guides/paternity-pay-and-leave-guide/index.html",
+      "title": "Paternity Pay and Leave Guide | WorkRightsUK",
+      "title_length": 44,
+      "description": "Short practical guide to statutory paternity leave, pay, notice, and the 2026 day-one leave change.",
+      "description_length": 99,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/paternity-pay-and-leave-guide/"
+    },
+    {
+      "path": "guides/paternity-rights-guide/index.html",
+      "title": "Paternity Rights Guide UK (2026) | Leave, Pay, Eligibility and What to Check | WorkRightsUK",
+      "title_length": 91,
+      "description": "Plain-English guide to paternity leave and pay, including the 2026 day-one leave change, notice basics and what to check with your employer.",
+      "description_length": 140,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/paternity-rights-guide/"
+    },
+    {
+      "path": "guides/settlement-agreement-guide/index.html",
+      "title": "Settlement Agreement Guide UK | What to Check Before You Sign | WorkRightsUK",
+      "title_length": 76,
+      "description": "Plain-English guide to what a settlement agreement is, what makes it valid, and what to check before you sign or rely on the headline figure.",
+      "description_length": 141,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/settlement-agreement-guide/"
+    },
+    {
+      "path": "guides/statutory-redundancy-pay-guide/index.html",
+      "title": "Statutory Redundancy Pay Guide | WorkRightsUK",
+      "title_length": 45,
+      "description": "Practical guide to statutory redundancy pay, qualification, caps, and the core GOV.UK formula.",
+      "description_length": 94,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/guides/statutory-redundancy-pay-guide/"
+    },
+    {
+      "path": "help/final-pay-and-leaving-a-job/index.html",
+      "title": "Final Pay and Last Payslip Checks UK | What to check first in a mixed leaving package | WorkRightsUK",
+      "title_length": 100,
+      "description": "Use this page first when the last payslip or leaving payment is the immediate problem. Split notice, holiday, PILON, redundancy, settlement and deductions into clear lines before you challenge the total.",
+      "description_length": 203,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/help/final-pay-and-leaving-a-job/"
+    },
+    {
+      "path": "help/index.html",
+      "title": "Employment Rights Help UK | Next Steps for Final Pay, Redundancy, Settlement and Family Rights | WorkRightsUK",
+      "title_length": 109,
+      "description": "Practical UK employment rights help pages for final pay, redundancy next steps, settlement checks and family-rights routes.",
+      "description_length": 123,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/help/"
+    },
+    {
+      "path": "help/what-to-check-before-relying-on-a-settlement-package-figure/index.html",
+      "title": "What to Check Before Relying on a Settlement Package Figure | WorkRightsUK",
+      "title_length": 74,
+      "description": "Practical next-step page for checking what sits inside a settlement-package figure before relying on it.",
+      "description_length": 104,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/help/what-to-check-before-relying-on-a-settlement-package-figure/"
+    },
+    {
+      "path": "help/what-to-do-next-after-a-redundancy-offer/index.html",
+      "title": "What to do next after a redundancy offer | WorkRightsUK",
+      "title_length": 55,
+      "description": "Practical next-step page for people who need to check consultation, notice, redundancy pay, final pay, or settlement routes after a redundancy offer.",
+      "description_length": 149,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/help/what-to-do-next-after-a-redundancy-offer/"
+    },
+    {
+      "path": "help/what-to-do-next-if-you-may-not-qualify-for-smp-or-spp/index.html",
+      "title": "What to do next if you may not qualify for SMP or SPP | WorkRightsUK",
+      "title_length": 68,
+      "description": "Practical next-step page for users who may not qualify for Statutory Maternity Pay or Statutory Paternity Pay and need to know what to check next.",
+      "description_length": 146,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/help/what-to-do-next-if-you-may-not-qualify-for-smp-or-spp/"
+    },
+    {
+      "path": "index.html",
+      "title": "WorkRightsUK | Redundancy, final pay, notice, holiday and settlement checks",
+      "title_length": 75,
+      "description": "Check redundancy pay, final pay, notice, holiday entitlement and settlement tax treatment with focused UK calculators, triage pages and practical next-step help.",
+      "description_length": 161,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/"
+    },
+    {
+      "path": "sources/index.html",
+      "title": "Official employment-rights sources used by WorkRightsUK",
+      "title_length": 55,
+      "description": "Open the main GOV.UK, Acas, HMRC and related official sources used across WorkRightsUK.",
+      "description_length": 87,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/sources/"
+    },
+    {
+      "path": "tools/holiday-entitlement-calculator/index.html",
+      "title": "Holiday Entitlement Calculator UK | Choose standard, starter or leaver route | WorkRightsUK",
+      "title_length": 91,
+      "description": "Check UK holiday entitlement for regular working patterns, choose the right route for standard, starter or leaver checks, and switch to GOV.UK when the pattern is irregular or part-year.",
+      "description_length": 186,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/"
+    },
+    {
+      "path": "tools/index.html",
+      "title": "Employment Rights Calculators UK | Choose the Right First Calculator | WorkRightsUK",
+      "title_length": 83,
+      "description": "Choose the right first UK employment rights calculator for redundancy, notice, holiday, settlement, unfair dismissal, maternity pay or paternity pay.",
+      "description_length": 149,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/"
+    },
+    {
+      "path": "tools/notice-period-calculator/index.html",
+      "title": "Notice Period Calculator UK | Statutory notice, contract notice and end date | WorkRightsUK",
+      "title_length": 91,
+      "description": "Check statutory minimum notice, compare it with any longer contractual notice, and estimate the likely end date for a UK employment notice period.",
+      "description_length": 146,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/notice-period-calculator/"
+    },
+    {
+      "path": "tools/redundancy-pay-calculator/index.html",
+      "title": "Redundancy Pay Calculator UK (2026) | Statutory minimum, enhanced-offer check and next steps | WorkRightsUK",
+      "title_length": 107,
+      "description": "Calculate the statutory redundancy minimum using current 2026 caps, then test a real employer offer by splitting redundancy from notice, holiday, wages and any extra payment before you judge whether it is enhanced.",
+      "description_length": 214,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/redundancy-pay-calculator/"
+    },
+    {
+      "path": "tools/settlement-agreement-tax-checker/index.html",
+      "title": "Settlement Agreement Tax Checker UK | Check headline total vs likely take-home | WorkRightsUK",
+      "title_length": 93,
+      "description": "Check a UK settlement package against likely payroll-style pay, compensation-style sums and headline-total versus likely take-home risk before you rely on the offer.",
+      "description_length": 165,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/settlement-agreement-tax-checker/"
+    },
+    {
+      "path": "tools/statutory-maternity-pay-calculator/index.html",
+      "title": "Statutory Maternity Pay Calculator UK | 2026/27 SMP Estimate & Next Steps | WorkRightsUK",
+      "title_length": 88,
+      "description": "Estimate Statutory Maternity Pay using current UK rules, then see what to check next if SMP may not fit or is only part of the picture.",
+      "description_length": 135,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/statutory-maternity-pay-calculator/"
+    },
+    {
+      "path": "tools/statutory-paternity-pay-calculator/index.html",
+      "title": "Statutory Paternity Pay Calculator UK | 2026/27 SPP Estimate & Next Steps | WorkRightsUK",
+      "title_length": 88,
+      "description": "Estimate Statutory Paternity Pay using current UK rules, then check the next route if paternity pay is only part of the picture.",
+      "description_length": 128,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/statutory-paternity-pay-calculator/"
+    },
+    {
+      "path": "tools/unfair-dismissal-compensation-estimator/index.html",
+      "title": "Unfair Dismissal Compensation Estimator UK (2026) | Document-first guide, award check and time limit | WorkRightsUK",
+      "title_length": 115,
+      "description": "Use this unfair dismissal estimator when the dismissal letter or appeal outcome is the real problem. Get a first-pass award guide, a usual time-limit prompt and clearer next-step routes.",
+      "description_length": 186,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/"
+    }
+  ],
+  "missing_from_sitemap": [],
+  "sitemap_issues": [],
+  "duplicate_titles": {},
+  "duplicate_descriptions": {}
+}

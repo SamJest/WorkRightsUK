@@ -3,7 +3,7 @@
   "pages": {
     "tools/redundancy-pay-calculator": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-78"
+      "review_status": "redundancy-journey-4-batch-82"
     },
     "tools/notice-period-calculator": {
       "reviewed_date": "2026-03-29",
@@ -27,7 +27,7 @@
     },
     "help/final-pay-and-leaving-a-job": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-78"
+      "review_status": "unfair-dismissal-maturity-batch-87"
     },
     "sources/index": {
       "reviewed_date": "2026-03-29",
@@ -35,7 +35,7 @@
     },
     "tools/settlement-agreement-tax-checker": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-78"
+      "review_status": "settlement-take-home-2-batch-84"
     },
     "contact/index": {
       "reviewed_date": "2026-03-28",
@@ -43,7 +43,7 @@
     },
     "compare/redundancy-vs-settlement-vs-final-pay": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-78"
+      "review_status": "unfair-dismissal-maturity-batch-87"
     },
     "tools/statutory-paternity-pay-calculator": {
       "reviewed_date": "2026-03-29",
@@ -91,7 +91,7 @@
     },
     "tools/index": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-68"
+      "review_status": "unfair-dismissal-maturity-batch-87"
     },
     "guides/index": {
       "reviewed_date": "2026-03-29",
@@ -103,11 +103,11 @@
     },
     "compare/index": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-68"
+      "review_status": "compare-triage-2-batch-86"
     },
     "tools/unfair-dismissal-compensation-estimator": {
       "reviewed_date": "2026-03-29",
-      "review_status": "verification-pass-batch-78"
+      "review_status": "unfair-dismissal-maturity-batch-87"
     },
     "about": {
       "reviewed_date": "2026-03-29",
@@ -126,5 +126,5 @@
       "review_status": "verification-pass-batch-78"
     }
   },
-  "deployment_checkpoint": "batch-68-working-build"
+  "deployment_checkpoint": "batch-87-working-build"
 }

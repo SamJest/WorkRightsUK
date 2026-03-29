@@ -15,6 +15,13 @@ function scrollElementIntoViewWithOffset(element) {
   });
 }
 
+function syncHeaderOffsetVariable() {
+  if (typeof document === 'undefined') return;
+  const root = document.documentElement;
+  const offset = getHeaderOffset();
+  root.style.setProperty('--header-offset', offset + 'px');
+}
+
 function revealResult(result) {
   if (!result) return;
   result.hidden = false;
@@ -37,10 +44,49 @@ function revealResult(result) {
     window.setTimeout(function () {
       scrollElementIntoViewWithOffset(result);
     }, 180);
+    window.setTimeout(function () {
+      scrollElementIntoViewWithOffset(result);
+    }, 420);
   };
 
   if (typeof window !== 'undefined') {
+    let resizeTimer = null;
+    const onResize = function () {
+      if (resizeTimer) {
+        window.clearTimeout(resizeTimer);
+      }
+      resizeTimer = window.setTimeout(function () {
+        scrollElementIntoViewWithOffset(result);
+      }, 90);
+    };
+
     window.requestAnimationFrame(scrollToResult);
+    window.addEventListener('resize', onResize, { once: true });
+  }
+}
+
+function getSamePageHash(href) {
+  if (!href || typeof window === 'undefined') return '';
+  if (href.charAt(0) === '#') return href;
+
+  try {
+    const url = new URL(href, window.location.href);
+    if (url.origin === window.location.origin && url.pathname === window.location.pathname && url.hash) {
+      return url.hash;
+    }
+  } catch (error) {
+    return '';
+  }
+
+  return '';
+}
+
+function openAncestorDetails(target) {
+  if (!target || typeof target.closest !== 'function') return;
+  let details = target.closest('details');
+  while (details) {
+    details.open = true;
+    details = details.parentElement ? details.parentElement.closest('details') : null;
   }
 }
 
@@ -51,20 +97,23 @@ function initialiseSamePageAnchorScroll() {
     if (!hash || hash === '#') return;
     const target = document.querySelector(hash);
     if (!target) return;
+    openAncestorDetails(target);
     window.requestAnimationFrame(function () {
       scrollElementIntoViewWithOffset(target);
     });
   };
 
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  document.querySelectorAll('a[href*="#"]').forEach(function (link) {
     link.addEventListener('click', function (event) {
       const href = link.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
+      const hash = getSamePageHash(href);
+      if (!hash || hash === '#') return;
+      const target = document.querySelector(hash);
       if (!target) return;
       event.preventDefault();
-      if (window.location.hash !== href) {
-        history.replaceState(null, '', href);
+      openAncestorDetails(target);
+      if (window.location.hash !== hash) {
+        history.replaceState(null, '', hash);
       }
       scrollElementIntoViewWithOffset(target);
       if (typeof target.focus === 'function' && !target.hasAttribute('tabindex')) {
@@ -82,6 +131,24 @@ function initialiseSamePageAnchorScroll() {
   });
 }
 
+
+function initialiseDetailsToggleAssist() {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return;
+
+  document.querySelectorAll('details').forEach(function (detail) {
+    detail.addEventListener('toggle', function () {
+      if (!detail.open) return;
+      const summary = detail.querySelector('summary');
+      if (!summary) return;
+      window.requestAnimationFrame(function () {
+        const top = summary.getBoundingClientRect().top;
+        if (top < getHeaderOffset() + 8) {
+          scrollElementIntoViewWithOffset(detail);
+        }
+      });
+    });
+  });
+}
 
 function formatMoney(value) {
   return new Intl.NumberFormat('en-GB', {
@@ -113,7 +180,13 @@ function addMonthsMinusDays(date, monthsToAdd, daysToSubtract) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  syncHeaderOffsetVariable();
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', syncHeaderOffsetVariable);
+    window.addEventListener('orientationchange', syncHeaderOffsetVariable);
+  }
   initialiseSamePageAnchorScroll();
+  initialiseDetailsToggleAssist();
   const redundancyForm = document.querySelector('[data-tool="redundancy-pay"]');
   if (redundancyForm) {
     redundancyForm.addEventListener('submit', function (e) {
@@ -185,6 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<ol class="list-clean action-checklist">' +
         '<li>Get a written breakdown that separates redundancy pay, notice, holiday, wages and any other sums.</li>' +
         '<li>Compare the redundancy line with this statutory floor before judging the whole package.</li>' +
+        '<li>Check whether the employer is calling any line ex gratia, leaving payment or just one total without saying what sits inside it.</li>' +
         '<li>Check your contract, handbook or redundancy policy for any enhanced terms above the statutory minimum.</li>' +
         '<li>Use the notice, final-pay and compare routes if the employer has quoted one combined leaving-work figure.</li>' +
         '<li>Do not sit on an unpaid statutory shortfall if the dates suggest the minimum may have been missed.</li>' +
@@ -196,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<li>Notice pay or pay in lieu of notice.</li>' +
         '<li>Holiday owed, wages, bonus or commission.</li>' +
         '<li>Any extra severance or settlement-style payment.</li>' +
+        '<li>Any vague label such as ex gratia, leaving payment or one combined total.</li>' +
         '</ul>';
 
       const routeLinks =
@@ -293,8 +368,8 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="result-card"><h3>What this means</h3><p class="muted">' + noticeMeaning + '</p></div>' +
         '<div class="result-card"><h3>What this includes</h3><ul><li>A simple statutory minimum notice check.</li><li>A comparison with any longer contract notice you entered.</li><li>A guide end date if you added a start date.</li></ul></div>' +
         '<div class="result-card"><h3>What this does not include</h3><ul><li>Whether notice will be worked normally or paid in lieu.</li><li>Holiday owed during notice.</li><li>Every dismissal, misconduct, garden-leave or contract dispute issue.</li></ul></div>' +
-        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask whether notice will be worked, paid in lieu, or affected by garden leave.</li><li>Check the final payslip for holiday owed, wages and any deductions.</li><li>If the whole leaving package is mixed together, move into the final-pay page before judging the total.</li><li>Check the contract wording if the employer is using a longer notice period.</li></ul></div>' +
-        '<div class="result-card"><h3>Best next page if the payslip is mixed</h3><p class="muted">Notice is often only one part of the package. Use the final-pay page first if notice sits alongside holiday, wages, deductions, redundancy or settlement wording in the same leaving payment.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p></div>' +
+        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask whether notice will be worked, paid in lieu, or affected by garden leave.</li><li>Check the final payslip for holiday owed, wages and any deductions.</li><li>If the whole leaving package is mixed together, move into the final-pay page before judging the total or arguing about the headline figure.</li><li>Check the contract wording if the employer is using a longer notice period.</li></ul></div>' +
+        '<div class="result-card"><h3>Best next page if the payslip is mixed</h3><p class="muted">Notice is often only one part of the package. Use the final-pay page first if notice sits alongside holiday, wages, deductions, redundancy or settlement wording in the same leaving payment or final payslip.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p></div>' +
         '<div class="result-card"><h3>Likely end date</h3>' + endDateCard + '</div>' +
         '</div>' +
         '<div class="site-note">This page is aimed at notice you are entitled to receive. Complex dismissal, misconduct, garden leave, or PILON terms can change what happens in practice.</div>' +
@@ -452,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function () {
         explanation = remaining >= 0
           ? 'This suggests there may still be accrued statutory holiday left to account for in final pay.'
           : 'This suggests more holiday may have been taken than this simple estimate covers, so the final-pay position needs checking carefully.';
-        actionIntro = 'Check the leaving date, holiday already taken, and whether the final payslip includes any untaken statutory holiday that still had to be paid. If holiday is only one line inside a bigger leaving package, use the final-pay page before judging the whole total.';
+        actionIntro = 'Check the leaving date, holiday already taken, and whether the final payslip includes any untaken statutory holiday that still had to be paid. If holiday is only one line inside a bigger leaving package, use the final-pay page before judging the whole total or arguing about the wider package.';
         nextSteps = [
           'Check the final payslip for separate lines covering holiday, notice, wages and any deductions.',
           'Check whether the employer uses a different leave year, carry-over rule or bank-holiday treatment.',
@@ -665,8 +740,8 @@ document.addEventListener('DOMContentLoaded', function () {
         : 'On the service entered, the usual service rule for ordinary unfair dismissal may be the main warning point. Automatic-unfair and some other routes can work differently.';
 
       let qualificationNextStep = ordinaryQualificationMet
-        ? 'Focus next on the fairness of the dismissal process, the stated reason, the appeal trail and the evidence of financial loss.'
-        : 'Check urgently whether the facts point to automatic unfair dismissal, discrimination, whistleblowing or another route with different qualification rules.';
+        ? 'Focus next on the dismissal reason, the process followed, the appeal trail and the evidence of financial loss.'
+        : 'Check urgently whether the facts point to automatic unfair dismissal, discrimination, whistleblowing or another route with different qualification rules before you rely on the ordinary unfair-dismissal path.';
 
       let dateBandText = dismissalDate
         ? (use2026Limits ? 'Dismissal date entered is in the from-6-April-2026 limits band.' : 'Dismissal date entered is in the pre-6-April-2026 limits band.')
@@ -701,12 +776,12 @@ document.addEventListener('DOMContentLoaded', function () {
         '</ul>' +
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this means</h3><p class="muted">This is a first-pass unfair-dismissal framework, not a tribunal prediction. The compensatory side is often the bigger moving part because it depends on real financial loss and evidence.</p></div>' +
-        '<div class="result-card"><h3>Qualification guide</h3><p class="muted">' + qualificationText + '</p><p class="muted">' + qualificationNextStep + '</p></div>' +
+        '<div class="result-card"><h3>Qualification guide</h3><p class="muted">' + qualificationText + '</p><p class="muted">' + qualificationNextStep + '</p><p class="muted">Treat this as a route check first, not as proof that the dismissal was legally fair or unfair.</p></div>' +
         '<div class="result-card"><h3>What is included</h3><ul><li>A basic-award framework using age, service and a capped week\'s pay.</li><li>A compensatory-loss framework using lost earnings and direct loss.</li><li>The current cap structure for the date band used.</li></ul></div>' +
         '<div class="result-card"><h3>What is not included</h3><ul><li>Any uplift or reduction for Acas Code issues.</li><li>Reductions for contributory conduct, failure to mitigate, or the chance the dismissal would still have happened.</li><li>Discrimination, whistleblowing or injury-to-feelings awards.</li></ul></div>' +
-        '<div class="result-card"><h3>What to do next, in order</h3><ol><li>Check the route first: ordinary unfair dismissal, automatic unfair dismissal, discrimination, redundancy, settlement or final pay.</li><li>Keep the dismissal letter, appeal documents, notes of meetings, policy documents and evidence of job-search efforts together.</li><li>Check whether the loss figure still looks realistic after replacement earnings and other income.</li><li>Start the Acas early-conciliation process quickly if you may need a claim.</li></ol></div>' +
+        '<div class="result-card"><h3>What to do next, in order</h3><ol><li>Start with the dismissal letter, appeal outcome or process paperwork and decide whether the real dispute is the dismissal itself.</li><li>Keep the dismissal letter, appeal documents, notes of meetings, policy documents and evidence of job-search efforts together.</li><li>Check whether the loss figure still looks realistic after replacement earnings and other income.</li><li>Start the Acas early-conciliation process quickly if you may need a claim.</li></ol></div>' +
         '<div class="result-card"><h3>Usual time-limit guide</h3>' + timeLimitCard + '</div>' +
-        '<div class="result-card"><h3>Best next page</h3><p class="muted">Stay on unfair dismissal if the main document is the dismissal letter or appeal outcome and the real dispute is the fairness of the dismissal. Move to final pay first if the urgent problem is notice, holiday, wages or deductions on the payslip. Move to redundancy or settlement if the argument is really about those specific package lines.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay bridge page</a> · <a href="/compare/redundancy-vs-settlement-vs-final-pay/">Open compare page</a></p></div>' +
+        '<div class="result-card"><h3>Best next page</h3><p class="muted">Stay on unfair dismissal if the main document is the dismissal letter or appeal outcome and the real dispute is the fairness of the dismissal. Move to final pay first if the urgent problem is the payslip, notice, holiday, wages or deductions. Move to redundancy or settlement if the argument is really about those specific package lines or a written exit offer.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay bridge page</a> · <a href="/compare/redundancy-vs-settlement-vs-final-pay/">Open compare page</a></p></div>' +
         '</div>' +
         '<div class="site-note">Use this figure to organise the conversation and documents, not as a promise of what a tribunal or settlement will award.</div>' +
         '</div>';
@@ -743,19 +818,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      let packageMeaning = 'This package looks mixed. Check each label carefully before relying on the headline total.';
+      let packageMeaning = 'This package looks mixed. Split the lines before you rely on the headline total or compare the offer with another figure.';
       let routeTitle = 'Best next page';
       let routeHtml = '<p class="muted">If the package still feels unclear after this split, use the comparison page to work out whether redundancy, settlement, final pay or dismissal-fairness is the main issue first.</p><p><a href="/compare/redundancy-vs-settlement-vs-final-pay/">Open comparison page</a></p>' ;
 
       if (earningsTotal === 0 && qualifyingTermination > 0) {
-        packageMeaning = 'This package looks mainly compensation-based, so the written wording, the package labels and the combined £30,000 threshold are likely to matter most.';
+        packageMeaning = 'This package looks mainly compensation-based, so the written wording, the package labels and the combined £30,000 threshold are likely to matter most before you judge the offer.';
         routeHtml = '<p class="muted">Use the redundancy calculator next if the package is mainly statutory redundancy or a redundancy offer. Stay on the settlement route if the agreement is really about an agreed exit package and claim waiver.</p><p><a href="/tools/redundancy-pay-calculator/">Open redundancy calculator</a></p>';
       } else if (earningsTotal > 0 && qualifyingTermination === 0) {
-        packageMeaning = 'This package looks mainly earnings-based, so it is closer to a final-pay check than to a simple tax-free settlement question.';
-        routeHtml = '<p class="muted">Use the final-pay page next if the real issue is notice, PILON, holiday, wages or other payroll items rather than compensation.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
+        packageMeaning = 'This package looks mainly earnings-based, so it is closer to a final-pay check than to a simple tax-free settlement question about the whole headline number.';
+        routeHtml = '<p class="muted">Use the final-pay page next if the real issue is notice, PILON, holiday, wages or other payroll items rather than compensation. That is usually the fastest bridge when the offer still feels like one mixed total.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
       } else if (earningsTotal >= qualifyingTermination) {
-        packageMeaning = 'A large part of this package looks like normal taxable earnings, so the take-home figure may be much lower than the headline total shown in the offer.';
-        routeHtml = '<p class="muted">Use the final-pay page first, then come back to the settlement route once the payroll-style items have been separated from any compensation.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
+        packageMeaning = 'A large part of this package looks like normal taxable earnings, so the take-home figure may be much lower than the headline total shown in the offer once payroll deductions are applied.';
+        routeHtml = '<p class="muted">Use the final-pay page first, then come back to the settlement route once the payroll-style items have been separated from any compensation. Do not judge the headline total until that split is on paper.</p><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay page</a></p>';
       }
 
       const legalAdviceText = legalAdvicePaid
@@ -770,13 +845,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const takeHomeText = earningsTotal > 0
         ? 'At least ' + formatMoney(earningsTotal) + ' of the headline figure looks like payroll-style pay. If that chunk is large, the take-home figure can feel much lower than the headline total because those lines are usually the part that goes through payroll first.'
         : 'No payroll-style items were entered, so the headline figure is being driven by compensation-style amounts rather than notice, wages or holiday.';
+      const headlineRiskText = earningsTotal > 0
+        ? 'Read the headline total as a mixed number, not as likely take-home pay. The payroll-style chunk is usually the first place to look when the offer feels much lower in net terms than it looks on paper.'
+        : 'With no payroll-style items entered, the headline total is being driven by compensation-style lines rather than the usual payslip-style deductions.';
       const takeHomeSplitHtml = '<ul><li>Payroll-style share of the package: ' + payrollShare + '%</li><li>Compensation-style share of the package: ' + compensationShare + '%</li><li>Use this split to decide whether the real next step is final pay, redundancy or written-agreement checking.</li></ul>';
       const takeHomeRiskLabel = earningsTotal > 0
         ? 'Start by treating about ' + formatMoney(earningsTotal) + ' as the part most likely to reduce take-home pay through normal payroll deductions.'
         : 'This version of the package is being driven by compensation-style lines rather than payroll-style pay.';
 
       const writingChecksHtml = '<ol class="list-clean action-checklist"><li>Ask for a written breakdown that lists PILON, holiday pay, wages or bonus separately from compensation-style sums.</li><li>Check whether statutory redundancy pay and any extra severance are labelled clearly and not merged into one vague amount such as compensation or ex gratia.</li><li>Check whether the draft agreement says who is paying for independent legal advice, what limit applies and whether the labels match payroll treatment.</li><li>Check whether the same labels are likely to appear on the final payslip or payroll breakdown.</li></ol>';
-      const nextStepOrderHtml = '<ol class="list-clean action-checklist"><li>Separate the payroll-style lines first, because they are usually the part most likely to drag the take-home figure down.</li><li>Then check the compensation-style lines against redundancy wording, settlement wording and the combined £30,000 threshold.</li><li>If the package is still mixed or unclear, move to the final-pay bridge page before you judge the whole offer.</li><li>Only compare the headline figure once each line has a clear label.</li></ol>';
+      const nextStepOrderHtml = '<ol class="list-clean action-checklist"><li>Separate the payroll-style lines first, because they are usually the part most likely to drag the take-home figure down.</li><li>Then check the compensation-style lines against redundancy wording, settlement wording and the combined £30,000 threshold.</li><li>If the package is still mixed or unclear, move to the final-pay bridge page before you judge the whole offer or negotiate on the headline total.</li><li>Only compare the headline figure once each line has a clear label and you know which part is likely to reduce take-home pay.</li></ol>';
 
       result.innerHTML =
         '<div class="result-stack">' +
@@ -789,7 +867,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '</ul>' +
         '<div class="inline-note">' + thresholdText + '</div>' +
         '<div class="result-card-grid">' +
-        '<div class="result-card"><h3>Headline total versus take-home risk</h3><p class="muted">' + takeHomeText + '</p><p class="muted"><strong>' + takeHomeRiskLabel + '</strong></p>' + takeHomeSplitHtml + '</div>' +
+        '<div class="result-card"><h3>Headline total versus take-home risk</h3><p class="muted">' + takeHomeText + '</p><p class="muted">' + headlineRiskText + '</p><p class="muted"><strong>' + takeHomeRiskLabel + '</strong></p>' + takeHomeSplitHtml + '</div>' +
         '<div class="result-card"><h3>What this likely means</h3><p class="muted">' + packageMeaning + '</p></div>' +
         '<div class="result-card"><h3>What to do next, in order</h3>' + nextStepOrderHtml + '</div>' +
         '<div class="result-card"><h3>Payroll-style lines to separate first</h3><ul><li>PILON</li><li>Holiday pay</li><li>Unpaid wages</li><li>Bonus or commission already earned</li></ul></div>' +
@@ -797,6 +875,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="result-card"><h3>What this does not decide</h3><ul><li>Whether payroll has applied the tax correctly.</li><li>Whether the offer is fair overall.</li><li>Whether every clause in the agreement is acceptable.</li></ul></div>' +
         '<div class="result-card"><h3>What to verify in writing</h3>' + writingChecksHtml + '</div>' +
         '<div class="result-card"><h3>Independent advice check</h3><p class="muted">' + legalAdviceText + '</p></div>' +
+        '<div class="result-card"><h3>What to verify in writing first</h3><p class="muted">Ask for the written breakdown before you negotiate on the headline number. The right next page depends on whether the offer is really being driven by payroll-style lines or compensation-style lines.</p></div>' +
         '<div class="result-card"><h3>' + routeTitle + '</h3>' + routeHtml + '</div>' +
         '</div>' +
         '<div class="site-note">This is a first-pass categorisation tool. Use the written agreement, official guidance and professional advice for the final tax position, especially if the package mixes payroll items with compensation.</div>' +

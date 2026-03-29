@@ -3,7 +3,7 @@
 Static UK employment-rights site focused on practical calculators, comparison pages, help routes and source-backed guides.
 
 ## Current state
-This pack contains the cumulative working build through Batch 78.
+This pack contains the cumulative working build through Batch 88.
 
 ## Main live routes in the build
 - redundancy pay calculator
@@ -20,9 +20,12 @@ This is a static deployment pack. Upload the files and folders directly to the p
 ## Build script
 `scripts/build.py` is only a lightweight helper message in this pack. It is not required for deployment.
 
-## Post-deploy checks
-Check the homepage, core tools, compare page, sources page, `robots.txt`, and `sitemap.xml`. Then verify GA4 is receiving visits and spot-check canonicals, metadata and structured data on the main pages.
-
-
 ## Optional local verification
-Run `python scripts/verify_static_site.py` if you want a quick local check for GA4, JSON-LD, canonicals, metadata and sitemap coverage before deploying.
+Run `python scripts/verify_static_site.py` before deploy if you want a quick local check for GA4, JSON-LD, canonicals, metadata, robots directives, social tags and sitemap coverage.
+
+This also writes:
+- `verify_out.txt` for a readable summary
+- `verify-report.json` for a machine-readable verification report
+
+## Post-deploy checks
+Check the homepage, core tools, compare page, sources page, `robots.txt`, and `sitemap.xml`. Then verify GA4 is receiving visits, spot-check canonicals, metadata and structured data on the main pages, and inspect the homepage source for the GA4 measurement ID and JSON-LD blocks.

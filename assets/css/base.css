@@ -1,5 +1,6 @@
 
 :root {
+  --header-offset: 112px;
   --bg: #020617;
   --bg-2: #0f172a;
   --panel: rgba(15, 23, 42, 0.78);
@@ -1542,5 +1543,135 @@ html {
 
   .faq-simple summary {
     padding-right: 1.75rem;
+  }
+}
+
+
+/* Batch 86 compare triage engine 2.0 */
+.fast-track-grid {
+  margin-top: 1rem;
+  align-items: stretch;
+}
+
+.fast-track-card {
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(15, 23, 42, .32), rgba(15, 23, 42, .22));
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 14px 34px rgba(2, 6, 23, .14);
+}
+
+.fast-track-card strong {
+  display: block;
+  margin-bottom: .4rem;
+}
+
+.compare-caution {
+  margin-top: 1rem;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(250, 204, 21, .18);
+  background: rgba(250, 204, 21, .07);
+}
+
+.compare-caution strong {
+  display: block;
+  margin-bottom: .35rem;
+}
+
+@media (max-width: 800px) {
+  .fast-track-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Batch 89 final mobile and rendered-state QA sweep */
+html {
+  scroll-padding-top: calc(var(--header-offset, 112px) + 8px);
+}
+
+[id],
+.mode-card,
+.decision-link,
+.triage-item,
+.triage-card,
+.result-card,
+.result-box,
+.panel,
+.tool-box,
+.review-banner,
+.faq-item,
+.fast-route-box,
+.method-link-box {
+  scroll-margin-top: calc(var(--header-offset, 112px) + 12px);
+}
+
+:target {
+  scroll-margin-top: calc(var(--header-offset, 112px) + 12px);
+}
+
+.result-box[hidden] {
+  display: none !important;
+}
+
+.result-box {
+  overflow-wrap: anywhere;
+}
+
+.result-card > * + *,
+.result-box > * + * {
+  margin-top: .85rem;
+}
+
+.result-breakdown li,
+.list-clean li,
+.action-checklist li {
+  margin-bottom: .55rem;
+}
+
+.faq-simple details > *:not(summary) {
+  margin-top: .8rem;
+}
+
+.faq-simple summary {
+  user-select: none;
+}
+
+.faq-simple details:target,
+.review-banner:target,
+.panel:target,
+.tool-box:target {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, .18), 0 18px 36px rgba(2, 6, 23, .16);
+}
+
+@media (max-width: 920px) {
+  .quick-links,
+  .inline-links,
+  .result-box .quick-links,
+  .result-box .inline-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .quick-links a,
+  .inline-links a,
+  .result-box .quick-links a,
+  .result-box .inline-links a {
+    width: 100%;
+  }
+
+  .result-box {
+    padding: 15px;
+  }
+
+  .result-card-grid {
+    gap: 10px;
+  }
+
+  .faq-simple details > *:not(summary) {
+    margin-top: .7rem;
   }
 }
