@@ -1,0 +1,317 @@
+[
+  {
+    "id": "govuk-redundancy-calc",
+    "label": "GOV.UK redundancy pay calculator",
+    "url": "https://www.gov.uk/calculate-your-redundancy-pay",
+    "topic": "redundancy pay",
+    "type": "official",
+    "last_checked": "",
+    "notes": "Use for calculator assumptions and user cross-checking."
+  },
+  {
+    "id": "govuk-redundancy-rights",
+    "label": "GOV.UK redundancy: your rights",
+    "url": "https://www.gov.uk/redundancy-your-rights/redundancy-pay",
+    "topic": "redundancy rights",
+    "type": "official",
+    "last_checked": "",
+    "notes": "Use for eligibility, caps, and statutory explanation."
+  },
+  {
+    "id": "acas-redundancy-notice",
+    "label": "ACAS redundancy notice guidance",
+    "url": "https://www.acas.org.uk/your-rights-during-redundancy/redundancy-notice",
+    "topic": "redundancy notice",
+    "type": "official",
+    "last_checked": "",
+    "notes": "Use for notice guidance and related worker explanations."
+  },
+  {
+    "id": "govuk-redundancy-notice-periods",
+    "label": "GOV.UK redundancy: notice periods",
+    "url": "https://www.gov.uk/redundancy-your-rights/notice-periods",
+    "topic": "notice periods",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for statutory notice lengths and notice pay overview."
+  },
+  {
+    "id": "govuk-giving-notice",
+    "label": "GOV.UK handing in your notice: giving notice",
+    "url": "https://www.gov.uk/handing-in-your-notice/giving-notice",
+    "topic": "employee notice",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for employee minimum notice and written notice guidance."
+  },
+  {
+    "id": "acas-redundancy-notice-updated",
+    "label": "Acas: when you're given notice during redundancy",
+    "url": "https://www.acas.org.uk/your-rights-during-redundancy/redundancy-notice",
+    "topic": "redundancy notice",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for counter-notice and practical worker guidance."
+  },
+  {
+    "id": "govuk-holiday-calc",
+    "label": "GOV.UK calculate holiday entitlement",
+    "url": "https://www.gov.uk/calculate-your-holiday-entitlement",
+    "topic": "holiday entitlement",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for core entitlement calculations and part-year/irregular hours pathways."
+  },
+  {
+    "id": "govuk-holiday-rights-overview",
+    "label": "GOV.UK holiday entitlement rights overview",
+    "url": "https://www.gov.uk/holiday-entitlement-rights",
+    "topic": "holiday entitlement rights",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for core statutory annual leave entitlement overview."
+  },
+  {
+    "id": "govuk-holiday-pay-basics",
+    "label": "GOV.UK holiday pay the basics",
+    "url": "https://www.gov.uk/holiday-entitlement-rights/holiday-pay-the-basics",
+    "topic": "holiday pay",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for statutory paid holiday and pay framing."
+  },
+  {
+    "id": "govuk-taking-holiday-before-leaving",
+    "label": "GOV.UK taking holiday before leaving a job",
+    "url": "https://www.gov.uk/holiday-entitlement-rights/taking-holiday-before-leaving-a-job",
+    "topic": "holiday on leaving",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for holiday during notice period and before leaving a job."
+  },
+  {
+    "id": "acas-holiday-entitlement",
+    "label": "Acas checking holiday entitlement",
+    "url": "https://www.acas.org.uk/checking-holiday-entitlement",
+    "topic": "holiday entitlement",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for practical explanations and day/week examples."
+  },
+  {
+    "id": "acas-final-pay-holiday",
+    "label": "Acas final pay and how holidays affect final pay",
+    "url": "https://www.acas.org.uk/final-pay-when-someone-leaves-a-job/how-holidays-affect-final-pay",
+    "topic": "final pay holiday",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for payment in lieu of untaken statutory holiday when leaving."
+  },
+  {
+    "id": "acas-final-pay-overview",
+    "label": "Acas final pay when someone leaves a job",
+    "url": "https://www.acas.org.uk/final-pay-when-someone-leaves-a-job",
+    "topic": "final pay",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for overall final pay framework when someone leaves a job."
+  },
+  {
+    "id": "acas-notice-pay-final-pay",
+    "label": "Acas pay during the notice period",
+    "url": "https://www.acas.org.uk/final-pay-when-someone-leaves-a-job/pay-during-the-notice-period",
+    "topic": "notice pay",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for notice pay and PILON practical points."
+  },
+  {
+    "id": "govuk-termination-payments-tax",
+    "label": "GOV.UK termination payments and tax when you leave a job",
+    "url": "https://www.gov.uk/termination-payments-and-tax-when-you-leave-a-job",
+    "topic": "termination payments and tax",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for what a termination payment can include and tax framing."
+  },
+  {
+    "id": "acas-dismissals-notice",
+    "label": "Acas dismissals with and without notice",
+    "url": "https://www.acas.org.uk/dismissals/dismissals-with-and-without-notice",
+    "topic": "dismissal and notice",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for final pay and notice context on dismissal."
+  },
+  {
+    "id": "govuk-termination-tax-what-taxable",
+    "label": "GOV.UK what you pay tax and National Insurance on",
+    "url": "https://www.gov.uk/termination-payments-and-tax-when-you-leave-a-job/what-you-pay-tax-and-national-insurance-on",
+    "topic": "termination payments tax treatment",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for the \u00a330,000 threshold and taxable categories such as PILON."
+  },
+  {
+    "id": "govuk-redundancy-tax-ni",
+    "label": "GOV.UK redundancy tax and National Insurance",
+    "url": "https://www.gov.uk/redundancy-your-rights/tax-and-national-insurance",
+    "topic": "redundancy tax",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for statutory redundancy pay tax treatment under \u00a330,000."
+  },
+  {
+    "id": "acas-settlement-agreements",
+    "label": "Acas using settlement agreements",
+    "url": "https://www.acas.org.uk/settlement-agreements",
+    "topic": "settlement agreements",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for legal validity conditions and practical overview."
+  },
+  {
+    "id": "acas-settlement-formal-offer",
+    "label": "Acas making a formal settlement offer",
+    "url": "https://www.acas.org.uk/settlement-agreements/making-a-formal-offer",
+    "topic": "settlement agreement process",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for independent adviser requirements and formal offer points."
+  },
+  {
+    "id": "acas-getting-legal-advice",
+    "label": "Acas getting legal advice",
+    "url": "https://www.acas.org.uk/getting-legal-advice",
+    "topic": "legal advice",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for signposting where specialised legal advice may be needed."
+  },
+  {
+    "id": "govuk-paternity-eligibility",
+    "label": "GOV.UK paternity pay and leave eligibility",
+    "url": "https://www.gov.uk/paternity-pay-leave/eligibility",
+    "topic": "paternity eligibility",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for employee eligibility, qualifying week, earnings threshold and notice rules."
+  },
+  {
+    "id": "govuk-paternity-pay",
+    "label": "GOV.UK paternity pay and leave pay page",
+    "url": "https://www.gov.uk/paternity-pay-leave/pay",
+    "topic": "paternity pay",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for statutory paternity pay rate."
+  },
+  {
+    "id": "govuk-paternity-leave",
+    "label": "GOV.UK paternity pay and leave leave page",
+    "url": "https://www.gov.uk/paternity-pay-leave/leave",
+    "topic": "paternity leave",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for 1 or 2 weeks leave and the 52 week window."
+  },
+  {
+    "id": "govuk-paternity-how-to-claim",
+    "label": "GOV.UK paternity pay and leave how to claim",
+    "url": "https://www.gov.uk/paternity-pay-leave/how-to-claim",
+    "topic": "paternity notice and claim process",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for temporary 2026 notice changes and required notice information."
+  },
+  {
+    "id": "govuk-rates-thresholds-2026-2027",
+    "label": "GOV.UK rates and thresholds for employers 2026 to 2027",
+    "url": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027",
+    "topic": "2026 2027 statutory rates",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for the 2026 to 2027 statutory paternity pay rate of \u00a3194.32 and lower earnings limit of \u00a3129."
+  },
+  {
+    "id": "govuk-shared-parental-how-it-works",
+    "label": "GOV.UK shared parental leave and pay how it works",
+    "url": "https://www.gov.uk/shared-parental-leave-and-pay",
+    "topic": "shared parental leave overview",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for up to 50 weeks leave and 37 weeks pay overview."
+  },
+  {
+    "id": "acas-paternity-rights",
+    "label": "Acas paternity leave and pay",
+    "url": "https://www.acas.org.uk/paternity-rights-leave-and-pay",
+    "topic": "paternity rights",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for practical summary of paternity leave and pay."
+  },
+  {
+    "id": "acas-redundancy-consultation",
+    "label": "Acas redundancy consultation",
+    "url": "https://www.acas.org.uk/redundancy-consultation",
+    "topic": "redundancy consultation",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for consultation process and practical next-step guidance when a redundancy process starts."
+  },
+  {
+    "id": "govuk-maternity-eligibility",
+    "label": "GOV.UK maternity pay and leave eligibility",
+    "url": "https://www.gov.uk/maternity-pay-leave/eligibility",
+    "topic": "maternity eligibility",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for SMP qualifying-week, continuity, earnings threshold, and notice/proof rules."
+  },
+  {
+    "id": "govuk-maternity-pay",
+    "label": "GOV.UK maternity pay and leave pay page",
+    "url": "https://www.gov.uk/maternity-pay-leave/pay",
+    "topic": "maternity pay",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for SMP structure: first 6 weeks at 90%, then standard weekly rate for the next 33 weeks."
+  },
+  {
+    "id": "govuk-maternity-leave",
+    "label": "GOV.UK maternity pay and leave leave page",
+    "url": "https://www.gov.uk/maternity-pay-leave/leave",
+    "topic": "maternity leave",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for 52 weeks leave, ordinary/additional leave, and minimum post-birth leave."
+  },
+  {
+    "id": "govuk-maternity-how-to-claim",
+    "label": "GOV.UK maternity pay and leave how to claim",
+    "url": "https://www.gov.uk/maternity-pay-leave/how-to-claim",
+    "topic": "maternity notice and claim process",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for 15-week notice timing and employer confirmation timing."
+  },
+  {
+    "id": "govuk-maternity-allowance-eligibility",
+    "label": "GOV.UK maternity allowance eligibility",
+    "url": "https://www.gov.uk/maternity-allowance/eligibility",
+    "topic": "maternity allowance",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for the route where someone does not qualify for SMP."
+  },
+  {
+    "id": "acas-settlement-check-legal-advice",
+    "label": "Acas settlement agreements overview",
+    "url": "https://www.acas.org.uk/settlement-agreements",
+    "topic": "settlement agreement validity and advice",
+    "type": "official",
+    "last_checked": "2026-03-28",
+    "notes": "Use for validity requirements, adviser requirement, and practical signposting before relying on a package figure."
+  }
+]

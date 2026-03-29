@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Period Calculator UK | Statutory vs Contract Notice & End Date | WorkRightsUK</title>
+  <meta name="description" content="Estimate statutory minimum notice, compare it with contractual notice, and see an estimated notice end date for UK employment situations.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/notice-period-calculator/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Notice Period Calculator UK | Statutory vs Contract Notice & End Date | WorkRightsUK">
+  <meta property="og:description" content="Estimate statutory minimum notice, compare it with contractual notice, and see an estimated notice end date for UK employment situations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/notice-period-calculator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Notice Period Calculator UK | Statutory vs Contract Notice & End Date | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate statutory minimum notice, compare it with contractual notice, and see an estimated notice end date for UK employment situations.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can my contract give me more notice than the statutory minimum?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. GOV.UK says a contract can give more notice than the statutory minimum, but not less."}}, {"@type": "Question", "name": "Does this tool cover every dismissal situation?", "acceptedAnswer": {"@type": "Answer", "text": "No. Misconduct dismissals, payment in lieu of notice, settlement terms, and other facts can change the practical outcome."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Notice Period Calculator</p>
+      <span class="kicker">Competition-improved core tool</span>
+      <h1>Notice Period Calculator</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for users who need the notice length and likely end date before checking final pay.</p></div>
+      <p class="muted">Estimate the statutory minimum notice period an employee should receive, compare it with any longer contractual notice, and optionally see an estimated notice end date.</p>
+
+      <form class="tool-form" data-tool="notice-period">
+        <label>
+          Notice start date (optional)
+          <input id="noticeStartDate" type="date">
+          <span class="input-hint">Used to estimate the last day of the notice period.</span>
+        </label>
+        <label>
+          Full years worked for the employer
+          <input id="noticeYears" type="number" min="0" max="50" placeholder="Example: 3">
+        </label>
+        <label>
+          Extra completed months after full years
+          <input id="noticeMonths" type="number" min="0" max="11" placeholder="Example: 6">
+        </label>
+        <label>
+          Contractual notice in weeks (optional)
+          <input id="contractWeeks" type="number" min="0" max="52" placeholder="Example: 4">
+        </label>
+        <div><button type="submit">Calculate notice</button></div>
+      </form>
+
+      <div id="noticeResult" class="result-box" hidden></div>
+      <div class="highlight-box">
+        <strong>Why this page was improved:</strong>
+        <p class="muted">Competing notice tools often win by helping users work out their actual last day. This version keeps the legal comparison logic but adds a practical notice-end-date output too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 6 competition-informed improvement</p>
+      <p class="meta-note">Scope: minimum notice the employee should receive, not every dismissal/payment edge case.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Core rule used</h3>
+      <ul class="list-clean">
+        <li>At least 1 week if employed between 1 month and 2 years</li>
+        <li>1 week for each year if employed between 2 and 12 years</li>
+        <li>12 weeks if employed for 12 years or more</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>GOV.UK: Redundancy notice periods</strong>
+          <p class="muted">Used for the statutory minimum notice lengths and notice-pay overview during redundancy.</p>
+          <p><a href="https://www.gov.uk/redundancy-your-rights/notice-periods">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Acas: when you're given notice during redundancy</strong>
+          <p class="muted">Used for practical worker guidance around written notice details, counter-notice, and leaving early without risking redundancy pay.</p>
+          <p><a href="https://www.acas.org.uk/your-rights-during-redundancy/redundancy-notice">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>

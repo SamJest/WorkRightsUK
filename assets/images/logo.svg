@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="WorkRightsUK logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" fill="#020617"/>
+  <g transform="translate(40 50)">
+    <rect x="0" y="0" width="220" height="220" rx="38" fill="url(#g)"/>
+    <path d="M58 118l34 34 72-92" fill="none" stroke="#08111f" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="171" cy="55" r="22" fill="#08111f"/>
+  </g>
+  <g fill="#f8fafc" font-family="Arial, Helvetica, sans-serif">
+    <text x="320" y="138" font-size="78" font-weight="700">WorkRightsUK</text>
+    <text x="324" y="198" font-size="32" fill="#cbd5e1">UK employment rights tools and guides</text>
+  </g>
+</svg>

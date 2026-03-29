@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settlement Agreement Tax Checker UK | Tax Categories, Fairness Checks & Next Steps | WorkRightsUK</title>
+  <meta name="description" content="Check the main tax-treatment categories in a settlement package, then see what to verify before relying on the figure.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/settlement-agreement-tax-checker/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Settlement Agreement Tax Checker UK | Tax Categories, Fairness Checks & Next Steps | WorkRightsUK">
+  <meta property="og:description" content="Check the main tax-treatment categories in a settlement package, then see what to verify before relying on the figure.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/settlement-agreement-tax-checker/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Settlement Agreement Tax Checker UK | Tax Categories, Fairness Checks & Next Steps | WorkRightsUK">
+  <meta name="twitter:description" content="Check the main tax-treatment categories in a settlement package, then see what to verify before relying on the figure.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Settlement Agreement Tax Checker | WorkRightsUK",
+    "url":"https://workrightsuk.co.uk/tools/settlement-agreement-tax-checker/"
+  }</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the first £30,000 of every settlement automatically tax free?", "acceptedAnswer": {"@type": "Answer", "text": "No. GOV.UK says the first combined £30,000 may be tax free for certain termination-payment elements such as statutory redundancy pay and additional severance, but PILON, holiday pay and wages are treated differently."}}, {"@type": "Question", "name": "Do I need independent advice before signing a settlement agreement?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Acas says a settlement agreement must meet legal conditions to be valid, including that the worker gets advice from a relevant independent adviser."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Settlement Agreement Tax Checker</p>
+      <span class="kicker">Edge-over-competition improvement</span>
+      <h1>Settlement Agreement Tax Checker</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for users who need to separate package elements before relying on a headline settlement figure.</p></div>
+      <p class="muted">This version goes further than a basic threshold checker by breaking the package into plain-English groups and then routing users to the page most likely to help next.</p>
+
+      <div class="trust-strip">
+        <div class="trust-pill"><strong>Reviewed against official guidance</strong><div class="input-hint">Built around GOV.UK tax guidance and Acas settlement guidance</div></div>
+        <div class="trust-pill"><strong>Package-shape output</strong><div class="input-hint">Shows whether the package looks earnings-heavy or termination-payment heavy</div></div>
+        <div class="trust-pill"><strong>Next-step routing</strong><div class="input-hint">Sends users to the most relevant next page, not just a generic explainer</div></div>
+      </div>
+
+      <div class="coverage-box">
+        <div class="coverage-item">
+          <strong>What this page covers</strong>
+          <p class="muted">Statutory redundancy pay, enhanced severance or compensation-style amounts, PILON, holiday pay, and unpaid wages or bonus.</p>
+        </div>
+        <div class="coverage-item">
+          <strong>What this page does not cover</strong>
+          <p class="muted">Personal tax advice, payroll calculations, PENP detail calculations, or every clause in a settlement agreement.</p>
+        </div>
+      </div>
+
+      <form class="tool-form" data-tool="settlement-tax">
+        <label>
+          Statutory redundancy pay (£)
+          <input id="statutoryRedundancy" type="number" min="0" step="0.01" placeholder="Example: 8400">
+        </label>
+        <label>
+          Enhanced redundancy or compensation-style payment (£)
+          <input id="enhancedComp" type="number" min="0" step="0.01" placeholder="Example: 12000">
+        </label>
+        <label>
+          Payment in lieu of notice (PILON) (£)
+          <input id="pilon" type="number" min="0" step="0.01" placeholder="Example: 5000">
+        </label>
+        <label>
+          Holiday pay (£)
+          <input id="holidayPay" type="number" min="0" step="0.01" placeholder="Example: 1200">
+        </label>
+        <label>
+          Unpaid wages / bonus / other earnings (£)
+          <input id="wagesBonus" type="number" min="0" step="0.01" placeholder="Example: 700">
+        </label>
+        <label>
+          <input id="legalAdvicePaid" type="checkbox" style="width:auto;"> Employer is covering independent legal advice costs
+        </label>
+        <div><button type="submit">Check categories</button></div>
+      </form>
+
+      <div id="settlementTaxResult" class="result-box" hidden></div>
+      <div class="policy-box"><strong>Tax treatment is only one layer:</strong><p class="muted">Strong settlement competitors often separate “what is taxable?” from “is this offer good enough?” This page is strongest when used as a tax-category guide before checking fairness, clauses, and independent advice.</p></div>
+      <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">Strong settlement competitors help users understand the package at a glance. This version now pushes harder on plain-English category reading and practical checks before relying on the figure.</p>
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 28 March 2026. This page is designed as a practical first-check page built around official GOV.UK and Acas guidance where applicable.</p>
+      </div>
+      <div class="method-link-box">
+        <strong>How this page is built</strong>
+        <p class="muted">See the methodology page for how WorkRightsUK uses official sources, scope limits, and next-step routing.</p>
+        <p><a href="../about/how-workrightsuk-builds-pages/index.html">Open methodology page</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="decision-paths">
+      <div class="decision-path">
+        <strong>If your package mainly contains PILON, holiday pay, and wages</strong>
+        <p class="muted">Your question is often closer to final pay and taxable earnings than to a pure “tax-free settlement” question.</p>
+      </div>
+      <div class="decision-path">
+        <strong>If your package mainly contains statutory redundancy and extra compensation</strong>
+        <p class="muted">Your question is often about how much sits within the £30,000 termination-payment threshold and what sits above it.</p>
+      </div>
+      <div class="decision-path">
+        <strong>If you are not sure which label fits</strong>
+        <p class="muted">Use the comparison page below this tool. That is faster than guessing your way through multiple pages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 8 edge-over-competition improvement</p>
+      <p class="meta-note">Purpose: help users understand the shape of a package before specialist advice.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Core rule points used</h3>
+      <ul class="list-clean">
+        <li>The first combined £30,000 of certain qualifying termination-payment elements may be tax free.</li>
+        <li>PILON is generally taxable.</li>
+        <li>Holiday pay and unpaid wages are generally taxable as earnings.</li>
+        <li>A settlement agreement must meet legal conditions to be valid, including independent advice.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">Strong settlement competitors often combine tax breakdowns with “is this a good offer?” style context. This version now leans further into what should be verified before relying on the package figure.</p></div>
+      <div class="next-step-grid">
+      <div class="next-step-card">
+        <strong>If you mainly want the statutory redundancy figure</strong>
+        <p class="muted">Go to the redundancy calculator instead of using this page as a general redundancy tool.</p>
+        <p><a href="../tools/redundancy-pay-calculator/index.html">Open redundancy calculator</a></p>
+      </div>
+      <div class="next-step-card">
+        <strong>If you mainly want final-pay components</strong>
+        <p class="muted">Use the final-pay help page to understand notice pay, holiday owed, and wages first.</p>
+        <p><a href="../help/final-pay-and-leaving-a-job/index.html">Open final pay page</a></p>
+      </div>
+      <div class="next-step-card">
+        <strong>If you are not sure which issue you have</strong>
+        <p class="muted">Use the comparison page to quickly identify whether your issue is redundancy, settlement structure, or final pay.</p>
+        <p><a href="../compare/redundancy-vs-settlement-vs-final-pay/index.html">Open comparison page</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="check-next-box"><strong>Check next:</strong><p class="muted">If the real question is fairness, minimum entitlements, or clause risk, do not stop at the tax figure. Use the settlement help page and route onward from there.</p><p><a href="../help/what-to-check-before-relying-on-a-settlement-package-figure/index.html">Open settlement next-step page</a></p></div>
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>GOV.UK: What you pay tax and National Insurance on</strong>
+          <p class="muted">Used for the point that the first combined £30,000 of qualifying termination-payment elements may be tax free, but PILON and similar earnings are taxed differently.</p>
+          <p><a href="https://www.gov.uk/termination-payments-and-tax-when-you-leave-a-job/what-you-pay-tax-and-national-insurance-on">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: Tax and National Insurance on redundancy payments</strong>
+          <p class="muted">Used for the simpler framing that statutory redundancy pay under £30,000 is not taxable and that holiday pay and unpaid wages are treated differently.</p>
+          <p><a href="https://www.gov.uk/redundancy-your-rights/tax-and-national-insurance">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Acas: using settlement agreements</strong>
+          <p class="muted">Used for the legal validity conditions, including the requirement for advice from a relevant independent adviser.</p>
+          <p><a href="https://www.acas.org.uk/settlement-agreements">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>

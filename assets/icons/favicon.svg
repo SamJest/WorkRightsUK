@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="WorkRightsUK icon">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="44" fill="#020617"/>
+  <rect x="28" y="28" width="200" height="200" rx="34" fill="url(#g)"/>
+  <path d="M72 132l30 30 64-82" fill="none" stroke="#08111f" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="176" cy="78" r="18" fill="#08111f"/>
+</svg>

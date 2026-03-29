@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "redundancy-pay-calculator",
+    "title": "Redundancy Pay Calculator",
+    "description": "Estimate statutory redundancy pay based on age, service length, and weekly pay.",
+    "category": "calculator"
+  },
+  {
+    "slug": "notice-period-calculator",
+    "title": "Notice Period Calculator",
+    "description": "Check minimum statutory notice based on employment length.",
+    "category": "calculator"
+  },
+  {
+    "slug": "holiday-entitlement-calculator",
+    "title": "Holiday Entitlement Calculator",
+    "description": "Estimate statutory holiday entitlement for full-time or part-time workers.",
+    "category": "calculator"
+  },
+  {
+    "slug": "statutory-maternity-pay-calculator",
+    "title": "Statutory Maternity Pay Calculator",
+    "description": "Estimate SMP based on weekly earnings and qualifying period.",
+    "category": "calculator"
+  },
+  {
+    "slug": "statutory-paternity-pay-calculator",
+    "title": "Statutory Paternity Pay Calculator",
+    "description": "Estimate SPP based on qualifying earnings and leave period.",
+    "category": "calculator"
+  },
+  {
+    "slug": "settlement-agreement-tax-checker",
+    "title": "Settlement Agreement Tax Checker",
+    "description": "Understand whether different parts of a settlement may be taxable.",
+    "category": "checker"
+  },
+  {
+    "slug": "unfair-dismissal-compensation-estimator",
+    "title": "Unfair Dismissal Compensation Estimator",
+    "description": "Get a rough estimate framework for basic and compensatory award scenarios.",
+    "category": "estimator"
+  }
+]\n

@@ -1,0 +1,64 @@
+{
+  "core_pages": {
+    "redundancy-pay-calculator": [
+      {
+        "question": "Do I usually need 2 years with my employer to qualify for statutory redundancy pay?",
+        "answer": "Yes. GOV.UK says you only qualify for statutory redundancy pay if you have worked for your employer for at least 2 years."
+      },
+      {
+        "question": "Can my contract offer more than the statutory minimum redundancy pay?",
+        "answer": "Yes. A contract can provide an enhanced redundancy package, so the statutory calculator is a floor, not always the final result."
+      }
+    ],
+    "notice-period-calculator": [
+      {
+        "question": "Can my contract give me more notice than the statutory minimum?",
+        "answer": "Yes. GOV.UK says a contract can give more notice than the statutory minimum, but not less."
+      },
+      {
+        "question": "Does this tool cover every dismissal situation?",
+        "answer": "No. Misconduct dismissals, payment in lieu of notice, settlement terms, and other facts can change the practical outcome."
+      }
+    ],
+    "holiday-entitlement-calculator": [
+      {
+        "question": "How much statutory paid holiday do most workers get?",
+        "answer": "Acas says workers are entitled to 5.6 weeks' statutory paid holiday a year, and bank holidays may be included in that total."
+      },
+      {
+        "question": "What happens to unused statutory holiday when someone leaves a job?",
+        "answer": "Acas says an employer must pay in lieu for any untaken statutory holiday entitlement the worker has accrued when they leave."
+      }
+    ],
+    "settlement-agreement-tax-checker": [
+      {
+        "question": "Is the first \u00a330,000 of every settlement automatically tax free?",
+        "answer": "No. GOV.UK says the first combined \u00a330,000 may be tax free for certain termination-payment elements such as statutory redundancy pay and additional severance, but PILON, holiday pay and wages are treated differently."
+      },
+      {
+        "question": "Do I need independent advice before signing a settlement agreement?",
+        "answer": "Yes. Acas says a settlement agreement must meet legal conditions to be valid, including that the worker gets advice from a relevant independent adviser."
+      }
+    ],
+    "statutory-paternity-pay-calculator": [
+      {
+        "question": "How much is Statutory Paternity Pay in 2026 to 2027?",
+        "answer": "GOV.UK says the weekly rate is \u00a3194.32 or 90% of average weekly earnings, whichever is lower."
+      },
+      {
+        "question": "How much statutory paternity leave can an employee take?",
+        "answer": "Acas says an eligible employee can choose to take 1 or 2 weeks of statutory paternity leave."
+      }
+    ],
+    "statutory-maternity-pay-calculator": [
+      {
+        "question": "How much is Statutory Maternity Pay in 2026 to 2027 after the first 6 weeks?",
+        "answer": "GOV.UK says the weekly rate for the remaining 33 weeks is \u00a3194.32 or 90% of average weekly earnings, whichever is lower."
+      },
+      {
+        "question": "How long can Statutory Maternity Pay be paid for?",
+        "answer": "GOV.UK says Statutory Maternity Pay can be paid for up to 39 weeks."
+      }
+    ]
+  }
+}

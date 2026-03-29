@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statutory Paternity Pay Calculator UK | 2026/27 SPP Estimate & Next Steps | WorkRightsUK</title>
+  <meta name="description" content="Estimate Statutory Paternity Pay using current UK rules and see the next practical route if paternity may not be the best fit.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/statutory-paternity-pay-calculator/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Statutory Paternity Pay Calculator UK | 2026/27 SPP Estimate & Next Steps | WorkRightsUK">
+  <meta property="og:description" content="Estimate Statutory Paternity Pay using current UK rules and see the next practical route if paternity may not be the best fit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/statutory-paternity-pay-calculator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Statutory Paternity Pay Calculator UK | 2026/27 SPP Estimate & Next Steps | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate Statutory Paternity Pay using current UK rules and see the next practical route if paternity may not be the best fit.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Statutory Paternity Pay Calculator | WorkRightsUK",
+    "url":"https://workrightsuk.co.uk/tools/statutory-paternity-pay-calculator/"
+  }</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is Statutory Paternity Pay in 2026 to 2027?", "acceptedAnswer": {"@type": "Answer", "text": "GOV.UK says the weekly rate is £194.32 or 90% of average weekly earnings, whichever is lower."}}, {"@type": "Question", "name": "How much statutory paternity leave can an employee take?", "acceptedAnswer": {"@type": "Answer", "text": "Acas says an eligible employee can choose to take 1 or 2 weeks of statutory paternity leave."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Statutory Paternity Pay Calculator</p>
+      <span class="kicker">New family-rights mini-cluster</span>
+      <h1>Statutory Paternity Pay Calculator</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for short paternity-pay estimates and route selection, not full shared-parental planning.</p></div>
+      <p class="muted">Estimate Statutory Paternity Pay using the current weekly rate band and the rule that the payment is the weekly statutory rate or 90% of average weekly earnings, whichever is lower.</p>
+
+      <div class="trust-strip">
+        <div class="trust-pill"><strong>2026 aware</strong><div class="input-hint">Uses the 2026 to 2027 rate band where relevant</div></div>
+        <div class="trust-pill"><strong>Official-source based</strong><div class="input-hint">Built around GOV.UK and Acas paternity guidance</div></div>
+        <div class="trust-pill"><strong>Small second cluster</strong><div class="input-hint">Adds new long-tail capture without turning the site into a content sprawl</div></div>
+      </div>
+
+      <div class="coverage-box">
+        <div class="coverage-item">
+          <strong>What this page covers</strong>
+          <p class="muted">Weekly statutory paternity pay, 1 or 2 week choices, and the basic earnings threshold check.</p>
+        </div>
+        <div class="coverage-item">
+          <strong>What this page does not cover</strong>
+          <p class="muted">Every adoption/surrogacy variation, every notice-rule edge case, or a full shared-parental-pay calculator.</p>
+        </div>
+      </div>
+
+      <form class="tool-form" data-tool="paternity-pay">
+        <label>
+          Child due date or birth date
+          <input id="dueOrBirthDate" type="date">
+          <span class="input-hint">Used to choose the rate band before or from 6 April 2026.</span>
+        </label>
+        <label>
+          Average weekly earnings (£)
+          <input id="avgWeeklyEarnings" type="number" min="0" step="0.01" placeholder="Example: 420">
+        </label>
+        <label>
+          Weeks of statutory paternity leave chosen
+          <select id="weeksChosen">
+            <option value="1">1 week</option>
+            <option value="2">2 weeks</option>
+          </select>
+        </label>
+        <div><button type="submit">Estimate pay</button></div>
+      </form>
+
+      <div id="paternityResult" class="result-box" hidden></div>
+      <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">The strongest family-rights competitors help users understand not just the weekly pay estimate, but whether paternity is really the right route and what to check next. This version now pushes harder on that practical decision.</p>
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 28 March 2026. This page is designed as a practical first-check page built around official GOV.UK and Acas guidance where applicable.</p>
+      </div>
+      <div class="method-link-box">
+        <strong>How this page is built</strong>
+        <p class="muted">See the methodology page for how WorkRightsUK uses official sources, scope limits, and next-step routing.</p>
+        <p><a href="../about/how-workrightsuk-builds-pages/index.html">Open methodology page</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="family-trust-grid">
+      <div class="family-trust-card">
+        <strong>Use this for short leave planning</strong>
+        <p class="muted">Paternity is usually the fast answer when the question is 1 or 2 weeks of leave and the weekly pay rate.</p>
+      </div>
+      <div class="family-trust-card">
+        <strong>Do not stop at the figure</strong>
+        <p class="muted">If timing or notice rules are unclear, the guide and fallback page are usually the next most useful stop.</p>
+      </div>
+      <div class="family-trust-card">
+        <strong>Check the alternative route</strong>
+        <p class="muted">If the real question is longer leave sharing, Shared Parental Leave may be a better route than focusing only on SPP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 9 new family-rights tool</p>
+      <p class="meta-note">Purpose: simple first-check paternity-pay estimate.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Core rule points used</h3>
+      <ul class="list-clean">
+        <li>Statutory Paternity Pay is paid at the weekly statutory rate or 90% of average weekly earnings, whichever is lower.</li>
+        <li>The 2026 to 2027 weekly rate is £194.32.</li>
+        <li>The lower earnings threshold for 2026 to 2027 is £129 a week.</li>
+        <li>An eligible employee can choose 1 or 2 weeks of statutory paternity leave.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="fast-route-box"><strong>Fast route:</strong> if this page gives a rough number but your real question is “which leave route should we use?”, go straight to the family comparison page first.</div>
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>GOV.UK: Rates and thresholds for employers 2026 to 2027</strong>
+          <p class="muted">Used for the 2026 to 2027 statutory paternity pay rate of £194.32 and the lower earnings limit of £129 a week.</p>
+          <p><a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: Paternity pay and leave eligibility</strong>
+          <p class="muted">Used for the qualifying-week and earnings-threshold framing, plus notice and employment requirements.</p>
+          <p><a href="https://www.gov.uk/paternity-pay-leave/eligibility">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Acas: paternity leave and pay</strong>
+          <p class="muted">Used for the practical point that an eligible employee can choose 1 or 2 weeks of statutory paternity leave.</p>
+          <p><a href="https://www.acas.org.uk/paternity-rights-leave-and-pay">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>

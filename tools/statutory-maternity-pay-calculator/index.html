@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statutory Maternity Pay Calculator UK | 2026/27 SMP Estimate, Allowance & Next Steps | WorkRightsUK</title>
+  <meta name="description" content="Estimate Statutory Maternity Pay using current UK rules and see the next practical route if SMP may not fit.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/statutory-maternity-pay-calculator/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Statutory Maternity Pay Calculator UK | 2026/27 SMP Estimate, Allowance & Next Steps | WorkRightsUK">
+  <meta property="og:description" content="Estimate Statutory Maternity Pay using current UK rules and see the next practical route if SMP may not fit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/statutory-maternity-pay-calculator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Statutory Maternity Pay Calculator UK | 2026/27 SMP Estimate, Allowance & Next Steps | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate Statutory Maternity Pay using current UK rules and see the next practical route if SMP may not fit.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Statutory Maternity Pay Calculator UK | 2026 Rate Guide | WorkRightsUK", "url": "https://workrightsuk.co.uk/tools/statutory-maternity-pay-calculator/"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is Statutory Maternity Pay in 2026 to 2027 after the first 6 weeks?", "acceptedAnswer": {"@type": "Answer", "text": "GOV.UK says the weekly rate for the remaining 33 weeks is £194.32 or 90% of average weekly earnings, whichever is lower."}}, {"@type": "Question", "name": "How long can Statutory Maternity Pay be paid for?", "acceptedAnswer": {"@type": "Answer", "text": "GOV.UK says Statutory Maternity Pay can be paid for up to 39 weeks."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Statutory Maternity Pay Calculator</p>
+      <span class="kicker">Careful horizontal expansion</span>
+      <h1>Statutory Maternity Pay Calculator</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for first-check SMP estimates and the next route if SMP may not fit.</p></div>
+      <p class="muted">Estimate Statutory Maternity Pay using the current rule structure: 90% of average weekly earnings for the first 6 weeks, then the standard statutory weekly rate or 90% of average weekly earnings, whichever is lower, for the remaining weeks.</p>
+
+      <div class="trust-strip">
+        <div class="trust-pill"><strong>2026 aware</strong><div class="input-hint">Uses the 2026 to 2027 weekly rate band where relevant</div></div>
+        <div class="trust-pill"><strong>Official-source based</strong><div class="input-hint">Built around GOV.UK maternity guidance</div></div>
+        <div class="trust-pill"><strong>Practical next step</strong><div class="input-hint">Points users to Maternity Allowance if SMP may not fit</div></div>
+      </div>
+
+      <div class="coverage-box">
+        <div class="coverage-item">
+          <strong>What this page covers</strong>
+          <p class="muted">Simple SMP estimates for up to 39 weeks based on average weekly earnings and the standard statutory weekly rate structure.</p>
+        </div>
+        <div class="coverage-item">
+          <strong>What this page does not cover</strong>
+          <p class="muted">Every adoption variation, every employer-enhanced maternity scheme, or a full MATB1 / qualifying-week planner.</p>
+        </div>
+      </div>
+
+      <form class="tool-form" data-tool="maternity-pay">
+        <label>
+          Baby due date
+          <input id="maternityDueDate" type="date">
+          <span class="input-hint">Used to choose the correct standard weekly rate band before or from 6 April 2026.</span>
+        </label>
+        <label>
+          Average weekly earnings (£)
+          <input id="maternityAvgWeeklyEarnings" type="number" min="0" step="0.01" placeholder="Example: 420">
+        </label>
+        <label>
+          Number of weeks to estimate
+          <select id="maternityWeeksRequested">
+            <option value="6">First 6 weeks only</option>
+            <option value="12">12 weeks</option>
+            <option value="26">26 weeks</option>
+            <option value="39" selected>39 weeks</option>
+          </select>
+        </label>
+        <div><button type="submit">Estimate pay</button></div>
+      </form>
+
+      <div id="maternityResult" class="result-box" hidden></div>
+      <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">The strongest maternity competitors are good at signposting what to do if SMP may not fit. This version now leans harder into that practical next-step route instead of stopping at the first estimate.</p>
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 28 March 2026. This page is designed as a practical first-check page built around official GOV.UK and Acas guidance where applicable.</p>
+      </div>
+      <div class="method-link-box">
+        <strong>How this page is built</strong>
+        <p class="muted">See the methodology page for how WorkRightsUK uses official sources, scope limits, and next-step routing.</p>
+        <p><a href="../about/how-workrightsuk-builds-pages/index.html">Open methodology page</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="family-trust-grid">
+      <div class="family-trust-card">
+        <strong>Use this for the first SMP estimate</strong>
+        <p class="muted">This gives the basic SMP shape, including the first 6 weeks at 90% and the remaining weeks at the standard statutory rate or 90% if lower.</p>
+      </div>
+      <div class="family-trust-card">
+        <strong>Do not assume “no SMP” means no support</strong>
+        <p class="muted">If SMP may not fit, the next useful route is often Maternity Allowance rather than stopping at the failed estimate.</p>
+      </div>
+      <div class="family-trust-card">
+        <strong>Think ahead to leave planning</strong>
+        <p class="muted">If the question becomes about sharing later leave and pay, Shared Parental Leave planning may become relevant after the maternity route starts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 12 new family-rights tool</p>
+      <p class="meta-note">Purpose: simple first-check SMP estimate.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Core rule points used</h3>
+      <ul class="list-clean">
+        <li>SMP is paid for up to 39 weeks.</li>
+        <li>The first 6 weeks are paid at 90% of average weekly earnings.</li>
+        <li>The remaining 33 weeks are paid at the statutory weekly rate or 90% of average weekly earnings, whichever is lower.</li>
+        <li>The 2026 to 2027 standard weekly rate is £194.32 and the earnings threshold is £129 a week.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="fast-route-box"><strong>Fast route:</strong> if the estimate is not the real problem, go to the fallback-help page for SMP/SPP or the family comparison page before digging into detail.</div>
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>GOV.UK: Maternity pay and leave pay</strong>
+          <p class="muted">Used for the SMP structure: 90% of average weekly earnings for the first 6 weeks, then the standard weekly rate for the next 33 weeks.</p>
+          <p><a href="https://www.gov.uk/maternity-pay-leave/pay">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: Rates and thresholds for employers 2026 to 2027</strong>
+          <p class="muted">Used for the 2026 to 2027 standard weekly rate of £194.32 and the earnings threshold of £129 a week.</p>
+          <p><a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: Maternity pay and leave eligibility</strong>
+          <p class="muted">Used for continuity into the qualifying week, earnings, and notice/proof framing.</p>
+          <p><a href="https://www.gov.uk/maternity-pay-leave/eligibility">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>

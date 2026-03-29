@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redundancy Pay Calculator UK | 2026 Statutory Pay, Contract Check & Next Steps | WorkRightsUK</title>
+  <meta name="description" content="Estimate statutory redundancy pay using current UK rules, then check contract terms, notice, final pay, and the next practical steps.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/redundancy-pay-calculator/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Redundancy Pay Calculator UK | 2026 Statutory Pay, Contract Check & Next Steps | WorkRightsUK">
+  <meta property="og:description" content="Estimate statutory redundancy pay using current UK rules, then check contract terms, notice, final pay, and the next practical steps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/redundancy-pay-calculator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Redundancy Pay Calculator UK | 2026 Statutory Pay, Contract Check & Next Steps | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate statutory redundancy pay using current UK rules, then check contract terms, notice, final pay, and the next practical steps.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I usually need 2 years with my employer to qualify for statutory redundancy pay?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. GOV.UK says you only qualify for statutory redundancy pay if you have worked for your employer for at least 2 years."}}, {"@type": "Question", "name": "Can my contract offer more than the statutory minimum redundancy pay?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A contract can provide an enhanced redundancy package, so the statutory calculator is a floor, not always the final result."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Redundancy Pay Calculator</p>
+      <span class="kicker">Competition-improved core tool</span>
+      <h1>Redundancy Pay Calculator</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for users who want the statutory redundancy baseline first, then the next practical checks.</p></div>
+      <p class="muted">Estimate statutory redundancy pay using the core official rule structure, with date-aware statutory caps so the page can handle the rate change from 6 April 2026 as well as earlier dismissal dates.</p>
+
+      <form class="tool-form" data-tool="redundancy-pay">
+        <label>
+          Dismissal date
+          <input id="dismissalDate" type="date">
+          <span class="input-hint">Used to apply the correct statutory weekly cap and maximum total.</span>
+        </label>
+        <label>
+          Job end date (optional)
+          <input id="jobEndDate" type="date">
+          <span class="input-hint">Used only to show a 6-month claim-deadline guide date.</span>
+        </label>
+        <label>
+          Age at dismissal
+          <input id="age" type="number" min="16" max="100" placeholder="Example: 45">
+        </label>
+        <label>
+          Full years of continuous service
+          <input id="years" type="number" min="0" max="40" placeholder="Example: 7">
+        </label>
+        <label>
+          Gross average weekly pay over the 12 weeks before notice (£)
+          <input id="weeklyPay" type="number" min="0" step="0.01" placeholder="Example: 540">
+        </label>
+        <div><button type="submit">Calculate estimate</button></div>
+      </form>
+
+      <div id="redundancyResult" class="result-box" hidden></div>
+      <div class="policy-box"><strong>What strong competitors often make clearer:</strong><p class="muted">The statutory figure is the legal floor, not automatically the final payout. Check your contract or staff handbook before treating this as the total redundancy package.</p></div>
+      <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">Strong redundancy competitors and MoneyHelper turn the result into a planning aid, not just a number. This version now leans harder into “what this means” and “what to check next”.</p></div>
+      <div class="highlight-box">
+        <strong>Why this page was improved:</strong>
+        <p class="muted">Several competing redundancy pages surface next-step guidance, contractual redundancy context, and current rates very clearly. This version improves on that by making the rate band date-aware and showing more practical output in the result itself.</p>
+
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 28 March 2026. This page is designed as a practical first-check page built around official GOV.UK and Acas guidance where applicable.</p>
+      </div>
+      <div class="method-link-box">
+        <strong>How this page is built</strong>
+        <p class="muted">See the methodology page for how WorkRightsUK uses official sources, scope limits, and next-step routing.</p>
+        <p><a href="../about/how-workrightsuk-builds-pages/index.html">Open methodology page</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 6 competition-informed improvement</p>
+      <p class="meta-note">Scope: statutory redundancy pay only, not enhanced contractual redundancy packages.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Key assumptions used</h3>
+      <ul class="list-clean">
+        <li>At least 2 years with the employer is normally needed.</li>
+        <li>Service used is capped at 20 full years.</li>
+        <li>Average weekly pay is based on the 12 weeks before notice.</li>
+        <li>This page can now switch between the pre-6-April-2026 and from-6-April-2026 statutory caps.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="panel">
+        <span class="kicker">Who this is for</span>
+        <h2>Best as a first-check tool</h2>
+        <p class="muted">Use this page to get a quick statutory estimate before checking exceptions, suitable alternative work issues, contractual enhancement terms, or specialist advice.</p>
+      </div>
+      <div class="panel">
+        <span class="kicker">Important exceptions</span>
+        <h2>Cases where the answer can change</h2>
+        <ul class="list-clean">
+          <li>If suitable alternative work is offered and refused without good reason</li>
+          <li>If dismissal is for misconduct rather than redundancy</li>
+          <li>If the worker is in a category excluded from statutory redundancy pay</li>
+          <li>If the contract offers an enhanced redundancy package</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>GOV.UK: Redundancy pay</strong>
+          <p class="muted">Used for the age bands, 20-year service cap, 12-week average pay basis, and statutory maximum framing.</p>
+          <p><a href="https://www.gov.uk/redundancy-your-rights/redundancy-pay">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: Calculate your statutory redundancy pay</strong>
+          <p class="muted">Used to confirm the calculator inputs and the point that a worker normally needs at least 2 years with the employer to qualify.</p>
+          <p><a href="https://www.gov.uk/calculate-your-redundancy-pay">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>Acas: work out redundancy pay</strong>
+          <p class="muted">Used for the 6 April 2026 update showing a weekly cap of £751 and a maximum statutory redundancy payment of £22,530 from that date.</p>
+          <p><a href="https://www.acas.org.uk/manage-staff-redundancies/work-out-redundancy-pay">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <ul class="warning-list"><li>Check your contract or staff handbook for enhanced redundancy.</li><li>Check notice pay and final pay separately.</li><li>Check the timing if a claim deadline may matter.</li></ul>
+      <div class="planning-grid">
+      <div class="planning-card">
+        <strong>Use this as the statutory floor</strong>
+        <p class="muted">Do not assume it is the final package. Enhanced contractual redundancy may still sit above it.</p>
+      </div>
+      <div class="planning-card">
+        <strong>Check the timing</strong>
+        <p class="muted">Claim deadlines and the date band used for statutory caps can matter as much as the amount itself.</p>
+      </div>
+      <div class="planning-card">
+        <strong>Check what is separate</strong>
+        <p class="muted">Notice pay, holiday owed, wages, and settlement-package items may still need separate checks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>
+
+<section class="section">
+  <div class="container">
+    <div class="next-step-grid">
+      <div class="next-step-card">
+        <strong>Check your contract</strong>
+        <p class="muted">Some competitors surface contractual redundancy terms more clearly. Use this page as the statutory baseline, then compare it with any enhanced terms in your contract.</p>
+      </div>
+      <div class="next-step-card">
+        <strong>Check the 6-month deadline guide date</strong>
+        <p class="muted">GOV.UK says there is a 6-month deadline to apply for statutory redundancy pay. This page now helps surface that timing in the result.</p>
+      </div>
+      <div class="next-step-card">
+        <strong>Check what else might be owed</strong>
+        <p class="muted">Redundancy pay is not the same thing as final pay. Notice pay, holiday owed, and wages may still need separate checks.</p>
+        <p><a href="../help/final-pay-and-leaving-a-job/index.html">Open final pay page</a></p>
+      </div>
+    </div>
+  </div>
+</section>

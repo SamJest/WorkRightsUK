@@ -1,0 +1,114 @@
+{
+  "site_reviewed_date": "2026-03-28",
+  "pages": {
+    "tools/redundancy-pay-calculator": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "gap-close-batch-19"
+    },
+    "tools/notice-period-calculator": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "tools/holiday-entitlement-calculator": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "gap-close-batch-19"
+    },
+    "guides/statutory-redundancy-pay-guide": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "polished-batch-10"
+    },
+    "guides/notice-period-rules-guide": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "polished-batch-10"
+    },
+    "guides/holiday-entitlement-rules-guide": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "polished-batch-10"
+    },
+    "help/final-pay-and-leaving-a-job": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "new-batch-4"
+    },
+    "sources/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "gap-close-batch-19"
+    },
+    "tools/settlement-agreement-tax-checker": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "gap-close-batch-19"
+    },
+    "contact/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "new-batch-5"
+    },
+    "compare/redundancy-vs-settlement-vs-final-pay": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-8"
+    },
+    "tools/statutory-paternity-pay-calculator": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "guides/paternity-pay-and-leave-guide": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-16"
+    },
+    "compare/paternity-vs-maternity-vs-shared-parental": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-16"
+    },
+    "help/what-to-do-next-after-a-redundancy-offer": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "new-batch-10"
+    },
+    "about/how-workrightsuk-builds-pages": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "trust-polish-batch-17"
+    },
+    "tools/statutory-maternity-pay-calculator": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "guides/maternity-pay-and-leave-guide": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-16"
+    },
+    "compare/maternity-vs-paternity-vs-shared-parental": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-16"
+    },
+    "help/what-to-do-next-if-you-may-not-qualify-for-smp-or-spp": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "improved-batch-16"
+    },
+    "help/what-to-check-before-relying-on-a-settlement-package-figure": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "gap-close-batch-19"
+    },
+    "index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "tools/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "guides/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "help/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    },
+    "compare/index": {
+      "reviewed_date": "2026-03-28",
+      "review_status": "seo-polish-batch-18"
+    }
+  },
+  "deployment_checkpoint": {
+    "batch": 20,
+    "status": "deployment-ready-reference-build",
+    "reviewed_date": "2026-03-28"
+  }
+}

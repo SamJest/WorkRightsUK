@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Entitlement Calculator UK | Starter, Leaver, Carry Over, Bank Holidays & Pro Rata | WorkRightsUK</title>
+  <meta name="description" content="Estimate statutory holiday entitlement for regular patterns, including starter, leaver, carry-over, bank-holiday, and simple balance checks.">
+  <link rel="canonical" href="https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Holiday Entitlement Calculator UK | Starter, Leaver, Carry Over, Bank Holidays & Pro Rata | WorkRightsUK">
+  <meta property="og:description" content="Estimate statutory holiday entitlement for regular patterns, including starter, leaver, carry-over, bank-holiday, and simple balance checks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/">
+  <meta property="og:image" content="https://workrightsuk.co.uk/assets/images/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Holiday Entitlement Calculator UK | Starter, Leaver, Carry Over, Bank Holidays & Pro Rata | WorkRightsUK">
+  <meta name="twitter:description" content="Estimate statutory holiday entitlement for regular patterns, including starter, leaver, carry-over, bank-holiday, and simple balance checks.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much statutory paid holiday do most workers get?", "acceptedAnswer": {"@type": "Answer", "text": "Acas says workers are entitled to 5.6 weeks' statutory paid holiday a year, and bank holidays may be included in that total."}}, {"@type": "Question", "name": "What happens to unused statutory holiday when someone leaves a job?", "acceptedAnswer": {"@type": "Answer", "text": "Acas says an employer must pay in lieu for any untaken statutory holiday entitlement the worker has accrued when they leave."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="../index.html" aria-label="WorkRightsUK home">
+        <img src="../assets/icons/favicon.svg" alt="WorkRightsUK logo">
+        <span class="brand-text">WorkRightsUK<small>UK employment rights tools and guides</small></span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../guides/index.html">Guides</a>
+        <a href="../help/index.html">Help</a>
+        <a href="../compare/index.html">Compare</a>
+        <a href="../sources/index.html">Sources</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../about/index.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero">
+  <div class="container">
+    <div class="tool-box">
+      <p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Tools</a> / Holiday Entitlement Calculator</p>
+      <span class="kicker">Competition-improved core tool</span>
+      <h1>Holiday Entitlement Calculator</h1>
+      <div class="intro-clarity"><strong>Page purpose</strong><p class="muted">This page is for regular working-pattern holiday checks, not full irregular-hours holiday planning.</p></div>
+      <p class="muted">Estimate statutory paid holiday for regular working patterns using the core 5.6-weeks rule, with a simpler pro-rata input based on how many months of the leave year the estimate should cover.</p>
+
+      <form class="tool-form" data-tool="holiday-entitlement">
+        <label>
+          Holiday calculation mode
+          <select id="holidayMode">
+            <option value="standard">Standard full/pro rata check</option>
+            <option value="starter">Starter in the leave year</option>
+            <option value="leaver">Leaving part way through the year</option>
+          </select>
+          <span class="input-hint">This keeps the tool simple while handling the most common regular-pattern scenarios competitors surface more clearly.</span>
+        </label>
+        <label>
+          Average days worked each week
+          <input id="daysPerWeek" type="number" min="0" max="7" step="0.1" placeholder="Example: 5">
+        </label>
+        <label>
+          Months of the leave year this should cover
+          <input id="monthsCovered" type="number" min="1" max="12" step="1" value="12">
+          <span class="input-hint">Use 12 for a full leave year. Use a smaller number for a simpler pro-rata estimate.</span>
+        </label>
+        <label>
+          Carry-over days from the previous leave year (optional)
+          <input id="carryOverDays" type="number" min="0" step="0.1" placeholder="Example: 2">
+        </label>
+        <label>
+          <input id="bankHolidaysIncluded" type="checkbox" style="width:auto;"> Bank holidays are included in the annual allowance I am checking
+        </label>
+        <label>
+          Holiday already taken so far (only for leaver checks)
+          <input id="takenDays" type="number" min="0" step="0.1" placeholder="Example: 8">
+        </label>
+        <div><button type="submit">Calculate entitlement</button></div>
+      </form>
+
+      <div id="holidayResult" class="result-box" hidden></div>
+      <div class="policy-box"><strong>Holiday policy context matters:</strong><p class="muted">Strong holiday competitors often make the policy layer clearer. This page now prompts users to think about carry-over and whether bank holidays are included, but the employer’s holiday policy can still affect the practical answer.</p></div>
+      <div class="gap-upgrade-note"><strong>Why this page was improved:</strong><p class="muted">Strong holiday competitors handle starters, leavers, and practical balance checks more naturally. This version now handles those regular-pattern scenarios more directly without trying to turn into a full HR software tool.</p></div>
+      <div class="highlight-box">
+        <strong>Why this page was improved:</strong>
+        <p class="muted">Competing holiday tools are easier to use because they frame pro-rata questions more naturally. This version replaces the abstract fraction input with a simpler months-covered input for regular patterns.</p>
+
+      <div class="review-banner">
+        <strong>Reviewed against official guidance</strong>
+        <p class="muted">Last reviewed: 28 March 2026. This page is designed as a practical first-check page built around official GOV.UK and Acas guidance where applicable.</p>
+      </div>
+      <div class="method-link-box">
+        <strong>How this page is built</strong>
+        <p class="muted">See the methodology page for how WorkRightsUK uses official sources, scope limits, and next-step routing.</p>
+        <p><a href="../about/how-workrightsuk-builds-pages/index.html">Open methodology page</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="decision-paths">
+      <div class="decision-path">
+        <strong>Which regular-pattern scenario sounds closest?</strong>
+        <p class="muted">Use standard mode for a simple annual check, starter mode for joining part way through the leave year, and leaver mode when you need a simple accrued-vs-taken balance check.</p>
+      </div>
+      <div class="decision-path">
+        <strong>Where this page still stops</strong>
+        <p class="muted">If hours are irregular or the working year is not regular, the official GOV.UK calculator route is still the safer next step.</p>
+        <p><a href="https://www.gov.uk/calculate-your-holiday-entitlement">Open official holiday calculator</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container meta-grid">
+    <div class="page-meta">
+      <h3>Reviewed status</h3>
+      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Current build status: Batch 6 competition-informed improvement</p>
+      <p class="meta-note">Scope: regular working patterns and simple pro-rata checks.</p>
+    </div>
+    <div class="page-meta">
+      <h3>Core rule used</h3>
+      <ul class="list-clean">
+        <li>Most workers are entitled to 5.6 weeks' statutory paid holiday a year.</li>
+        <li>If someone works 5 days a week, that is 28 days a year.</li>
+        <li>Bank holidays may be included in that total.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="check-next-box"><strong>Check next:</strong><p class="muted">If this is really a leaving-work question, go to the final pay page next. If this is really an irregular-hours question, use the official GOV.UK calculator route next.</p></div>
+    <div class="panel source-block">
+      <span class="kicker">Official sources used</span>
+      <h2>Source and review block</h2>
+      <div class="source-list">
+        <div class="source-item">
+          <strong>Acas: checking holiday entitlement</strong>
+          <p class="muted">Used for the core 5.6-weeks rule and the simple example that someone working 5 days a week has 28 days of statutory paid holiday a year.</p>
+          <p><a href="https://www.acas.org.uk/checking-holiday-entitlement">Open official source</a></p>
+        </div>
+        <div class="source-item">
+          <strong>GOV.UK: calculate holiday entitlement</strong>
+          <p class="muted">Used to confirm the official calculator paths for full leave years, part leave years, and irregular-hours or part-year accrual routes.</p>
+          <p><a href="https://www.gov.uk/calculate-your-holiday-entitlement">Open official source</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 WorkRightsUK</p>
+      <p class="site-note">Educational information only. Not legal, HR, payroll, tax, payroll-processing, or regulated advice.</p>
+      <div class="site-disclaimer">
+        <strong>Before relying on a result:</strong>
+        <span class="site-note"> check the official source links shown on the page and get specialist advice where the facts are disputed, the sums are material, or a deadline may matter.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/base.js"></script>
+</body>
+</html>
