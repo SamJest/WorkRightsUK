@@ -226,18 +226,138 @@ document.addEventListener('DOMContentLoaded', function () {
       extraRows += '<li>' + (bankHolidaysIncluded ? 'Bank holidays appear to be included in the allowance being checked.' : 'Bank holidays may need checking separately against the allowance being used.') + '</li>';
 
       result.innerHTML =
-        '<strong>Estimated statutory holiday entitlement:</strong> ' + adjustedForCarryOver + ' day(s)' +
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Estimated statutory holiday entitlement:</strong> ' + adjustedForCarryOver + ' day(s)</p>' +
         '<ul class="result-breakdown">' + extraRows + '</ul>' +
-        '<div class="result-meaning"><strong>What this likely means:</strong><p class="muted">' + explanation + '</p></div>' +
-        '<div class="result-meaning"><strong>What this does not confirm:</strong><p class="muted">It does not settle the whole final-pay calculation, every carry-over rule, or holiday pay rate disputes.</p></div>' +
-        '<div class="result-meaning"><strong>What to check next:</strong><p class="muted">' + actionText + ' Use the final-pay page if you need the wider leaving-work picture, including notice pay and other items.</p></div>' +
-        '<div class="site-note">For irregular-hours or part-year workers, use the official GOV.UK calculator route rather than relying on this simpler tool.</div>';
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>What this means</h3><p class="muted">' + explanation + '</p></div>' +
+        '<div class="result-card"><h3>What is included</h3><ul><li>A simple statutory holiday estimate for a regular working pattern.</li><li>Pro-rata timing based on the months entered.</li><li>Carry-over days if you added them.</li></ul></div>' +
+        '<div class="result-card"><h3>What is not included</h3><ul><li>Irregular-hours or part-year worker calculations.</li><li>Every holiday pay rate dispute.</li><li>The whole final-pay calculation on its own.</li></ul></div>' +
+        '<div class="result-card"><h3>What to check next</h3><p class="muted">' + actionText + ' Use the final-pay page if you need the wider leaving-work picture, including notice pay and other items.</p></div>' +
+        '</div>' +
+        '<div class="site-note">For irregular-hours or part-year workers, use the official GOV.UK calculator route rather than relying on this simpler tool.</div>' +
+        '</div>';
       result.hidden = false;
     });
   }
 
 
+  const maternityForm = document.querySelector('[data-tool="maternity-pay"]');
+  if (maternityForm) {
+    maternityForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
+      const dueDate = document.getElementById('maternityDueDate').value;
+      const avgWeeklyEarnings = Number(document.getElementById('maternityAvgWeeklyEarnings').value || 0);
+      const weeksRequested = Number(document.getElementById('maternityWeeksRequested').value || 39);
+      const result = document.getElementById('maternityResult');
+
+      if (avgWeeklyEarnings <= 0) {
+        result.innerHTML =
+          '<div class="result-stack">' +
+          '<p class="result-lead"><strong>Enter average weekly earnings to build the estimate.</strong></p>' +
+          '<div class="site-note">Use gross average weekly earnings rather than net or monthly pay.</div>' +
+          '</div>';
+        result.hidden = false;
+        return;
+      }
+
+      const rateChangeDate = new Date('2026-04-06');
+      const chosenDueDate = dueDate ? new Date(dueDate) : null;
+      const useNewRate = chosenDueDate && chosenDueDate >= rateChangeDate;
+      const weeklyRate = useNewRate ? 194.32 : 187.18;
+      const lowerEarningsLimit = useNewRate ? 129 : 125;
+      const firstSixWeekly = avgWeeklyEarnings * 0.9;
+      const laterWeekly = Math.min(firstSixWeekly, weeklyRate);
+      const firstSixWeeks = Math.min(weeksRequested, 6);
+      const laterWeeks = Math.max(weeksRequested - 6, 0);
+      const totalEstimate = (firstSixWeeks * firstSixWeekly) + (laterWeeks * laterWeekly);
+      const meetsThreshold = avgWeeklyEarnings >= lowerEarningsLimit;
+
+      let thresholdText = meetsThreshold
+        ? 'The average weekly earnings entered are at or above the lower earnings limit used for this date band.'
+        : 'The average weekly earnings entered are below the lower earnings limit used for this date band, so SMP eligibility needs checking carefully.';
+
+      let fallbackText = meetsThreshold
+        ? 'Check your qualifying week, notice and paperwork as well as the pay figure.'
+        : 'If SMP may not fit, check Maternity Allowance quickly rather than stopping at this figure.';
+
+      result.innerHTML =
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Estimated Statutory Maternity Pay:</strong> ' + formatMoney(totalEstimate) + '</p>' +
+        '<ul class="result-breakdown">' +
+        '<li>Average weekly earnings entered: ' + formatMoney(avgWeeklyEarnings) + '</li>' +
+        '<li>Lower earnings limit used: ' + formatMoney(lowerEarningsLimit) + ' a week</li>' +
+        '<li>First 6 weeks at 90% of average weekly earnings: ' + formatMoney(firstSixWeekly) + ' a week</li>' +
+        '<li>Remaining ' + laterWeeks + ' week(s) at the lower of the standard rate or 90% of average weekly earnings: ' + formatMoney(laterWeekly) + ' a week</li>' +
+        '<li>Rate band used: ' + (useNewRate ? 'from 6 April 2026' : 'before 6 April 2026') + '</li>' +
+        '</ul>' +
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>What this means</h3><p class="muted">This is a simple SMP estimate for the weeks entered, not a full leave or eligibility decision.</p></div>' +
+        '<div class="result-card"><h3>What is included</h3><ul><li>The first 6 weeks at 90% of average weekly earnings.</li><li>The standard weekly SMP rate after that, or 90% if lower.</li><li>The correct rate band for the due date entered where available.</li></ul></div>' +
+        '<div class="result-card"><h3>What is not included</h3><ul><li>Employer-enhanced maternity pay schemes.</li><li>A full qualifying-week or notice audit.</li><li>Shared parental leave planning or Maternity Allowance calculations.</li></ul></div>' +
+        '<div class="result-card"><h3>Eligibility check</h3><p class="muted">' + thresholdText + '</p></div>' +
+        '<div class="result-card"><h3>What to check next</h3><ul><li>Check the qualifying week, notice given and any MATB1 requirements.</li><li>Check whether your employer offers enhanced maternity pay.</li><li>' + fallbackText + '</li></ul></div>' +
+        '<div class="result-card"><h3>Pay timing reminder</h3><p class="muted">SMP is usually paid in the same way as wages and tax and National Insurance can still be deducted.</p></div>' +
+        '</div>' +
+        '<div class="site-note">Use this figure as a first check before looking at leave dates, eligibility details and any employer enhancement.</div>' +
+        '</div>';
+      result.hidden = false;
+    });
+  }
+
+  const paternityForm = document.querySelector('[data-tool="paternity-pay"]');
+  if (paternityForm) {
+    paternityForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const dueOrBirthDate = document.getElementById('dueOrBirthDate').value;
+      const avgWeeklyEarnings = Number(document.getElementById('avgWeeklyEarnings').value || 0);
+      const weeksChosen = Number(document.getElementById('weeksChosen').value || 1);
+      const result = document.getElementById('paternityResult');
+
+      if (avgWeeklyEarnings <= 0) {
+        result.innerHTML =
+          '<div class="result-stack">' +
+          '<p class="result-lead"><strong>Enter average weekly earnings to build the estimate.</strong></p>' +
+          '<div class="site-note">Use gross average weekly earnings rather than net pay.</div>' +
+          '</div>';
+        result.hidden = false;
+        return;
+      }
+
+      const rateChangeDate = new Date('2026-04-06');
+      const chosenDate = dueOrBirthDate ? new Date(dueOrBirthDate) : null;
+      const useNewRate = chosenDate && chosenDate >= rateChangeDate;
+      const weeklyRate = useNewRate ? 194.32 : 187.18;
+      const lowerEarningsLimit = useNewRate ? 129 : 125;
+      const weeklyPayUsed = Math.min(avgWeeklyEarnings * 0.9, weeklyRate);
+      const totalEstimate = weeklyPayUsed * weeksChosen;
+      const meetsThreshold = avgWeeklyEarnings >= lowerEarningsLimit;
+
+      result.innerHTML =
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Estimated Statutory Paternity Pay:</strong> ' + formatMoney(totalEstimate) + '</p>' +
+        '<ul class="result-breakdown">' +
+        '<li>Weeks chosen: ' + weeksChosen + '</li>' +
+        '<li>Weekly pay used: ' + formatMoney(weeklyPayUsed) + '</li>' +
+        '<li>Average weekly earnings entered: ' + formatMoney(avgWeeklyEarnings) + '</li>' +
+        '<li>Lower earnings limit used: ' + formatMoney(lowerEarningsLimit) + ' a week</li>' +
+        '<li>Rate band used: ' + (useNewRate ? 'from 6 April 2026' : 'before 6 April 2026') + '</li>' +
+        '</ul>' +
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>What this means</h3><p class="muted">This is a simple SPP estimate based on the current weekly statutory rate or 90% of average weekly earnings if lower.</p></div>' +
+        '<div class="result-card"><h3>What is included</h3><ul><li>1 or 2 weeks of statutory paternity pay.</li><li>The correct weekly rate band for the date entered where available.</li><li>A simple lower earnings limit check.</li></ul></div>' +
+        '<div class="result-card"><h3>What is not included</h3><ul><li>Employer-enhanced paternity pay.</li><li>A full notice and eligibility audit.</li><li>Shared Parental Pay or longer leave planning.</li></ul></div>' +
+        '<div class="result-card"><h3>Earnings check</h3><p class="muted">' + (meetsThreshold ? 'The average weekly earnings entered are at or above the lower earnings limit used for this date band.' : 'The average weekly earnings entered are below the lower earnings limit used for this date band, so eligibility needs checking carefully.') + '</p></div>' +
+        '<div class="result-card"><h3>What to check next</h3><ul><li>Check the notice timing and employment requirements.</li><li>Check whether 1 week or 2 separate weeks is the better fit.</li><li>If the real question is longer shared leave, compare the paternity route with Shared Parental Leave next.</li></ul></div>' +
+        '<div class="result-card"><h3>Pay timing reminder</h3><p class="muted">SPP is usually paid in the same way as wages and tax and National Insurance can still be deducted.</p></div>' +
+        '</div>' +
+        '<div class="site-note">Use this figure as a quick check before reviewing notice, eligibility and any enhanced family-pay policy.</div>' +
+        '</div>';
+      result.hidden = false;
+    });
+  }
 
 
   const unfairDismissalForm = document.querySelector('[data-tool="unfair-dismissal"]');
@@ -265,10 +385,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       const chosenDismissalDate = dismissalDate ? new Date(dismissalDate) : null;
-      const 2026LimitDate = new Date('2026-04-06');
-      const 2027QualifyingDate = new Date('2027-01-01');
-      const use2026Limits = chosenDismissalDate && chosenDismissalDate >= 2026LimitDate;
-      const uses2027Qualification = chosenDismissalDate && chosenDismissalDate >= 2027QualifyingDate;
+      const limitDate2026 = new Date('2026-04-06');
+      const qualifyingDate2027 = new Date('2027-01-01');
+      const use2026Limits = chosenDismissalDate && chosenDismissalDate >= limitDate2026;
+      const uses2027Qualification = chosenDismissalDate && chosenDismissalDate >= qualifyingDate2027;
 
       const weekPayCap = use2026Limits ? 751 : 719;
       const compensatoryStatutoryCap = use2026Limits ? 123543 : 118223;
@@ -310,15 +430,15 @@ document.addEventListener('DOMContentLoaded', function () {
         '<li>Estimated basic-award element: ' + formatMoney(basicAward) + '</li>' +
         '<li>Estimated compensatory-loss element after cap: ' + formatMoney(estimatedCompensatory) + '</li>' +
         '<li>Basic-award service used: ' + cappedYears + ' full year(s), capped at 20</li>' +
-        '<li>Capped week's pay used for the basic-award framework: ' + formatMoney(cappedWeekPay) + ' (statutory cap: ' + formatMoney(weekPayCap) + ')</li>' +
-        '<li>Compensatory cap used: ' + formatMoney(compensatoryCapUsed) + ' (lower of statutory cap and 52 weeks' gross pay)</li>' +
+        '<li>Capped week\'s pay used for the basic-award framework: ' + formatMoney(cappedWeekPay) + ' (statutory cap: ' + formatMoney(weekPayCap) + ')</li>' +
+        '<li>Compensatory cap used: ' + formatMoney(compensatoryCapUsed) + ' (lower of statutory cap and 52 weeks\' gross pay)</li>' +
         '<li>' + weeklyLossText + '</li>' +
         '<li>' + dateBandText + '</li>' +
         '</ul>' +
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this means</h3><p class="muted">This is a first-pass unfair-dismissal framework, not a tribunal prediction. The compensatory side is often the bigger moving part because it depends on real financial loss and evidence.</p></div>' +
         '<div class="result-card"><h3>Qualification guide</h3><p class="muted">' + qualificationText + '</p><p class="muted">' + qualificationNextStep + '</p></div>' +
-        '<div class="result-card"><h3>What is included</h3><ul><li>A basic-award framework using age, service and a capped week's pay.</li><li>A compensatory-loss framework using lost earnings and direct loss.</li><li>The current cap structure for the date band used.</li></ul></div>' +
+        '<div class="result-card"><h3>What is included</h3><ul><li>A basic-award framework using age, service and a capped week\'s pay.</li><li>A compensatory-loss framework using lost earnings and direct loss.</li><li>The current cap structure for the date band used.</li></ul></div>' +
         '<div class="result-card"><h3>What is not included</h3><ul><li>Any uplift or reduction for Acas Code issues.</li><li>Reductions for contributory conduct, failure to mitigate, or the chance the dismissal would still have happened.</li><li>Discrimination, whistleblowing or injury-to-feelings awards.</li></ul></div>' +
         '<div class="result-card"><h3>What to check next</h3><ul><li>Appeal letters, dismissal reasons, procedure and any notes of meetings.</li><li>Evidence of lost pay and efforts to find replacement work.</li><li>Whether the real dispute is unfair dismissal, redundancy, settlement or final pay.</li></ul></div>' +
         '<div class="result-card"><h3>Deadline reminder</h3><p class="muted">Ordinary unfair-dismissal claims usually have a short tribunal time limit. Do not wait to perfect every figure before checking the Acas early-conciliation route.</p></div>' +
@@ -360,11 +480,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let packageMeaning = 'This package looks mixed. Check each label carefully before relying on the headline total.';
       if (earningsTotal === 0 && qualifyingTermination > 0) {
-        packageMeaning = 'This package looks mainly compensation-based, so the written wording and the £30,000 threshold are likely to matter most.';
+        packageMeaning = 'This package looks mainly compensation-based, so the written wording, the package labels and the £30,000 threshold are likely to matter most.';
       } else if (earningsTotal > 0 && qualifyingTermination === 0) {
-        packageMeaning = 'This package looks mainly earnings-based, so it is closer to final pay than to a tax-free settlement figure.';
+        packageMeaning = 'This package looks mainly earnings-based, so it is closer to a final-pay check than to a simple 'tax-free settlement' question.';
       } else if (earningsTotal >= qualifyingTermination) {
-        packageMeaning = 'A large part of this package looks like normal taxable earnings, so the take-home figure may be much lower than the headline total.';
+        packageMeaning = 'A large part of this package looks like normal taxable earnings, so the take-home figure may be much lower than the headline total shown in the offer.';
       }
 
       const legalAdviceText = legalAdvicePaid
@@ -383,12 +503,12 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="result-card-grid">' +
         '<div class="result-card"><h3>What this likely means</h3><p class="muted">' + packageMeaning + '</p></div>' +
         '<div class="result-card"><h3>Usually taxed like earnings</h3><ul><li>PILON</li><li>Holiday pay</li><li>Unpaid wages</li><li>Bonus or commission already earned</li></ul></div>' +
-        '<div class="result-card"><h3>May fall within termination-payment rules</h3><ul><li>Statutory redundancy pay</li><li>Additional severance or compensation-style sums</li><li>The written wording still matters</li></ul></div>' +
+        '<div class="result-card"><h3>May fall within termination-payment rules</h3><ul><li>Statutory redundancy pay</li><li>Additional severance or compensation-style sums</li><li>The written wording and labels still matter</li></ul></div>' +
         '<div class="result-card"><h3>What this does not decide</h3><ul><li>Whether payroll has applied the tax correctly.</li><li>Whether the offer is fair overall.</li><li>Whether every clause in the agreement is acceptable.</li></ul></div>' +
-        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask for a written breakdown of every payment label.</li><li>Check whether notice, holiday and wages have been separated from compensation.</li><li>Check whether the agreement says who is paying for independent advice.</li></ul></div>' +
+        '<div class="result-card"><h3>What to check next</h3><ul><li>Ask for a written breakdown of every payment label.</li><li>Check whether notice, holiday and wages have been separated from compensation.</li><li>Check whether the agreement says who is paying for independent advice.</li><li>Check whether the package should really be reviewed as final pay, redundancy or both.</li></ul></div>' +
         '<div class="result-card"><h3>Practical reminder</h3><p class="muted">' + legalAdviceText + '</p></div>' +
         '</div>' +
-        '<div class="site-note">This is a first-pass categorisation tool. Use the written agreement, official guidance and professional advice for the final tax position.</div>' +
+        '<div class="site-note">This is a first-pass categorisation tool. Use the written agreement, official guidance and professional advice for the final tax position, especially if the package mixes payroll items with compensation.</div>' +
         '</div>';
       result.hidden = false;
     });

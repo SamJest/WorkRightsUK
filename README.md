@@ -12,7 +12,7 @@ Batch 1 foundation for a static UK employment-rights tools site.
 - Review status JSON added
 - Redundancy calculator upgraded into the first model page
 
-## Recommended next batch
+## Recommended next step
 - Finalise redundancy calculation logic
 - Add proper source block and worked examples
 - Build notice period calculator

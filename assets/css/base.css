@@ -843,3 +843,13 @@ input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Batch 40 homepage refinement */
+.quick-links { display:flex; flex-wrap:wrap; gap:.65rem; margin:1rem 0 1.25rem; }
+.quick-links a { display:inline-flex; align-items:center; padding:.55rem .8rem; border:1px solid rgba(255,255,255,.12); border-radius:999px; text-decoration:none; font-weight:600; }
+.quick-links a:hover { text-decoration:none; }
+.section-heading { margin-bottom:1rem; }
+.route-grid { align-items:stretch; }
+.route-card h3 { margin-top:0; margin-bottom:.55rem; }
+@media (max-width: 720px) { .quick-links { gap:.5rem; } .quick-links a { width:100%; justify-content:center; } }
