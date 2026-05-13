@@ -568,6 +568,94 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+  const finalPayForm = document.querySelector('[data-tool="final-pay"]');
+  if (finalPayForm) {
+    finalPayForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const basis = document.getElementById('finalPayBasis').value;
+      const rate = Math.max(Number(document.getElementById('finalPayRate').value || 0), 0);
+      const periodDays = Math.max(Number(document.getElementById('finalPayPeriodDays').value || 0), 0);
+      const workedDays = Math.max(Number(document.getElementById('finalPayWorkedDays').value || 0), 0);
+      const holidayAllowance = Math.max(Number(document.getElementById('finalHolidayAllowance').value || 0), 0);
+      const holidayMonths = Math.max(0, Math.min(12, Number(document.getElementById('finalHolidayMonths').value || 0)));
+      const holidayTaken = Math.max(Number(document.getElementById('finalHolidayTaken').value || 0), 0);
+      const holidayCarry = Math.max(Number(document.getElementById('finalHolidayCarry').value || 0), 0);
+      const noticePay = Math.max(Number(document.getElementById('finalNoticePay').value || 0), 0);
+      const otherPay = Math.max(Number(document.getElementById('finalOtherPay').value || 0), 0);
+      const separatePackage = Math.max(Number(document.getElementById('finalSeparatePackage').value || 0), 0);
+      const result = document.getElementById('finalPayResult');
+
+      let dayRate = 0;
+      let wageLine = 0;
+      let wageBasisNote = '';
+
+      if (basis === 'daily') {
+        dayRate = rate;
+        wageLine = dayRate * workedDays;
+        wageBasisNote = 'Daily rate multiplied by working days actually worked.';
+      } else if (periodDays > 0) {
+        dayRate = rate / periodDays;
+        wageLine = dayRate * workedDays;
+        wageBasisNote = basis === 'monthly'
+          ? 'Monthly gross pay divided by working days in the final pay period, then multiplied by days worked.'
+          : 'Weekly gross pay divided by working days in that weekly pay period, then multiplied by days worked.';
+      }
+
+      const holidayAccrued = holidayAllowance * (holidayMonths / 12);
+      const holidayBalance = holidayAccrued + holidayCarry - holidayTaken;
+      const holidayValue = holidayBalance * dayRate;
+      const payrollSubtotal = wageLine + noticePay + otherPay + holidayValue;
+      const headlineTotal = payrollSubtotal + separatePackage;
+      const holidayLabel = holidayBalance >= 0 ? 'Estimated unused holiday owed' : 'Possible holiday deduction to check';
+      const holidayExplanation = holidayBalance >= 0
+        ? 'This uses accrued holiday plus carry-over, minus holiday already taken.'
+        : 'This suggests holiday taken may be above the simple accrued balance. Check whether any deduction was agreed beforehand in writing.';
+      const dayRateWarning = dayRate > 0
+        ? ''
+        : '<div class="inline-note">Enter a pay amount and enough working-day information to build a wage and holiday estimate. Daily-rate mode only needs the daily rate and days worked.</div>';
+      const workedDaysWarning = basis !== 'daily' && periodDays > 0 && workedDays > periodDays
+        ? '<div class="inline-note">The worked-days figure is higher than the working days in the pay period, so check those inputs before relying on the estimate.</div>'
+        : '';
+      const negativePayrollWarning = payrollSubtotal < 0
+        ? '<div class="inline-note">The payroll-style subtotal is negative because the possible holiday deduction is larger than the positive pay lines entered. Treat this as a prompt to ask for the employer\'s written breakdown, not as a final payroll answer.</div>'
+        : '';
+
+      result.innerHTML =
+        '<div class="result-stack">' +
+        '<p class="result-lead"><strong>Estimated gross headline total: ' + formatMoney(headlineTotal) + '</strong></p>' +
+        '<div class="result-card-grid">' +
+        '<div class="result-card"><h3>Payroll-style final pay</h3><ul>' +
+        '<li>Wages already earned: ' + formatMoney(wageLine) + '</li>' +
+        '<li>' + holidayLabel + ': ' + formatMoney(holidayValue) + '</li>' +
+        '<li>Notice pay or PILON entered: ' + formatMoney(noticePay) + '</li>' +
+        '<li>Other earned pay entered: ' + formatMoney(otherPay) + '</li>' +
+        '<li><strong>Payroll-style subtotal: ' + formatMoney(payrollSubtotal) + '</strong></li>' +
+        '</ul></div>' +
+        '<div class="result-card"><h3>Holiday check</h3><ul>' +
+        '<li>Simple holiday accrued: ' + holidayAccrued.toFixed(1) + ' days</li>' +
+        '<li>Carry-over entered: ' + holidayCarry.toFixed(1) + ' days</li>' +
+        '<li>Holiday already taken: ' + holidayTaken.toFixed(1) + ' days</li>' +
+        '<li><strong>Balance: ' + holidayBalance.toFixed(1) + ' days</strong></li>' +
+        '</ul><p class="muted">' + holidayExplanation + '</p></div>' +
+        '<div class="result-card"><h3>Separate package line</h3><p class="muted">Redundancy, enhanced severance or settlement-style compensation entered separately:</p><p><strong>' + formatMoney(separatePackage) + '</strong></p><p class="muted">Keep this separate from wages, notice and holiday until the written labels are clear.</p></div>' +
+        '</div>' +
+        dayRateWarning + workedDaysWarning + negativePayrollWarning +
+        '<div class="result-summary-box"><strong>What to ask for next</strong><ol class="list-clean action-checklist"><li>Ask payroll or HR for a written line-by-line breakdown.</li><li>Check that wages, notice or PILON, holiday, deductions and other earned pay are separate.</li><li>Check whether redundancy or settlement-style amounts are separate from payroll-style pay.</li><li>Use the final-pay help page if the payslip labels are still unclear.</li></ol><p><a href="/help/final-pay-and-leaving-a-job/">Open final-pay help</a> | <a href="/compare/redundancy-vs-settlement-vs-final-pay/">Open compare page</a></p></div>' +
+        '<div class="site-note">Calculation note: ' + wageBasisNote + ' This is a gross estimate only and does not calculate PAYE, National Insurance, tax-code effects or take-home pay.</div>' +
+        '</div>';
+
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'tool_calculate', {
+          tool_name: 'final_pay_calculator'
+        });
+      }
+
+      revealResult(result);
+    });
+  }
+
+
 
   const maternityForm = document.querySelector('[data-tool="maternity-pay"]');
   if (maternityForm) {

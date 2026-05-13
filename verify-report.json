@@ -1,6 +1,6 @@
 {
   "summary": {
-    "pages_checked": 32,
+    "pages_checked": 33,
     "pages_with_issues": 0,
     "missing_from_sitemap": 0,
     "duplicate_titles": 0,
@@ -179,10 +179,10 @@
     },
     {
       "path": "help/final-pay-and-leaving-a-job/index.html",
-      "title": "Final Pay and Last Payslip Checks UK | What to check first in a mixed leaving package | WorkRightsUK",
-      "title_length": 100,
-      "description": "Use this page first when the last payslip or leaving payment is the immediate problem. Split notice, holiday, PILON, redundancy, settlement and deductions into clear lines before you challenge the total.",
-      "description_length": 203,
+      "title": "Final Pay and Last Payslip Checks UK | Calculator, Notice and Holiday Help | WorkRightsUK",
+      "title_length": 89,
+      "description": "Use the final pay calculator for a gross breakdown, then check the last payslip, notice, holiday, PILON, redundancy, settlement and deductions before you challenge the total.",
+      "description_length": 174,
       "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
       "issues": [],
       "url": "https://workrightsuk.co.uk/help/final-pay-and-leaving-a-job/"
@@ -246,6 +246,16 @@
       "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
       "issues": [],
       "url": "https://workrightsuk.co.uk/sources/"
+    },
+    {
+      "path": "tools/final-pay-calculator/index.html",
+      "title": "Final Pay Calculator UK | Leaving Job, Notice, Holiday and Last Payslip | WorkRightsUK",
+      "title_length": 86,
+      "description": "Use this UK final pay calculator to build a gross leaving-work breakdown for unpaid wages, notice or PILON, holiday owed, deductions and separate redundancy or settlement lines.",
+      "description_length": 177,
+      "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+      "issues": [],
+      "url": "https://workrightsuk.co.uk/tools/final-pay-calculator/"
     },
     {
       "path": "tools/holiday-entitlement-calculator/index.html",

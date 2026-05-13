@@ -1,6 +1,6 @@
 WorkRightsUK static verification
 ================================
-Pages checked: 32
+Pages checked: 33
 Pages with issues: 0
 Missing from sitemap: 0
 
@@ -56,8 +56,8 @@ Missing from sitemap: 0
   title: Statutory Redundancy Pay Guide | WorkRightsUK
   description length: 94
 [PASS] help/final-pay-and-leaving-a-job/index.html
-  title: Final Pay and Last Payslip Checks UK | What to check first in a mixed leaving package | WorkRightsUK
-  description length: 203
+  title: Final Pay and Last Payslip Checks UK | Calculator, Notice and Holiday Help | WorkRightsUK
+  description length: 174
 [PASS] help/index.html
   title: Employment Rights Help UK | Next Steps for Final Pay, Redundancy, Settlement and Family Rights | WorkRightsUK
   description length: 123
@@ -76,6 +76,9 @@ Missing from sitemap: 0
 [PASS] sources/index.html
   title: Official employment-rights sources used by WorkRightsUK
   description length: 87
+[PASS] tools/final-pay-calculator/index.html
+  title: Final Pay Calculator UK | Leaving Job, Notice, Holiday and Last Payslip | WorkRightsUK
+  description length: 177
 [PASS] tools/holiday-entitlement-calculator/index.html
   title: Holiday Entitlement Calculator UK | Choose standard, starter or leaver route | WorkRightsUK
   description length: 186

@@ -86,7 +86,7 @@
     "url": "https://www.gov.uk/holiday-entitlement-rights/taking-holiday-before-leaving-a-job",
     "topic": "holiday on leaving",
     "type": "official",
-    "last_checked": "2026-03-29",
+    "last_checked": "2026-05-13",
     "notes": "Use for holiday during notice period and before leaving a job."
   },
   {
@@ -104,7 +104,7 @@
     "url": "https://www.acas.org.uk/final-pay-when-someone-leaves-a-job/how-holidays-affect-final-pay",
     "topic": "final pay holiday",
     "type": "official",
-    "last_checked": "2026-03-29",
+    "last_checked": "2026-05-13",
     "notes": "Use for payment in lieu of untaken statutory holiday when leaving."
   },
   {
@@ -113,7 +113,7 @@
     "url": "https://www.acas.org.uk/final-pay-when-someone-leaves-a-job",
     "topic": "final pay",
     "type": "official",
-    "last_checked": "2026-03-29",
+    "last_checked": "2026-05-13",
     "notes": "Use for overall final pay framework when someone leaves a job."
   },
   {
@@ -131,7 +131,7 @@
     "url": "https://www.gov.uk/termination-payments-and-tax-when-you-leave-a-job",
     "topic": "termination payments and tax",
     "type": "official",
-    "last_checked": "2026-03-29",
+    "last_checked": "2026-05-13",
     "notes": "Use for what a termination payment can include and tax framing."
   },
   {

@@ -18,6 +18,12 @@
     "category": "calculator"
   },
   {
+    "slug": "final-pay-calculator",
+    "title": "Final Pay Calculator",
+    "description": "Build a gross final-pay breakdown for wages, notice or PILON, holiday owed and separate package lines.",
+    "category": "calculator"
+  },
+  {
     "slug": "statutory-maternity-pay-calculator",
     "title": "Statutory Maternity Pay Calculator",
     "description": "Estimate SMP based on weekly earnings and qualifying period.",
@@ -41,4 +47,4 @@
     "description": "Get a rough estimate framework for basic and compensatory award scenarios.",
     "category": "estimator"
   }
-]\n
+]
