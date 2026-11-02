@@ -23,13 +23,13 @@
   <meta name="theme-color" content="#0f172a">
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
     <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
+  <script src="/assets/js/analytics.js"></script>
+<script async data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YBL4G4K19Y');
+    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+    window.WorkRightsAnalytics.configure('G-YBL4G4K19Y');
   </script>
   <link rel="stylesheet" href="/assets/css/base.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Statutory Maternity Pay Calculator","applicationCategory":"BusinessApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/statutory-maternity-pay-calculator/","description":"Estimate Statutory Maternity Pay using current UK rules, then check what to do next if SMP may not fit or is only part of the picture."}</script>
@@ -67,7 +67,7 @@
       <p class="muted">Estimate Statutory Maternity Pay using the current rule structure: 90% of average weekly earnings for the first 6 weeks, then the standard statutory weekly rate or 90% of average weekly earnings, whichever is lower, for the remaining weeks.</p>
 
       <div class="trust-strip">
-        <div class="trust-pill"><strong>2026 aware</strong><div class="input-hint">Uses the 2026 to 2027 weekly rate band where relevant</div></div>
+        <div class="trust-pill"><strong>2026 aware</strong><div class="input-hint">Uses confirmed payment weeks and date-scoped rates</div></div>
         <div class="trust-pill"><strong>Checked against official sources</strong><div class="input-hint">Checked against GOV.UK maternity guidance</div></div>
         <div class="trust-pill"><strong>Practical next step</strong><div class="input-hint">Points users to Maternity Allowance if SMP may not fit</div></div>
       </div>
@@ -79,19 +79,24 @@
         </div>
         <div class="coverage-item">
           <strong>What this calculator does not cover</strong>
-          <p class="muted">Every adoption variation, every employer-enhanced maternity scheme, or a full MATB1 / qualifying-week planner.</p>
+          <p class="muted">Early-birth exceptions, pay rises, work during leave, part-week/monthly payroll allocation, adoption/surrogacy, employer enhancements or a full eligibility decision.</p>
         </div>
       </div>
 
+<p class="scope-note">Great Britain only. Northern Ireland, adoption/surrogacy and special cases are outside this estimate. Pay eligibility is separate from leave eligibility. Estimates assume complete weekly payments; monthly payroll can differ by pennies.</p><p class="input-hint">2026 rate changes: SMP from the first full payment week beginning on or after 5 April; SPP changes from 6 April. This model withholds SPP weeks spanning that change. No April 2027 rate has been assumed.</p><p><a href="https://www.gov.uk/maternity-paternity-calculator">Check eligibility and payment dates with the official calculator</a>.</p>
       <form class="tool-form" data-tool="maternity-pay">
         <label>
-          Baby due date
-          <input id="maternityDueDate" type="date">
-          <span class="input-hint">Used to choose the correct standard weekly rate band before or from 6 April 2026.</span>
+          Expected baby due date (birth route)
+          <input id="maternityDueDate" type="date" required>
+          <span class="input-hint">Used to find the qualifying week (15 weeks before the expected due week), and its earnings threshold. Enter the expected due date, not the actual birth date.</span>
+        </label>
+        <label>Confirmed first SMP payment-week start date
+          <input id="maternityPayStartDate" type="date" required>
+          <span class="input-hint">Use the date the statutory payment period begins, confirmed with payroll or the official calculator. This may differ from the due date and your usual payday. Supported payment weeks begin on or after 6 April 2025; unverified later weeks are shown without an invented amount.</span>
         </label>
         <label>
           Average weekly earnings (£)
-          <input id="maternityAvgWeeklyEarnings" type="number" min="0" step="0.01" placeholder="Example: 420">
+          <input id="maternityAvgWeeklyEarnings" type="number" min="0" step="any" required placeholder="Example: 420"><span class="input-hint">Use average weekly earnings from the correct relevant period, checked with payroll. Keep any sub-penny precision; do not substitute current salary or take-home pay.</span>
         </label>
         <label>
           Number of weeks to estimate
@@ -102,17 +107,18 @@
             <option value="39" selected>39 weeks</option>
           </select>
         </label>
+        <label class="check-label"><input id="maternityEligibilityConfirmed" type="checkbox" required> I have checked pay eligibility, average earnings and the payment start date(s) using payroll or the official calculator. This is an ordinary birth case; exceptional circumstances need a separate check.</label>
         <div><button type="submit">Estimate pay</button></div>
       </form>
 
-      <div id="maternityResult" class="result-box" hidden></div>
+      <div id="maternityResult" class="result-box" aria-live="polite" aria-atomic="true" hidden></div>
       <div class="gap-upgrade-note"><strong>When to use a different page</strong><p class="muted">If your main question is whether you qualify for SMP, what documents your employer can ask for, or what to do if pay is refused, use the maternity guide and next-step help page alongside this estimate.</p></div>
       <div class="review-banner">
         <strong>Checked against official sources</strong>
-        <p class="muted">Last reviewed: 28 March 2026. Checked against relevant GOV.UK and Acas guidance on Statutory Maternity Pay and leave rules.</p>
+        <p class="muted">Calculation scope checked: 1 November 2026. Payment-week rates, qualifying-week earnings screen and rounding checked; individual eligibility and payroll allocation need separate confirmation.</p>
       </div>
       <div class="review-cue-grid">
-      <div class="review-cue"><strong>Checked on</strong><p class="muted">28 March 2026</p></div>
+      <div class="review-cue"><strong>Checked on</strong><p class="muted">1 November 2026 (calculation scope)</p></div>
       <div class="review-cue"><strong>Official source links</strong><p class="muted">GOV.UK and Acas maternity guidance linked below</p></div>
       <div class="review-cue"><strong>Recheck when</strong><p class="muted">Average earnings, qualifying weeks or rate years change</p></div>
     </div>
@@ -149,7 +155,7 @@
   <div class="container route-grid">
     <div class="route-card">
       <strong>If the figure looks low</strong>
-      <p class="muted">Check average weekly earnings, the due date used for the rate band, and whether your employer offers enhanced maternity pay on top of SMP.</p>
+      <p class="muted">Check the relevant-period average earnings, confirmed payment-week dates, the annual rate change and any employer enhancement. The due date is used for the qualifying week, not a single rate for the whole period.</p>
       <p><a href="/guides/maternity-pay-and-leave-guide/">Open maternity pay and leave guide</a></p>
     </div>
     <div class="route-card">
@@ -169,7 +175,7 @@
   <div class="container meta-grid">
     <div class="page-meta">
       <h3>Reviewed date</h3>
-      <p class="meta-note">Last reviewed: 28 March 2026</p>
+      <p class="meta-note">Calculation scope checked: 1 November 2026. Payment-week rates, qualifying-week earnings screen and rounding checked; individual eligibility and payroll allocation need separate confirmation.</p>
             <p class="meta-note">Aim: a quick SMP estimate with a clear next step if the figure does not answer the whole question.</p>
     </div>
     <div class="page-meta">
@@ -178,7 +184,7 @@
         <li>SMP is paid for up to 39 weeks.</li>
         <li>The first 6 weeks are paid at 90% of average weekly earnings.</li>
         <li>The remaining 33 weeks are paid at the statutory weekly rate or 90% of average weekly earnings, whichever is lower.</li>
-        <li>The 2026 to 2027 standard weekly rate is £194.32 and the earnings threshold is £129 a week.</li>
+        <li>The standard SMP rate becomes £194.32 from the first full payment week on or after 5 April 2026. The earnings screen uses the lower earnings limit at the end of the qualifying week; it can still be £125 for a 2026 payment.</li>
       </ul>
     </div>
   </div>
@@ -221,6 +227,8 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/js/base.js"></script>
+  <script src="/assets/js/calculations.js"></script>
+<script src="/assets/js/tool-adapters.js"></script>
+<script src="/assets/js/base.js"></script>
 </body>
 </html>

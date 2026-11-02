@@ -24,13 +24,13 @@
 <meta content="#0f172a" name="theme-color"/>
 <link href="/assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
+<script src="/assets/js/analytics.js"></script>
+<script async="" data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YBL4G4K19Y');
+    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+    window.WorkRightsAnalytics.configure('G-YBL4G4K19Y');
   </script>
 <link href="/assets/css/base.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Holiday Entitlement Calculator","applicationCategory":"BusinessApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/holiday-entitlement-calculator/","description":"Check statutory holiday entitlement for regular working patterns, including starter, leaver, holiday owed and final-pay related checks."}</script>
@@ -112,6 +112,8 @@
 <strong>Start with the route that matches the real question</strong>
 <p class="muted">Standard mode is for regular-pattern entitlement. Starter mode is for built-up holiday after joining during the leave year. Leaver mode is for what may still need to be accounted for when the job ends.</p>
 </div>
+<p class="scope-note">Regular equal-day patterns in Great Britain only; Northern Ireland and irregular-hours/part-year calculations are outside this estimate. The full-year statutory amount is capped at 28 days before eligible carry-over. Month prorating is illustrative. <a href="https://www.gov.uk/holiday-entitlement-rights">Official holiday entitlement rules</a>.</p>
+<p class="meta-note">Calculation corrections checked 1 November 2026: 28-day cap and leaver balance after days taken. This is a scoped engineering check, not an individual legal review.</p>
 <form class="tool-form" data-tool="holiday-entitlement">
 <label>
           Holiday calculation mode
@@ -276,6 +278,8 @@
 </div>
 </div>
 </footer>
+<script src="/assets/js/calculations.js"></script>
+<script src="/assets/js/tool-adapters.js"></script>
 <script src="/assets/js/base.js"></script>
 </body>
 </html>

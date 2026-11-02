@@ -24,18 +24,18 @@
 <meta content="#0f172a" name="theme-color"/>
 <link href="/assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
+<script src="/assets/js/analytics.js"></script>
+<script async="" data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YBL4G4K19Y');
+    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+    window.WorkRightsAnalytics.configure('G-YBL4G4K19Y');
   </script>
 <link href="/assets/css/base.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Unfair Dismissal Compensation Estimator","applicationCategory":"FinanceApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/","description":"Use this unfair dismissal estimator when the dismissal letter or appeal outcome is the real problem and you need a first-pass award guide."}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workrightsuk.co.uk/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://workrightsuk.co.uk/tools/"},{"@type":"ListItem","position":3,"name":"Unfair Dismissal Compensation Estimator","item":"https://workrightsuk.co.uk/tools/unfair-dismissal-compensation-estimator/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this estimator tell me whether the dismissal was legally unfair?","acceptedAnswer":{"@type":"Answer","text":"No. It only helps you sense-check the likely shape of compensation if unfair dismissal is already the right route."}},{"@type":"Question","name":"Is the time limit always 3 months minus 1 day?","acceptedAnswer":{"@type":"Answer","text":"That is the usual starting warning for ordinary unfair-dismissal claims, but the exact position can depend on the end date and early conciliation."}},{"@type":"Question","name":"Why can the final number be much lower than the estimate?","acceptedAnswer":{"@type":"Answer","text":"Awards can be reduced for mitigation, contributory conduct, the chance the dismissal would still have happened, and other case-specific factors."}},{"@type":"Question","name":"When should I use a different WorkRightsUK page first?","acceptedAnswer":{"@type":"Answer","text":"Use redundancy if you are really checking statutory redundancy pay, settlement if you are checking an agreed exit package, and final pay if the immediate issue is wages, notice, holiday or deductions."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this estimator tell me whether the dismissal was legally unfair?","acceptedAnswer":{"@type":"Answer","text":"No. It only helps you sense-check the likely shape of compensation if unfair dismissal is already the right route."}},{"@type":"Question","name":"How should I check the claim time limit?","acceptedAnswer":{"@type":"Answer","text":"Use current official tribunal guidance promptly. Claim type, event date, October 2026 transition rules and early conciliation can affect the deadline. This estimator does not calculate it."}},{"@type":"Question","name":"Why can the final number be much lower than the estimate?","acceptedAnswer":{"@type":"Answer","text":"Awards can be reduced for mitigation, contributory conduct, the chance the dismissal would still have happened, and other case-specific factors."}},{"@type":"Question","name":"When should I use a different WorkRightsUK page first?","acceptedAnswer":{"@type":"Answer","text":"Use redundancy if you are really checking statutory redundancy pay, settlement if you are checking an agreed exit package, and final pay if the immediate issue is wages, notice, holiday or deductions."}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -64,22 +64,16 @@
 <span class="kicker">Dismissal compensation tool</span>
 <h1>Unfair Dismissal Compensation Estimator</h1>
 <div class="intro-clarity"><strong>What this tool does</strong><p class="muted">Use this page when the dismissal letter, appeal outcome or process paperwork is the real problem. It gives a first-pass unfair-dismissal award guide so you can judge the likely shape of the claim, the time pressure and the best next route.</p></div>
-<p class="muted">The result is only a guide. Tribunals can reduce awards for mitigation, contributory conduct or the chance the dismissal would still have happened. Treat the time-limit guide as an act-now prompt, not as a safe date to leave until the last minute.</p>
+<p class="muted">The result is only a guide. Tribunals can reduce awards for mitigation, contributory conduct or the chance the dismissal would still have happened. Act promptly: this tool does not calculate a claim deadline. Claim type, event date and early conciliation affect time limits.</p>
+<p class="scope-note">Scope: Great Britain (England, Scotland and Wales). Northern Ireland is outside this calculator: <a href="https://www.nidirect.gov.uk/articles/redundancy-pay">NI employment guidance</a>. Estimates are not legal or payroll approval.</p>
 <form class="tool-form" data-tool="unfair-dismissal">
 <label>
-          Dismissal date
+          Effective termination date
           <input id="unfairDismissalDate" type="date"/>
-<span class="input-hint">Used for the current compensation cap and the qualifying-period guide.</span>
+<span class="input-hint">Supported: 6 April 2025 to 31 December 2026. The effective date can differ from the date notice is given; seek advice on disputed dates. From January 2027, qualifying-period and cap reforms require a separate check.</span>
 </label>
-<label>
-          Age at dismissal
-          <input id="unfairAge" max="100" min="16" placeholder="Example: 41" type="number"/>
-</label>
-<label>
-          Full years of continuous service
-          <input id="unfairYears" max="40" min="0" placeholder="Example: 8" type="number"/>
-<span class="input-hint">Used for the basic-award framework and qualification guidance.</span>
-</label>
+<label>Date of birth <input id="unfairBirthDate" type="date" required/></label>
+<label>Continuous employment start date <input id="unfairStartDate" type="date" required/></label>
 <label>
           Gross weekly pay at dismissal (£)
           <input id="unfairWeeklyPay" min="0" placeholder="Example: 780" step="0.01" type="number"/>
@@ -123,10 +117,10 @@
 </div>
 <div class="review-banner">
 <strong>Checked against official sources</strong>
-<p class="muted">Last reviewed: 29 March 2026. Checked against Acas, GOV.UK, the Employment Rights Act framework, and the 2026 increase-of-limits order.</p>
+<p class="muted">Calculation scope checked: 1 November 2026. See the linked official rules; individual eligibility and disputed facts need advice.</p>
 </div>
 <div class="review-cue-grid">
-<div class="review-cue"><strong>Checked on</strong><p class="muted">29 March 2026</p></div>
+<div class="review-cue"><strong>Checked on</strong><p class="muted">1 November 2026 (calculation scope)</p></div>
 <div class="review-cue"><strong>Official source links</strong><p class="muted">Acas, GOV.UK and the current limits order linked below</p></div>
 <div class="review-cue"><strong>Recheck when</strong><p class="muted">Dismissal reason, service length, mitigation or annual limits change</p></div>
 </div>
@@ -205,7 +199,7 @@
 <h2>Questions people usually ask after seeing the estimate</h2>
 <div class="faq-list">
 <details><summary>Does this estimator tell me whether the dismissal was legally unfair?</summary><p class="muted">No. It only helps you sense-check the likely shape of compensation if unfair dismissal is already the right route. Whether the dismissal was legally unfair depends on the facts, procedure and legal route.</p></details>
-<details><summary>Is the time limit always 3 months minus 1 day?</summary><p class="muted">That is the usual starting warning for ordinary unfair-dismissal claims, but the exact position can depend on the end date and early conciliation. Use the guide date to act quickly, not to leave it until the last minute.</p></details>
+<details><summary>How should I check the claim time limit?</summary><p class="muted">Use current official tribunal guidance promptly. Claim type, event date, October 2026 transition rules and early conciliation can affect the deadline. This estimator does not calculate it. Do not wait while refining the compensation estimate.</p></details>
 <details><summary>Why can the final number be much lower than the estimate?</summary><p class="muted">Awards can be reduced if someone found work quickly, did not mitigate loss, contributed to the dismissal, or would probably have been dismissed anyway even with a fairer process.</p></details>
 <details><summary>When should I use a different WorkRightsUK page first?</summary><p class="muted">Use redundancy if you are really checking statutory redundancy pay, settlement if you are checking an agreed exit package, and final pay if the immediate issue is wages, notice, holiday or deductions.</p></details>
 <details><summary>What if I have less than the usual service for ordinary unfair dismissal?</summary><p class="muted">The usual service rule is only one part of the picture. Automatic unfair dismissal, discrimination, whistleblowing and other routes can work differently, so treat a short-service warning as a prompt to check the route carefully rather than as the final answer.</p></details>
@@ -226,7 +220,7 @@
 </div>
 <div class="source-item">
 <strong>Acas: Early conciliation and tribunal time limits</strong>
-<p class="muted">Used for the usual "3 months minus 1 day" warning and early-conciliation route.</p>
+<p class="muted">Used for early-conciliation advice; check current official tribunal rules for the specific claim.</p>
 <p><a href="https://www.acas.org.uk/early-conciliation/how-early-conciliation-works">Open official source</a></p>
 </div>
 <div class="source-item">
@@ -258,6 +252,8 @@
 </div>
 </div>
 </footer>
+<script src="/assets/js/calculations.js"></script>
+<script src="/assets/js/tool-adapters.js"></script>
 <script src="/assets/js/base.js"></script>
 </body>
 </html>

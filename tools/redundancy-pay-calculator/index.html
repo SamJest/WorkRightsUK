@@ -24,13 +24,13 @@
 <meta content="#0f172a" name="theme-color"/>
 <link href="/assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
+<script src="/assets/js/analytics.js"></script>
+<script async="" data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YBL4G4K19Y');
+    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+    window.WorkRightsAnalytics.configure('G-YBL4G4K19Y');
   </script>
 <link href="/assets/css/base.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Redundancy Pay Calculator","applicationCategory":"FinanceApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/redundancy-pay-calculator/","description":"Calculate statutory redundancy pay using current UK rules and 2026 caps, then compare the statutory minimum with a real employer offer by splitting redundancy, notice, holiday and any extra sums in order."}</script>
@@ -65,25 +65,12 @@
 <h1>Redundancy Pay Calculator</h1>
 <div class="intro-clarity"><strong>What this tool does</strong><p class="muted">Estimate the statutory redundancy minimum using the current age bands, service rules and weekly-pay caps, then use that floor to test whether a real employer offer is only the legal minimum or genuinely enhanced.</p></div>
 <p class="muted">Enter the dismissal date so the right statutory cap is used. Then treat the result as the statutory floor and work through any employer offer in order: redundancy line first, then notice or PILON, holiday pay, wages, and only then any extra payment or ex gratia sum.</p>
+<p class="scope-note">Scope: Great Britain (England, Scotland and Wales). Northern Ireland is outside this calculator: <a href="https://www.nidirect.gov.uk/articles/redundancy-pay">NI employment guidance</a>. Estimates are not legal or payroll approval.</p>
 <form class="tool-form" data-tool="redundancy-pay">
-<label>
-          Dismissal date
-          <input id="dismissalDate" type="date"/>
-<span class="input-hint">Used to apply the correct statutory weekly cap and maximum total.</span>
-</label>
-<label>
-          Job end date (optional)
-          <input id="jobEndDate" type="date"/>
-<span class="input-hint">Used only to show a 6-month claim-deadline guide date.</span>
-</label>
-<label>
-          Age at dismissal
-          <input id="age" max="100" min="16" placeholder="Example: 45" type="number"/>
-</label>
-<label>
-          Full years of continuous service
-          <input id="years" max="40" min="0" placeholder="Example: 7" type="number"/>
-</label>
+<label>Confirmed relevant redundancy date <input id="dismissalDate" type="date" required/>
+<span class="input-hint">6 April 2025 to 5 April 2027. For an ordinary worked-notice case use the employment end date. PILON or disputed dates need advice: statutory notice extensions can change service and the applicable cap date. This tool does not resolve those adjustments.</span></label>
+<label>Date of birth <input id="birthDate" type="date" required/></label>
+<label>Continuous employment start date <input id="employmentStartDate" type="date" required/></label>
 <label>
           Gross average weekly pay over the 12 weeks before notice (£)
           <input id="weeklyPay" min="0" placeholder="Example: 540" step="0.01" type="number"/>
@@ -105,10 +92,10 @@
 <div class="policy-box"><strong>Best way to use the result</strong><p class="muted">Treat the estimate as the statutory floor first, then test the labels in the employer offer around it. A higher total is only clearly enhanced redundancy once notice, holiday, wages and any extra payment have been separated out and the redundancy line still sits above this figure.</p></div>
 <div class="review-banner">
 <strong>Checked against official sources</strong>
-<p class="muted">Last reviewed: 29 March 2026. Checked against GOV.UK and Acas guidance for statutory redundancy rules and current caps.</p>
+<p class="muted">Calculation scope checked: 1 November 2026. See the linked official rules; individual eligibility and disputed facts need advice.</p>
 </div>
 <div class="review-cue-grid">
-<div class="review-cue"><strong>Checked on</strong><p class="muted">29 March 2026</p></div>
+<div class="review-cue"><strong>Checked on</strong><p class="muted">1 November 2026 (calculation scope)</p></div>
 <div class="review-cue"><strong>Official source links</strong><p class="muted">GOV.UK redundancy pay and Acas redundancy guidance linked below</p></div>
 <div class="review-cue"><strong>Recheck when</strong><p class="muted">Weekly pay caps, dismissal dates, service dates or enhanced package wording changes</p></div>
 </div>
@@ -144,7 +131,7 @@
 <li>You normally need at least 2 years with the employer to qualify.</li>
 <li>Service used for the statutory calculation is capped at 20 full years.</li>
 <li>Average weekly pay is based on the 12 weeks before notice.</li>
-<li>The page switches between the pre-6-April-2026 and from-6-April-2026 statutory caps.</li>
+<li>Supported relevant dates: 6 April 2025 to 5 April 2027; no silent cap fallback.</li>
 </ul>
 </div>
 <div class="page-meta">
@@ -206,7 +193,7 @@
 <div class="panel">
 <span class="kicker">Deadline awareness</span>
 <h2>Check an apparent shortfall while the dates are still usable</h2>
-<p class="muted">If the statutory minimum appears unpaid or understated, use the guide date shown by the tool and check the official claim route promptly. Deadlines matter more than perfect certainty about every component.</p>
+<p class="muted">If the statutory minimum appears unpaid or understated, check the official claim route promptly; this tool does not calculate deadlines. Deadlines matter more than perfect certainty about every component.</p>
 </div>
 </div>
 </div>
@@ -321,6 +308,8 @@
 </div>
 </div>
 </footer>
+<script src="/assets/js/calculations.js"></script>
+<script src="/assets/js/tool-adapters.js"></script>
 <script src="/assets/js/base.js"></script>
 </body>
 </html>

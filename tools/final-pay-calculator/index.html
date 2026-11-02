@@ -24,13 +24,13 @@
 <meta content="#0f172a" name="theme-color"/>
 <link href="/assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
+<script src="/assets/js/analytics.js"></script>
+<script async="" data-consent-src="https://www.googletagmanager.com/gtag/js?id=G-YBL4G4K19Y"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YBL4G4K19Y');
+    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+    window.WorkRightsAnalytics.configure('G-YBL4G4K19Y');
   </script>
 <link href="/assets/css/base.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WorkRightsUK Final Pay Calculator","applicationCategory":"BusinessApplication","operatingSystem":"All","url":"https://workrightsuk.co.uk/tools/final-pay-calculator/","description":"Build a first-pass gross UK final-pay breakdown for unpaid wages, notice or PILON, holiday owed, other earned pay and separate redundancy or settlement lines."}</script>
@@ -71,9 +71,11 @@
 <a href="/help/final-pay-and-leaving-a-job/">Final pay help</a>
 <a href="/compare/redundancy-vs-settlement-vs-final-pay/">Compare routes</a>
 </div>
+<p class="scope-note">Scope: Great Britain (England, Scotland and Wales). Northern Ireland is outside this calculator: <a href="https://www.nidirect.gov.uk/articles/redundancy-pay">NI employment guidance</a>. Estimates are not legal or payroll approval.</p>
 <form class="tool-form" data-tool="final-pay" id="finalPayForm">
+<label>Estimate mode <select id="finalMode"><option value="quick">Quick estimate</option><option value="detailed">Detailed check</option></select><span class="input-hint">Quick uses wages and optional holiday. Open detailed items for notice, other pay and an employer quote. Entered items are retained in either view.</span></label>
 <label>
-          Pay basis
+          How are you paid?
           <select id="finalPayBasis">
 <option value="monthly">Monthly gross pay</option>
 <option value="weekly">Weekly gross pay</option>
@@ -83,34 +85,43 @@
 </label>
 <label>
           Gross pay for that basis
-          <input id="finalPayRate" min="0" placeholder="Example: 2500" step="0.01" type="number"/>
+          <input id="finalPayRate" required min="0.01" placeholder="Example: 2500" step="0.01" type="number"/>
 </label>
+<label>Pay-period day basis <select id="finalDayBasis" required><option value="">Choose payroll’s method</option><option value="working">Working days</option><option value="calendar">Calendar days</option><option value="contracted">Contracted days</option></select><span class="input-hint">Confirm the contractual divisor with payroll. Use this same basis for both day counts; no method fits every contract.</span></label>
 <label>
-          Working days in the final pay period
+          Days in the final pay period
           <input id="finalPayPeriodDays" min="0" placeholder="Example: 22" step="0.5" type="number"/>
-<span class="input-hint">For a monthly salary, use the working days in that month or payroll period.</span>
+<span class="input-hint">Use the total days on your selected basis in the actual month or weekly pay period. Daily-rate mode does not need a divisor.</span>
 </label>
 <label>
-          Working days actually worked in that period
+          Days to be paid in that period, on the same basis
           <input id="finalPayWorkedDays" min="0" placeholder="Example: 12" step="0.5" type="number"/>
 </label>
-<label>
+<details class="final-options" id="finalHolidayOptions"><summary>Optional holiday estimate</summary>
+<label>Holiday calculation scope <select id="finalHolidayPattern"><option value="none">Exclude holiday from this estimate</option><option value="regular">Regular equal days and fixed pay: illustrative month prorating</option><option value="unsupported">Irregular hours, part-year work or variable pay: use official guidance</option></select></label>
+<p class="input-hint">For variable pay, commission, overtime or irregular hours, <a href="https://www.gov.uk/holiday-entitlement-rights/holiday-pay">check official holiday-pay guidance</a>. Contract enhancements and NI are outside this estimate.</p>
+<div id="finalHolidayFields" hidden><label>
           Annual holiday allowance in days
           <input id="finalHolidayAllowance" min="0" placeholder="Example: 28" step="0.5" type="number"/>
 </label>
 <label>
           Months of the leave year built up by leaving date
           <input id="finalHolidayMonths" max="12" min="0" placeholder="Example: 6" step="0.5" type="number"/>
-<span class="input-hint">Use a simple month count for this first check, or use the holiday calculator first for a regular-pattern estimate.</span>
+<span class="input-hint">Illustrative portion of the holiday year, 0–12 months; confirm dates and fractional months with payroll. This is not a universal statutory accrual formula.</span>
 </label>
 <label>
           Holiday already taken in this leave year
           <input id="finalHolidayTaken" min="0" placeholder="Example: 8" step="0.5" type="number"/>
 </label>
 <label>
-          Carry-over holiday days still due (optional)
+          Eligible carry-over holiday days still due (optional)
           <input id="finalHolidayCarry" min="0" placeholder="Example: 2" step="0.5" type="number"/>
 </label>
+<label>Holiday daily value override (£, optional) <input id="finalHolidayDayRate" type="number" min="0.01" step="0.01"/><span class="input-hint">Otherwise the illustrative wage daily rate is used. Calendar-day wage basis requires a separate holiday rate.</span></label>
+<label class="check-label"><input id="finalHolidayRateConfirmed" type="checkbox"/> I have checked that the holiday day rate is appropriate for my regular normal pay.</label>
+<label class="check-label"><input id="finalWrittenAgreement" type="checkbox"/> A contract or written agreement made beforehand permits deducting excess holiday. Include that illustrative deduction.</label>
+</div></details>
+<details class="final-options" id="finalDetailed"><summary>Detailed items and employer comparison (optional)</summary>
 <label>
           Notice pay or PILON already quoted (optional)
           <input id="finalNoticePay" min="0" placeholder="Example: 1500" step="0.01" type="number"/>
@@ -126,16 +137,17 @@
           <input id="finalSeparatePackage" min="0" placeholder="Example: 5000" step="0.01" type="number"/>
 <span class="input-hint">This is shown separately so it does not hide the payroll-style final-pay lines.</span>
 </label>
-<div><button type="submit">Calculate final pay breakdown</button></div>
+<label>Employer’s gross payroll quote (£, optional) <input id="finalEmployerQuote" type="number" min="0" step="0.01"/><span class="input-hint">Compare only the same gross payroll lines, excluding redundancy/settlement and tax deductions. Zero is a valid entered quote.</span></label>
+</details><div><button type="submit">Calculate final pay breakdown</button></div>
 </form>
 <div class="result-box" hidden="" id="finalPayResult"></div>
 <div class="policy-box"><strong>Important:</strong><p class="muted">This calculator shows a gross breakdown only. Your actual payslip can still be affected by PAYE, National Insurance, tax code, contract terms, deductions, payroll timing and any settlement agreement wording.</p></div>
 <div class="review-banner">
 <strong>Checked against official sources</strong>
-<p class="muted">Last reviewed: 13 May 2026. Checked against Acas final-pay guidance, Acas holiday-and-final-pay guidance, GOV.UK holiday-on-leaving guidance and GOV.UK termination-payment guidance.</p>
+<p class="muted">Calculation scope checked: 1 November 2026. Fixed-pay arithmetic and holiday-on-leaving guidance checked against Acas and GOV.UK; tax treatment is not calculated or certified.</p>
 </div>
 <div class="review-cue-grid">
-<div class="review-cue"><strong>Checked on</strong><p class="muted">13 May 2026</p></div>
+<div class="review-cue"><strong>Checked on</strong><p class="muted">1 November 2026 (calculation scope)</p></div>
 <div class="review-cue"><strong>Official source links</strong><p class="muted">Acas and GOV.UK final-pay, holiday and termination-payment pages linked below</p></div>
 <div class="review-cue"><strong>Recheck when</strong><p class="muted">The payslip uses unclear labels, the contract has special holiday rules, or tax treatment is disputed</p></div>
 </div>
@@ -205,6 +217,8 @@
 </div>
 </div>
 </footer>
+<script src="/assets/js/calculations.js"></script>
+<script src="/assets/js/tool-adapters.js"></script>
 <script src="/assets/js/base.js"></script>
 </body>
 </html>
