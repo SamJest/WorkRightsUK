@@ -180,7 +180,7 @@
     for(const [label,amount] of [
       ['Wages earned',r.gross_wages_gbp],['Illustrative unused holiday',r.illustrative_holiday_value_gbp],
       ['Notice/PILON entered',r.notice_gbp],['Other earned pay entered',r.other_gbp],
-      ['Excess-holiday deduction (prior written agreement confirmed)',r.deduction_gbp ? -r.deduction_gbp : 0],
+      [input.written_deduction_agreed ? 'Excess-holiday deduction (prior written agreement confirmed)' : 'Excess-holiday deduction (not included)',r.deduction_gbp ? -r.deduction_gbp : 0],
       ['Gross payroll subtotal',r.gross_payroll_subtotal_gbp],['Separate redundancy/settlement amount entered',r.separate_package_gbp],
       ['Combined illustration, including separate package',r.illustrative_combined_gbp]
     ]) {const row=element('tr','',body);element('th',label,row).scope='row';element('td',pounds(amount),row);}
